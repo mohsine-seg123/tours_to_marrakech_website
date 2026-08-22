@@ -1,0 +1,58 @@
+{
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know before booking your Marrakech desert tour",
+    "items": [
+      {
+        "q": "What kind of desert tours do you offer from Marrakech?",
+        "a": "We specialize in Sahara desert tours from Marrakech, including 2-day trips to Zagora, 3-day tours to Merzouga and the Erg Chebbi dunes, and 4-day extended desert experiences. We also offer day trips to Ouarzazate, Aït Ben Haddou, Ourika Valley, and the Atlas Mountains, plus multi-day Morocco packages covering Fes, Chefchaouen, and Essaouira."
+      },
+      {
+        "q": "Which Sahara desert tour is best: Merzouga or Zagora?",
+        "a": "Merzouga (3 or 4 days) is the best choice for the iconic Sahara experience: giant golden dunes of Erg Chebbi reaching 150 meters, camel trek at sunset, and overnight in a luxury Berber camp. Zagora (2 days) is a faster alternative with smaller dunes, ideal for travelers with limited time. Most of our clients choose the 3-day Merzouga tour for the full desert magic."
+      },
+      {
+        "q": "When is the best time to book a Marrakech desert tour?",
+        "a": "The best time for Sahara desert tours from Marrakech is from March to May and September to November, when daytime temperatures are pleasant (20-28°C) and nights are cool but comfortable. Summer (June-August) can reach 45°C in the desert, while winter offers cold desert nights but stunning clear skies. We operate tours year-round with adjusted itineraries."
+      },
+      {
+        "q": "How many days do I need for a Marrakech + Sahara desert trip?",
+        "a": "We recommend at least 5 to 7 days: 2 days exploring Marrakech (Medina, Jemaa el-Fna, Majorelle Garden), 3 days for the Merzouga desert tour, and 1-2 extra days for Essaouira or the Atlas Mountains. For a complete Morocco experience with Fes and Chefchaouen, 10 to 14 days is ideal."
+      },
+      {
+        "q": "Are your Marrakech desert tours private or in a group?",
+        "a": "We offer both. Private desert tours are exclusive to you with a personalized itinerary, flexible schedule, and dedicated 4x4 driver-guide. Shared group tours are more affordable (from €80/person for Zagora, €150/person for Merzouga) and let you share the experience with other travelers. All vehicles are modern, air-conditioned, and driven by experienced local Berber guides."
+      },
+      {
+        "q": "Is it safe to travel to Marrakech and the Moroccan Sahara?",
+        "a": "Yes, Morocco is one of the safest countries in North Africa and the Sahara desert region is completely secure for tourism. Our desert tours use experienced Berber drivers, well-maintained 4x4 vehicles, and trusted desert camps in Merzouga and Zagora. We provide 24/7 emergency assistance throughout your journey."
+      },
+      {
+        "q": "What is included in your Marrakech desert tour packages?",
+        "a": "Our desert tour packages typically include: pickup from your Marrakech riad or hotel, transportation in air-conditioned 4x4 or minivan, English/French/Spanish-speaking driver-guide, camel trek in the Sahara dunes, overnight in a Berber desert camp with dinner and breakfast, and all sightseeing stops (Aït Ben Haddou, Ouarzazate, Todra Gorges, Dades Valley). Lunch is usually not included but recommended stops are provided."
+      },
+      {
+        "q": "What should I pack for a Marrakech Sahara desert tour?",
+        "a": "For a desert tour from Marrakech, pack: comfortable walking shoes, a warm jacket (desert nights are cold, even in summer), sunglasses, a hat or scarf for sand protection, sunscreen, a reusable water bottle, a small backpack for the camel trek, and a camera. In winter, add thermal layers. We provide blankets in the Berber camp but bringing your own scarf is recommended."
+      },
+      {
+        "q": "Do I need a visa to visit Marrakech and Morocco?",
+        "a": "Travelers from the EU, UK, USA, Canada, Australia, and 70+ other countries can enter Morocco visa-free for stays up to 90 days. Your passport must be valid for at least 6 months from your entry date. Marrakech Menara Airport (RAK) handles most international arrivals. We recommend checking the latest requirements with the Moroccan consulate before booking your tour."
+      },
+      {
+        "q": "How can I book a Marrakech desert tour and what payment methods do you accept?",
+        "a": "You can book directly on our website by selecting your tour, date, and number of travelers. We accept credit cards (Visa, Mastercard, Amex), PayPal, and bank transfers. A 20% deposit secures your booking, with the balance payable on the first day of your tour. Free cancellation up to 48 hours before departure. Contact us on WhatsApp for instant assistance."
+      }
+    ]
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "Sorry, the page you are looking for does not exist.",
+    "backHome": "Back to Home"
+  },
+  "Error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again.",
+    "tryAgain": "Try again"
+  }
+}

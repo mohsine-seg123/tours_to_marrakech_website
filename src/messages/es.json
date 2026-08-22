@@ -1,0 +1,58 @@
+{
+  "FAQ": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que necesitas saber antes de reservar tu tour al desierto desde Marrakech",
+    "items": [
+      {
+        "q": "¿Qué tipo de tours al desierto ofrecen desde Marrakech?",
+        "a": "Estamos especializados en tours al desierto del Sahara desde Marrakech, incluyendo excursiones de 2 días a Zagora, tours de 3 días a Merzouga y las dunas de Erg Chebbi, y experiencias en el desierto ampliadas de 4 días. También ofrecemos excursiones de un día a Ouarzazate, Aït Ben Haddou, el Valle del Ourika y las Montañas del Atlas, además de paquetes de varios días por Marruecos incluyendo Fez, Chefchaouen y Essaouira."
+      },
+      {
+        "q": "¿Qué tour del desierto del Sahara es mejor: Merzouga o Zagora?",
+        "a": "Merzouga (3 o 4 días) es la mejor opción para la experiencia auténtica del Sahara: dunas doradas gigantes de Erg Chebbi que alcanzan los 150 metros, paseo en camello al atardecer y noche en un campamento bereber de lujo. Zagora (2 días) es una alternativa más rápida con dunas más pequeñas, ideal para viajeros con poco tiempo. La mayoría de nuestros clientes eligen el tour de 3 días a Merzouga para vivir toda la magia del desierto."
+      },
+      {
+        "q": "¿Cuál es la mejor época para reservar un tour al desierto desde Marrakech?",
+        "a": "La mejor época para los tours al desierto del Sahara desde Marrakech es de marzo a mayo y de septiembre a noviembre, cuando las temperaturas diurnas son agradables (20-28°C) y las noches frescas pero cómodas. El verano (junio-agosto) puede alcanzar los 45°C en el desierto, mientras que el invierno ofrece noches frías pero cielos estrellados impresionantes. Operamos tours durante todo el año con itinerarios adaptados a cada estación."
+      },
+      {
+        "q": "¿Cuántos días necesito para un viaje a Marrakech + desierto del Sahara?",
+        "a": "Recomendamos al menos 5 a 7 días: 2 días para explorar Marrakech (Medina, Jemaa el-Fna, Jardín Majorelle), 3 días para el tour al desierto de Merzouga, y 1-2 días extra para Essaouira o las Montañas del Atlas. Para una experiencia completa de Marruecos incluyendo Fez y Chefchaouen, lo ideal son 10 a 14 días."
+      },
+      {
+        "q": "¿Sus tours al desierto desde Marrakech son privados o en grupo?",
+        "a": "Ofrecemos ambas opciones. Los tours privados al desierto son exclusivos para ti con un itinerario personalizado, horario flexible y un conductor-guía 4x4 dedicado. Los tours compartidos son más económicos (desde 80€/persona para Zagora, 150€/persona para Merzouga) y te permiten compartir la experiencia con otros viajeros. Todos nuestros vehículos son modernos, con aire acondicionado y conducidos por guías bereberes con experiencia."
+      },
+      {
+        "q": "¿Es seguro viajar a Marrakech y al Sahara marroquí?",
+        "a": "Sí, Marruecos es uno de los países más seguros del norte de África y la región del Sahara es completamente segura para el turismo. Nuestros tours al desierto utilizan conductores bereberes experimentados, vehículos 4x4 en excelente estado y campamentos reconocidos en Merzouga y Zagora. Proporcionamos asistencia de emergencia 24/7 durante todo tu viaje."
+      },
+      {
+        "q": "¿Qué incluyen los paquetes de tours al desierto desde Marrakech?",
+        "a": "Nuestros paquetes de tour al desierto suelen incluir: recogida desde tu riad u hotel en Marrakech, transporte en 4x4 o minivan con aire acondicionado, conductor-guía en español (también inglés/francés), paseo en camello por las dunas del Sahara, noche en campamento bereber con cena y desayuno, y todas las paradas turísticas (Aït Ben Haddou, Ouarzazate, Gargantas del Todra, Valle del Dades). La comida del mediodía normalmente no está incluida pero te indicamos paradas recomendadas."
+      },
+      {
+        "q": "¿Qué debo llevar para un tour al desierto desde Marrakech?",
+        "a": "Para un tour al desierto desde Marrakech, lleva: zapatos cómodos para caminar, una chaqueta abrigada (las noches en el desierto son frías, incluso en verano), gafas de sol, un sombrero o pañuelo para protegerte de la arena, protector solar, una botella de agua reutilizable, una mochila pequeña para el paseo en camello y una cámara. En invierno, añade capas térmicas. Proporcionamos mantas en el campamento bereber pero se recomienda llevar tu propio pañuelo."
+      },
+      {
+        "q": "¿Necesito visado para visitar Marrakech y Marruecos?",
+        "a": "Los viajeros de la UE, Reino Unido, Estados Unidos, Canadá, Australia y más de 70 países pueden entrar en Marruecos sin visado para estancias de hasta 90 días. Tu pasaporte debe ser válido durante al menos 6 meses desde la fecha de entrada. El aeropuerto Marrakech Menara (RAK) recibe la mayoría de las llegadas internacionales. Recomendamos comprobar los últimos requisitos con el consulado marroquí antes de reservar tu tour."
+      },
+      {
+        "q": "¿Cómo puedo reservar un tour al desierto desde Marrakech y qué métodos de pago aceptan?",
+        "a": "Puedes reservar directamente en nuestra web seleccionando tu tour, fecha y número de viajeros. Aceptamos tarjetas de crédito (Visa, Mastercard, Amex), PayPal y transferencias bancarias. Un depósito del 20% asegura tu reserva, con el saldo pagadero el primer día de tu tour. Cancelación gratuita hasta 48h antes de la salida. Contáctanos por WhatsApp para asistencia inmediata."
+      }
+    ]
+  },
+  "NotFound": {
+    "title": "Página no encontrada",
+    "description": "Lo sentimos, la página que buscas no existe.",
+    "backHome": "Volver al inicio"
+  },
+  "Error": {
+    "title": "Algo salió mal",
+    "description": "Ocurrió un error inesperado. Por favor, inténtalo de nuevo.",
+    "tryAgain": "Intentar de nuevo"
+  }
+}

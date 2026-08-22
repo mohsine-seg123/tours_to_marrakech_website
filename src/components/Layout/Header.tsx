@@ -5,6 +5,7 @@ import { ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import LanguageSwitcher from "../ui/LanguageSwitcher";
 
 type DropdownItem = {
   href: string;
@@ -20,8 +21,8 @@ type NavLink = {
 const CONTACT = {
   phone: "+212 6 12 34 56 78",
   phoneHref: "tel:+212612345678",
-  email: "info@tripstomarrakech.com",
-  emailHref: "mailto:info@tripstomarrakech.com",
+  email: "info@toursmarrakechdesert.com",
+  emailHref: "mailto:info@toursmarrakechdesert.com",
 };
 
 const TOURS_DROPDOWN: DropdownItem[] = [
@@ -87,7 +88,7 @@ function HeaderContent({ pathname }: { pathname: string }): React.JSX.Element {
             <DesktopNav pathname={pathname} />
 
             <div className="hidden items-center lg:flex">
-              <BookNowButton />
+               <LanguageSwitcher />
             </div>
 
             <MobileMenuButton
