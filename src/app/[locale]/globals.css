@@ -63,98 +63,114 @@ h6 {
 
 
 :root {
-  /* ─── BASE ─── */
-  --background: 36 30% 94%;
-  /* #F2ECE1 - beige ivoire chaud (comme sur tes images) */
+  /* ═══════════════════════════════════════════════
+     PALETTE TOURS MARRAKECH DESERT — Warm & Pro
+     Inspirée d'Airbnb + Booking, adaptée au désert
+     ═══════════════════════════════════════════════ */
 
-  --foreground: 0 0% 8%;
-  /* #141414 - noir profond (titres principaux) */
+  /* ─── BASE ─── */
+  --background: 40 33% 98%;
+  /* #FBF9F5 - blanc chaud (pas bleuté, s'accorde au sable) */
+
+  --foreground: 25 25% 12%;
+  /* #241C16 - brun-noir chaud (pas navy froid) */
 
   /* ─── HEADINGS ─── */
-  --heading: 0 0% 8%;
-  /* #141414 - noir profond pour "Tailored Morocco Adventures" */
+  --heading: 25 28% 13%;
+  /* #291F17 - brun très foncé, chaleureux */
 
-  --heading-soft: 0 0% 25%;
-  /* #404040 - gris foncé pour sous-titres */
+  --heading-soft: 25 15% 35%;
+  /* #5C5049 - brun moyen */
 
   /* ─── TEXT ─── */
-  --text-main: 30 8% 25%;
-  /* #453F3B - gris-brun doux (texte principal) */
+  --text-main: 25 12% 26%;
+  /* #4A423C - brun-gris chaud */
 
-  --text-secondary: 30 10% 40%;
-  /* #6E655C - brun-gris pour paragraphes */
+  --text-secondary: 25 8% 44%;
+  /* #756B63 - gris chaud pour paragraphes */
 
-  --text-muted: 30 12% 55%;
-  /* #9A8F82 - beige-gris muted (labels comme "UNFORGETTABLE EXPERIENCES AWAIT") */
+  --text-muted: 30 8% 56%;
+  /* #97907F - beige-gris pour labels */
 
-  /* ─── FOOTER / DARK BLOCKS ─── */
-  --footer: 30 8% 12%;
-  /* #211E1B - noir chaud (compatible avec le beige) */
+  /* ─── FOOTER ─── */
+  --footer: 25 30% 11%;
+  /* #251A13 - brun très foncé, chaud (pas navy) */
 
-  --footer-foreground: 36 30% 94%;
-  /* #F2ECE1 - beige clair sur fond sombre */
+  --footer-foreground: 40 33% 96%;
+  /* #F7F3EC */
 
-  --footer-muted: 30 10% 65%;
-  /* #ABA298 - beige-gris pour texte secondaire footer */
+  --footer-muted: 30 10% 62%;
+  /* #A59C8E */
 
-  --footer-border: 30 8% 25%;
-  /* #453F3B - bordure discrète sur footer sombre */
+  --footer-border: 25 18% 22%;
+  /* #43362C */
 
   /* ─── SURFACES ─── */
-  --card: 36 35% 96%;
-  /* #F7F2E8 - blanc cassé chaud pour cartes */
+  --card: 0 0% 100%;
+  --card-foreground: 25 25% 12%;
 
-  --card-foreground: 0 0% 8%;
+  --muted: 38 25% 95%;
+  /* #F5F1E9 - beige clair (sections alternées) */
 
-  --muted: 36 25% 91%;
-  /* #EBE5D7 - beige un peu plus foncé (fond FAQ, sections alternées) */
+  --muted-foreground: 25 10% 44%;
 
-  --muted-foreground: 30 10% 40%;
+  --border: 35 18% 89%;
+  /* #E8E2D8 - bordure beige douce */
 
-  --border: 30 15% 82%;
-  /* #D6CFC1 - bordure beige discrète */
+  /* ─── PRIMARY - Terracotta Désert (CTA, s'accorde au hero) ─── */
+  --primary: 18 78% 48%;
+  /* #DA5F1C - terracotta chaud, ressort sur blanc ET sur photos */
 
-  /* ─── PRIMARY - Brun-Doré Marrakech (au lieu de l'orange vif) ─── */
-  --primary: 32 28% 48%;
-  /* #9E8256 - brun-doré chaud (bouton "Book Your Stay", icônes rondes) */
+  --primary-hover: 18 80% 40%;
+  /* #B54D14 */
 
-  --primary-hover: 32 30% 40%;
-  /* #857046 - brun-doré plus foncé au hover */
+  --primary-foreground: 40 40% 98%;
+  /* #FBF7F0 - blanc chaud sur terracotta */
 
-  --primary-foreground: 36 40% 97%;
-  /* #FBF6EC - ivoire très clair sur fond brun-doré */
+  /* ─── SECONDARY - Brun Profond ─── */
+  --secondary: 25 30% 11%;
+  --secondary-foreground: 40 33% 96%;
 
-  /* ─── SECONDARY - Noir Chaud ─── */
-  --secondary: 0 0% 8%;
-  /* #141414 - noir profond pour texte contrasté */
+  /* ─── ACCENT - Or/Ambre (texte sur photos, badges premium) ─── */
+  --accent: 38 72% 48%;
+  /* #D19A22 - or ambré chaud → PARFAIT sur le désert (pas de bleu!) */
 
-  --secondary-foreground: 36 30% 94%;
-  /* beige clair sur fond noir */
+  --accent-hover: 38 75% 40%;
+  /* #B0801A */
 
-  /* ─── GOLD SYSTEM (accents subtils, très proches du primary) ─── */
-  --gold: 32 30% 50%;
-  /* #A48756 - or doux */
+  --accent-foreground: 25 30% 11%;
 
-  --gold-soft: 32 25% 38%;
-  /* #7A6543 - or plus foncé */
+  /* ─── GOLD (étoiles, ratings, badges "Best Seller") ─── */
+  --gold: 42 88% 52%;
+  /* #F1AE1E */
 
-  --gold-muted: 36 30% 92%;
-  /* #F0E9D9 - fond doré très léger */
+  --gold-soft: 42 55% 42%;
+  /* #A88220 */
+
+  --gold-muted: 42 45% 93%;
+  /* #F6EFDB */
+
+  /* ─── SEMANTIC ─── */
+  --success: 152 55% 40%;
+  /* #2E9E63 */
+
+  --error: 4 70% 50%;
+  /* #D93A2E */
+
+  --warning: 38 90% 52%;
+  /* #F3A81C */
 
   /* ─── DESERT ─── */
-  --desert: 28 35% 55%;
-  /* #B4906A - terracotta doux (dégradés subtils) */
+  --desert: 24 55% 55%;
+  /* #C67F3F - terracotta sable */
 
   /* ─── SURFACE SOFT ─── */
-  --surface-soft: 36 32% 95%;
-  /* #F5EFE3 - surface encore plus douce que background */
+  --surface-soft: 40 30% 97%;
+  /* #FAF6EF */
 
-  /* ─── WHATSAPP (on garde le vert officiel) ─── */
+  /* ─── WHATSAPP ─── */
   --whatsapp: 147 65% 51%;
-  /* #25D366 - vert WhatsApp officiel */
-
-  --whatsapp-soft: 147 30% 88%;
-  /* #DAEBDF - fond du cercle icône WhatsApp harmonisé avec le beige */
+  --whatsapp-soft: 147 30% 92%;
 }
 
 

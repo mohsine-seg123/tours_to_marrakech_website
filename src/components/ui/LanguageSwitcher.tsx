@@ -3,13 +3,27 @@
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, Globe } from "lucide-react";
+import { ChevronDown} from "lucide-react";
+import Image from "next/image";
 
 const LANGUAGES = [
-  { code: "en", label: "English", flag: "🇬🇧" },
-  { code: "fr", label: "Français", flag: "🇫🇷" },
-  { code: "es", label: "Español", flag: "🇪🇸" },
+  { code: "en", label: "English", country: "gb" },
+  { code: "fr", label: "Français", country: "fr" },
+  { code: "es", label: "Español", country: "es" },
 ] as const;
+
+function FlagIcon({ country, alt }: { country: string; alt: string }) {
+  return (
+    <Image
+      src={`https://flagcdn.com/w80/${country}.png`}
+      alt={alt}
+      width={20}
+      height={15}
+      className="rounded-[2px] object-cover shadow-sm"
+      unoptimized
+    />
+  );
+}
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
@@ -46,8 +60,12 @@ export default function LanguageSwitcher() {
         className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
         aria-label="Change language"
       >
-        <Globe className="h-4 w-4" />
-        <span>{currentLanguage?.flag}</span>
+        {currentLanguage && (
+          <FlagIcon
+            country={currentLanguage.country}
+            alt={currentLanguage.label}
+          />
+        )}
         <span className="hidden sm:inline">
           {currentLanguage?.code.toUpperCase()}
         </span>
@@ -68,7 +86,7 @@ export default function LanguageSwitcher() {
                   : "text-text-secondary hover:bg-muted hover:text-foreground"
               }`}
             >
-              <span className="text-lg">{lang.flag}</span>
+              <FlagIcon country={lang.country} alt={lang.label} />
               <span>{lang.label}</span>
             </button>
           ))}

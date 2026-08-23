@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Heart, Mail, Menu, Phone, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -19,8 +19,8 @@ type NavLink = {
 };
 
 const CONTACT = {
-  phone: "+212 6 12 34 56 78",
-  phoneHref: "tel:+212612345678",
+  phone: "+212 6 15683217",
+  phoneHref: "tel:+212615683217",
   email: "info@toursmarrakechdesert.com",
   emailHref: "mailto:info@toursmarrakechdesert.com",
 };
@@ -35,21 +35,23 @@ const TOURS_DROPDOWN: DropdownItem[] = [
 ];
 
 const ABOUT_DROPDOWN: DropdownItem[] = [
-  { href: "/about", label: "About Tours to Marrakech" },
+  { href: "/about", label: "About Tours Marrakech Desert" },
   { href: "/about/morocco_tourist", label: "About Morocco Tourist" },
 ];
 
-// ⬇️ On ajoute les dropdowns directement dans NAV_LINKS
+
+
 const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/tours", label: "Tours", dropdown: TOURS_DROPDOWN },
   { href: "/day-trips", label: "Day Trips" },
-  { href: "/shared-group-tours", label: "Shared Group" },
+  { href: "/activities", label: "Activities" },
   { href: "/customize-your-tour", label: "Customize Your Tour" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About Us", dropdown: ABOUT_DROPDOWN },
   { href: "/contact", label: "Contact" },
 ];
+
 
 function isLinkActive(pathname: string, href: string): boolean {
   return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
@@ -87,7 +89,8 @@ function HeaderContent({ pathname }: { pathname: string }): React.JSX.Element {
 
             <DesktopNav pathname={pathname} />
 
-            <div className="hidden items-center lg:flex">
+            <div className="hidden items-center gap-2 lg:flex">
+              <FavoritesButton />
                <LanguageSwitcher />
             </div>
 
@@ -128,21 +131,21 @@ function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
   );
 }
 
-function BookNowButton({ onClick }: { onClick?: () => void }): React.JSX.Element {
+function FavoritesButton() {
   return (
     <Link
-      href="/contact"
-      onClick={onClick}
-      className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      href="/favorites"
+      className="group relative flex flex-col items-center gap-0.5 rounded-lg px-3 py-1.5 text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      aria-label="Favorites"
     >
-      <span className="relative z-10">Book Your Trip</span>
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-500 group-hover:translate-x-0"
-      />
+      <span className="relative">
+        <Heart className="h-5 w-5 transition-transform group-hover:scale-110" />
+      </span>
+      <span className="text-xs font-medium">Favorites</span>
     </Link>
   );
 }
+
 
 function MobileMenuButton({ isOpen, onToggle }: { isOpen: boolean; onToggle: () => void }): React.JSX.Element {
   return (
@@ -321,7 +324,7 @@ function MobileNav({
             <span className="font-medium">{CONTACT.email}</span>
           </a>
         </div>
-        <BookNowButton onClick={onCloseMobileMenu} />
+        <LanguageSwitcher />
       </div>
     </nav>
   );
