@@ -32,14 +32,14 @@ export default function Footer() {
 
           <div>
             <Link href="/" className="inline-flex items-center">
-              <Image
+              {/* <Image
                 src="/logo.png"
                 alt="Trips to Marrakech"
                 width={160}
                 height={40}
                 sizes="160px"
                 className="h-auto w-30"
-              />
+              /> */} Logo
             </Link>
 
             <p className="mt-2 max-w-sm text-sm leading-7 text-footer-muted sm:text-[15px] sm:leading-8">

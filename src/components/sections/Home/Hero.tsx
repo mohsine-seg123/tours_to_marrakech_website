@@ -1,57 +1,70 @@
-import { Users } from "lucide-react";
+import { Users, Compass } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function HeroSection(): React.JSX.Element {
   return (
-    <section className="relative w-full">
-      <div className="relative min-h-[560px] w-full overflow-hidden lg:min-h-[640px]">
-        <Image
-          src="/images/hero.jpg"
-          alt="Koutoubia Mosque and Jemaa el-Fnaa square in Marrakech at sunset"
-          fill
-          priority
-          quality={85}
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-
-        {/* Content — centré */}
-        <div className="relative mx-auto flex min-h-[560px] max-w-7xl flex-col items-center justify-start pt-16 px-4 text-center sm:px-6 lg:min-h-[640px] lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="font-body text-3xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-4xl lg:text-6xl">
-              Tours
-              <br />
-              <span className="text-text-main">Marrakech Desert</span>
-            </h1>
-
-            <p className="mt-10 text-lg font-bold text-white sm:text-xl">
-              marrakech desert tour &amp; morocco tour package
+    <section className="relative w-full overflow-hidden bg-background">
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-15">
+          <div className="order-1 lg:order-1">
+            <p className="font-body text-xs font-semibold text-center sm:text-start uppercase tracking-[0.25em] text-primary sm:text-sm">
+              morocco expert tours
             </p>
 
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white sm:text-base">
+            <h1 className="mt-3 sm:mt-5 font-body text-4xl text-center sm:text-start font-black leading-[1.05] tracking-tight text-heading sm:text-5xl lg:text-6xl xl:text-7xl">
+              Tours
+              <span className="text-primary"> Marrakech</span> Desert
+            </h1>
+
+            <p className="mt-3 sm:mt-6 text-center sm:text-start text-base font-semibold text-text-main sm:text-lg lg:text-xl">
+              Marrakech Desert Tour &amp; Morocco Tour Package
+            </p>
+
+            <p className="mt-4 max-w-lg text-sm leading-relaxed text-text-secondary sm:text-base">
               Explore Morocco with local experts. Private tours, desert day
               trips and unforgettable activities, with tailor-made itineraries
               to the Sahara and beyond.
             </p>
 
-            {/* CTA buttons — centrés */}
-            <div className="mt-8 flex justify-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
               <Link
                 href="/tours"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary p-3.5 text-sm font-semibold text-primary-foreground shadow-lg transition-colors hover:bg-primary-hover"
+                className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary-hover"
               >
-                <Users className="h-4 w-4" aria-hidden="true" />
+                <Users
+                  className="h-4 w-4 transition-transform group-hover:scale-110"
+                  aria-hidden="true"
+                />
                 Private Tours
               </Link>
 
               <Link
-                href="/Activities"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/70 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                href="/activities"
+                className="group inline-flex items-center gap-2 rounded-full border-2 border-heading bg-transparent px-7 py-3.5 text-sm font-semibold text-heading transition-all duration-300 hover:bg-heading hover:text-background"
               >
-                <Users className="h-4 w-4" aria-hidden="true" />
-                activities
+                <Compass
+                  className="h-4 w-4 transition-transform group-hover:rotate-12"
+                  aria-hidden="true"
+                />
+                Activities
               </Link>
+            </div>
+          </div>
+
+          <div className="order-2 lg:order-2">
+            <div className="relative mx-auto w-full max-w-md sm:max-w-lg lg:max-w-none lg:px-8">
+              <div className="group relative aspect-square overflow-hidden">
+                <Image
+                  src="/images/marrakech.jpeg"
+                  alt="Jemaa el-Fna square in Marrakech with traditional Moroccan souks and architecture"
+                  fill
+                  priority
+                  quality={90}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-[900ms] ease-out hover:cursor-pointer group-hover:scale-110"
+                />
+              </div>
             </div>
           </div>
         </div>

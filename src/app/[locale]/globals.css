@@ -197,6 +197,13 @@ body {
   background: hsl(var(--gold-soft));
 }
 
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
 
 
 .blog-content {

@@ -1,4 +1,44 @@
 {
+  "Destinations": {
+    "title": "Explorez les Meilleures Destinations du Maroc",
+    "subtitle": "Des dunes du Sahara aux ruelles bleues de Chefchaouen, trouvez votre prochaine aventure.",
+    "toursCount": "{count}+ circuits disponibles",
+    "cities": {
+      "marrakech": {
+        "name": "Marrakech",
+        "alt": "Place Jemaa el-Fna et Mosquée Koutoubia à Marrakech"
+      },
+      "agadir": {
+        "name": "Agadir",
+        "alt": "Plage et médina d'Agadir"
+      },
+      "fes": {
+        "name": "Fès",
+        "alt": "Tanneries anciennes et médina de Fès"
+      },
+      "casablanca": {
+        "name": "Casablanca",
+        "alt": "Mosquée Hassan II sur la côte atlantique à Casablanca"
+      },
+      "tangier": {
+        "name": "Tanger",
+        "alt": "Côte de Tanger et kasbah surplombant la mer"
+      }
+    }
+  },
+   "MarrakechDesertSection": {
+    "imageAlt": "Caravane de chameaux traversant les dunes du Sahara au coucher du soleil",
+
+    "eyebrow": "Voyages authentiques de Marrakech au Sahara",
+
+    "title": "Vos Experts du Circuit Désert de Marrakech",
+
+    "paragraph1": "Un <bold>circuit désert au départ de Marrakech</bold> est bien plus qu'un voyage — c'est une traversée à travers des siècles de culture berbère, des paysages spectaculaires et le silence du Sahara. Chez Tours Marrakech Desert, notre équipe locale conçoit chaque itinéraire pour allier les sites emblématiques comme Aït Ben Haddou et la Vallée du Dadès avec des trésors cachés que seuls les locaux connaissent.",
+
+    "paragraph2": "Que vous choisissiez une escapade de 2 jours à Zagora ou le classique circuit de 3 jours de <bold>Marrakech à Merzouga</bold> à travers les dunes de l'Erg Chebbi, chaque détail est pris en charge : transport en 4×4 confortable, riads sélectionnés, balade à dos de chameau au coucher du soleil et nuit sous les étoiles du Sahara.",
+
+    "cta": "Découvrir Nos Circuits Désert"
+  },
   "FAQ": {
     "title": "Questions Fréquentes",
     "subtitle": "Tout ce qu'il faut savoir avant de réserver votre circuit désert au départ de Marrakech",
@@ -24,24 +64,8 @@
         "a": "Nous proposons les deux formules. Les circuits désert privés sont exclusivement pour vous avec un itinéraire personnalisé, un horaire flexible et un chauffeur-guide 4x4 dédié. Les circuits partagés sont plus abordables (à partir de 80€/personne pour Zagora, 150€/personne pour Merzouga) et permettent de partager l'expérience avec d'autres voyageurs. Tous nos véhicules sont modernes, climatisés et conduits par des guides berbères expérimentés."
       },
       {
-        "q": "Est-ce sûr de voyager à Marrakech et dans le Sahara marocain ?",
-        "a": "Oui, le Maroc est l'un des pays les plus sûrs d'Afrique du Nord et la région du Sahara est entièrement sécurisée pour le tourisme. Nos circuits désert utilisent des chauffeurs berbères expérimentés, des véhicules 4x4 bien entretenus et des camps désert reconnus à Merzouga et Zagora. Nous fournissons une assistance d'urgence 24h/24 tout au long de votre voyage."
-      },
-      {
-        "q": "Que comprennent vos forfaits circuits désert au départ de Marrakech ?",
-        "a": "Nos forfaits désert comprennent généralement : la prise en charge depuis votre riad ou hôtel à Marrakech, le transport en 4x4 ou minivan climatisé, un chauffeur-guide francophone (également anglais/espagnol), une balade à dos de chameau dans les dunes du Sahara, une nuit en camp berbère avec dîner et petit-déjeuner, et tous les arrêts touristiques (Aït Ben Haddou, Ouarzazate, Gorges du Todra, Vallée du Dadès). Le déjeuner n'est généralement pas inclus mais des arrêts recommandés vous sont proposés."
-      },
-      {
-        "q": "Que faut-il emporter pour un circuit désert au départ de Marrakech ?",
-        "a": "Pour un circuit désert depuis Marrakech, prévoyez : des chaussures de marche confortables, une veste chaude (les nuits dans le désert sont froides, même en été), des lunettes de soleil, un chapeau ou une écharpe contre le sable, de la crème solaire, une gourde réutilisable, un petit sac à dos pour la balade à dos de chameau, et un appareil photo. En hiver, ajoutez des couches thermiques. Nous fournissons des couvertures au camp berbère mais apporter votre propre écharpe est recommandé."
-      },
-      {
         "q": "Ai-je besoin d'un visa pour visiter Marrakech et le Maroc ?",
         "a": "Les voyageurs de l'UE, du Royaume-Uni, des États-Unis, du Canada, d'Australie et de plus de 70 autres pays peuvent entrer au Maroc sans visa pour des séjours jusqu'à 90 jours. Votre passeport doit être valide au moins 6 mois à partir de la date d'entrée. L'aéroport Marrakech Menara (RAK) accueille la plupart des arrivées internationales. Nous vous recommandons de vérifier les dernières exigences auprès du consulat marocain avant de réserver votre circuit."
-      },
-      {
-        "q": "Comment réserver un circuit désert à Marrakech et quels moyens de paiement acceptez-vous ?",
-        "a": "Vous pouvez réserver directement sur notre site en sélectionnant votre circuit, la date et le nombre de voyageurs. Nous acceptons les cartes de crédit (Visa, Mastercard, Amex), PayPal et virements bancaires. Un acompte de 20% garantit votre réservation, le solde étant payable le premier jour de votre circuit. Annulation gratuite jusqu'à 48h avant le départ. Contactez-nous sur WhatsApp pour une assistance immédiate."
       }
     ]
   },

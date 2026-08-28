@@ -117,7 +117,7 @@ function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
       className="flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       aria-label="Trips To Marrakech home"
     >
-      <Image
+      {/* <Image
         src="/logo.png"
         alt="Trips to Marrakech logo"
         width={100}
@@ -126,7 +126,8 @@ function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
         quality={75}
         sizes="(max-width: 1023px) 112px, 144px"
         className="h-auto w-16 lg:w-24"
-      />
+      /> */}
+      Logo
     </Link>
   );
 }

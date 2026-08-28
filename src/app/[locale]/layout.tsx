@@ -6,6 +6,7 @@ import { routing } from "@/i18n/routing";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import "./globals.css";
+import { setRequestLocale } from "next-intl/server";
 
 
 const cormorant = Cormorant_Garamond({
@@ -140,7 +141,7 @@ export default async function LocaleLayout({children,params,}: {children: React.
 
   const { locale } = await params;
 
-
+  setRequestLocale(locale); 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }

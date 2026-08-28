@@ -49,7 +49,11 @@ export default function LanguageSwitcher() {
   }, []);
 
   const handleChange = (newLocale: string) => {
-    router.replace(pathname, { locale: newLocale });
+    router.replace(
+      // @ts-expect-error — pathname includes dynamic segments at runtime
+      pathname,
+      { locale: newLocale },
+    );
     setIsOpen(false);
   };
 

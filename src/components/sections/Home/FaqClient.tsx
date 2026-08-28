@@ -23,10 +23,10 @@ export default function FaqClient({
 
   return (
     <section
-      className="relative overflow-hidden bg-background px-4 py-4 text-foreground sm:px-6 lg:px-8 lg:py-6"
+      className="relative overflow-hidden bg-background text-foreground "
       aria-labelledby="faq-title"
     >
-      <div className="relative z-10 mx-auto max-w-6xl">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
         <div className="text-center">
           <h2
             id="faq-title"

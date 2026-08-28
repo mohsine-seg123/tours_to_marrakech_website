@@ -1,9 +1,9 @@
 import React from 'react'
 
-function page() : React.JSX.Element {
+function page() {
   return (
     <div>
-       about
+      customize your tour
     </div>
   )
 }
