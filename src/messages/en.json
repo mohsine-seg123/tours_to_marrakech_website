@@ -41,7 +41,7 @@
 
     "title": "Marrakech Desert Tours Built Around You",
 
-    "paragraph1": "Every <bold>Marrakech desert tour</bold> we design starts with one question: what does your perfect Sahara experience look like? Our Berber-born team pairs must-see landmarks — the kasbahs of Aït Ben Haddou, the gorges of Todra, the rose-scented Dadès Valley — with off-road detours, family-run guesthouses and stories no guidebook tells.",
+    "paragraph1": "Every <bold>Marrakech desert tour</bold> we design starts with one question: what does your perfect Sahara experience look like ? Our Berber-born team pairs must see landmarks, the kasbahs of Aït Ben Haddou, the gorges of Todra, the rose-scented Dadès Valley with off-road detours, family run guesthouses and stories no guidebook tells.",
 
     "paragraph2": "Choose a 2-day <bold>Zagora desert tour</bold> for a first taste of the dunes, the signature 3-day <bold>Marrakech to Merzouga</bold> route across the towering Erg Chebbi sands, or a fully custom itinerary at your own pace. Every trip includes a private 4×4 with A/C, hand-picked riad stays, a sunset camel trek and a starlit night in a traditional Berber camp.",
 
@@ -76,6 +76,101 @@
         "a": "Travelers from the EU, UK, USA, Canada, Australia, and 70+ other countries can enter Morocco visa-free for stays up to 90 days. Your passport must be valid for at least 6 months from your entry date. Marrakech Menara Airport (RAK) handles most international arrivals. We recommend checking the latest requirements with the Moroccan consulate before booking your tour."
       }
     ]
+  },
+  "Footer": {
+    "cta": {
+      "title": "Ready to Explore Morocco?",
+      "subtitle": "Let our local Berber team craft your perfect Marrakech desert tour. Private, group, or fully custom — your Sahara adventure starts here.",
+      "button": "Plan My Trip"
+    },
+    "brand": {
+      "description": "Tours Marrakech Desert is a locally owned Morocco tour operator crafting private Sahara desert tours, day trips and tailor-made journeys from Marrakech, Fes and beyond."
+    },
+    "tours": {
+      "title": "Popular Tours",
+      "marrakech": "Tours from Marrakech",
+      "fes": "Tours from Fes",
+      "casablanca": "Tours from Casablanca",
+      "tangier": "Tours from Tangier",
+      "agadir": "Tours from Agadir"
+    },
+    "explore": {
+      "title": "Explore",
+      "dayTrips": "Day Trips",
+      "activities": "Activities",
+      "customTour": "Customize Your Tour",
+      "blog": "Blog"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About Us",
+      "aboutMorocco": "About Morocco",
+      "contact": "Contact",
+      "favorites": "My Favorites"
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "location": "Marrakech · Fes · Merzouga, Morocco",
+      "payment": "We Accept"
+    },
+    "copyright": "All rights reserved.",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "MoroccoTourist": {
+    "meta": {
+      "title": "Morocco Travel Guide — Culture, Geography & Best Destinations | Tours Marrakech Desert",
+      "description": "Everything you need to know before traveling to Morocco: geography, culture, people, best destinations, safety, weather and why millions choose Morocco every year."
+    },
+    "hero": {
+      "eyebrow": "morocco vacation travel guide",
+      "title": "Morocco Trip Guide : Culture, Top Destinations & Sahara Desert Tours",
+      "subtitle": "A land of ancient medinas, towering Atlas peaks, golden Sahara dunes and warm Berber hospitality. Here's everything you need to know before your Moroccan adventure."
+    },
+    "stats": {
+      "tourists": "Tourists per year",
+      "sites": "UNESCO World Heritage Sites",
+      "coastline": "Of coastline",
+      "sunny": "Days of sunshine per year"
+    },
+    "geography": {
+      "title": "Where Is Morocco?",
+      "paragraph1": "<bold>Morocco</bold> sits at the northwestern tip of Africa, separated from Spain by just 14 kilometers across the Strait of Gibraltar. Bordered by the Atlantic Ocean to the west, the Mediterranean Sea to the north, Algeria to the east and Mauritania to the south, <bold>Morocco's location</bold> makes it one of the most accessible African countries from Europe.",
+      "paragraph2": "The landscape shifts dramatically from the <bold>Rif Mountains</bold> in the north through the fertile plains around Fes and Meknes, over the snow-capped <bold>High Atlas</bold> (reaching 4,167 m at Jebel Toubkal, North Africa's highest peak), down into the vast <bold>Sahara Desert</bold> in the southeast — where the iconic Erg Chebbi dunes near Merzouga rise over 150 meters.",
+      "flagTitle": "The Flag of Morocco",
+      "flagDescription": "A red field bearing a green pentacle (five-pointed star), the Seal of Solomon. Red represents the ruling Alaouite dynasty and green symbolizes Islam, peace and hope."
+    },
+    "culture": {
+      "eyebrow": "A crossroads of civilizations",
+      "title": "Morocco People & Culture",
+      "paragraph1": "<bold>Moroccan culture</bold> is a vibrant mosaic shaped by Berber (Amazigh), Arab, Andalusian and Saharan influences over thousands of years. The indigenous <bold>Berber people</bold> — who have inhabited North Africa for over 5,000 years — remain central to daily life, from the architecture of kasbahs to the rhythms of Gnawa music echoing through Marrakech's Jemaa el-Fna.",
+      "paragraph2": "Hospitality sits at the heart of <bold>Moroccan society</bold>. A glass of mint tea is never refused, strangers are welcomed like family, and meals are shared from communal tagine pots. With over 37 million people speaking Arabic, Tamazight, French and increasingly English, <bold>Morocco</bold> is a multilingual, multicultural country that feels both ancient and alive."
+    },"why": {
+    "eyebrow": "More than a destination",
+    "title": "Why Travel to Morocco?",
+    "p1": "<bold>Morocco</bold> has long been one of Africa's most rewarding places to visit, and tourism numbers confirm it. With nearly 300 sunny days a year, the country packs deserts, beaches, and snow-capped peaks into a single trip — something very few destinations in the world can match.",
+    "p2": "The momentum is real: Morocco welcomed close to <bold>19.8 million visitors in 2025</bold>, a 14% jump from the year before, with tourism revenue climbing past 130 billion dirhams. The sector now accounts for roughly 7% of national GDP and supports millions of jobs, directly and indirectly, across the country.",
+    "p3": "Much of that growth is being accelerated by one event: the <bold>2030 FIFA World Cup</bold>, co-hosted with Spain and Portugal. Morocco is pouring tens of billions of dirhams into new stadiums, high-speed rail between Tangier, Kenitra, and <bold>Marrakech</bold>, and a doubled airport capacity — Casablanca's Mohammed V airport alone is being rebuilt to handle over 30 million passengers a year. Hotel capacity is expanding too, with thousands of new rooms planned before kickoff.",
+    "p4": "None of this is only about football. The roads, trains, and airports built for the World Cup will serve travelers long after the final whistle, making it easier than ever to reach <bold>Marrakech, Fes, Casablanca</bold>, and the south. Better ties with neighboring Algeria have also reopened land routes, while cruise ships keep filling the ports of Casablanca and Tangier.",
+    "p5": "Most visitors come for the same reason: the mix of culture and landscape packed into one country. Imperial cities like <bold>Fes and Marrakech</bold> hold centuries of Islamic and Roman history inside their medinas and kasbahs. The Atlantic coast around Agadir draws sun-seekers from France, Spain, and the UK year-round, while the Atlas and Rif Mountains pull in hikers and mountain bikers chasing trails through valleys few tourists ever see. And then there's the desert. A trip to Morocco without a night under the stars near <bold>Merzouga</bold>, camel trek included, is widely considered incomplete. Whether it's the souks of a medina, a sunset over the dunes, or a quiet mountain village, <bold>Morocco</bold> keeps giving travelers a reason to come back — and with 2030 on the horizon, there has never been a better time to go."
+  },
+  "destinations": {
+    "eyebrow": "Where to go",
+    "title": "Best Destinations in Morocco",
+    "p1": "<bold>Marrakech</bold> is where most journeys begin and where first impressions hit hardest. The Red City wraps centuries of history inside its ochre walls — Jemaa el-Fna square still buzzes with storytellers and food stalls after dark, the Bahia Palace whispers of 19th-century grandeur, and the souks behind the main square sell everything from hand-stitched leather to towers of cumin and saffron. Beyond the medina, the Majorelle Garden offers a quieter side of the city, while the rooftop restaurants of the Kasbah serve slow-cooked tagines with views across the Atlas foothills.",
+    "p2": "Southeast of Marrakech, the landscape opens up into one of Morocco's most cinematic drives. The road crosses the <bold>Tizi n'Tichka pass</bold> at 2,260 meters, drops through the UNESCO-listed kasbah of <bold>Aït Ben Haddou</bold> — a backdrop for Gladiator and Game of Thrones — and continues through the <bold>Dadès and Todra Gorges</bold> before reaching the golden dunes of <bold>Erg Chebbi near Merzouga</bold>. These are the tallest sand dunes in Morocco, rising over 150 meters, and the setting for the classic <bold>Marrakech desert tour</bold>: a camel trek at sunset, Berber drumming around a campfire, and a night under a sky thick with stars.",
+    "p3": "<bold>Fes</bold> feels like stepping back 800 years. The old medina — Fes el-Bali — is the world's largest car-free urban area, a maze of 9,000 alleyways hiding the University of al-Qarawiyyin (founded 859 AD, the oldest degree-granting institution on record), leather tanneries that still use medieval techniques, and mosques whose tilework took generations to complete. Further north, <bold>Chefchaouen</bold> sits in the Rif Mountains with every wall, door, and stairway painted in shades of blue — one of the most photographed small towns on Earth.",
+    "p4": "On the Atlantic side, <bold>Essaouira</bold> draws wind-chasers, surfers, and artists to its rampart-lined harbour, while <bold>Agadir</bold> and <bold>Taghazout</bold> offer long sandy beaches and year-round warmth. Down south, the oasis valleys of the <bold>Draa</bold> and <bold>Ziz</bold> rivers run through palm groves and fortified villages, connecting Marrakech to the edge of the Sahara through some of the most quietly beautiful scenery in North Africa."
+  },
+  "practical": {
+    "eyebrow": "Before you go",
+    "title": "Practical Travel Tips for Morocco",
+    "p1": "The <bold>best time to visit Morocco</bold> depends on where you're heading. March to May and September to November offer the most comfortable temperatures across the country — warm days in Marrakech (22–28°C), cool nights in the desert, and clear skies in the mountains. Summer is ideal for the Atlantic coast (Essaouira, Agadir), where ocean breezes keep temperatures pleasant while the interior bakes. Winter brings snow to the Atlas — Morocco has ski resorts — and crisp, starry nights in the Sahara, making it a surprisingly good season for <bold>desert tours from Marrakech</bold>.",
+    "p2": "Citizens of the EU, UK, USA, Canada, Australia, and over 70 other countries can enter <bold>Morocco visa-free</bold> for stays up to 90 days. The national currency is the <bold>Moroccan dirham (MAD)</bold>, with 1 EUR buying roughly 11 MAD. Budget travelers can explore comfortably on €30–50 per day; mid-range travelers spending €80–150 per day will enjoy beautiful riads, private guides, and excellent meals. Credit cards are accepted at hotels and restaurants in major cities, but carrying cash is essential in souks, rural areas, and smaller towns.",
+    "p3": "<bold>Morocco</bold> ranks among the safest countries in Africa for tourism. Standard precautions apply — keep valuables secure in crowded souks, use licensed guides in the medinas, and book desert tours through established operators. French is widely spoken alongside Arabic and Tamazight, and English is growing rapidly, particularly among younger Moroccans in tourism. Our team at <bold>Tours Marrakech Desert</bold> speaks English, French, Spanish, and Arabic, and is available around the clock to help plan and support your journey."
+  }
   },
   "NotFound": {
     "title": "Page not found",

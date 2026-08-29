@@ -1,186 +1,271 @@
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
-import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 import ReseauxSociaux from "@/components/ui/ReseauxSociaux";
 
-const TRIPADVISOR_URL =
-  "https://www.tripadvisor.com/Attraction_Review-g293734-d34332055-Reviews-Treck_To_Morocco-Marrakech_Marrakech_Safi.html";
+const CONTACT = {
+  phone: "+212 6 15 68 32 17",
+  phoneHref: "tel:+212615683217",
+  whatsapp: "https://wa.me/212615683217",
+  email: "info@toursmarrakechdesert.com",
+  emailHref: "mailto:info@toursmarrakechdesert.com",
+} as const;
 
 const FOOTER_TOURS = [
-  { href: "/tours/marrakech", label: "Tours from Marrakech" },
-  { href: "/tours/fes", label: "Tours from Fes" },
-  { href: "/tours/casablanca", label: "Tours from Casablanca" },
-  { href: "/tours/tangier", label: "Tours from Tangier" },
-  { href: "/tours/agadir", label: "Tours from Agadir" },
-];
+  { href: "/tours/from/marrakech" as const, key: "marrakech" },
+  { href: "/tours/from/fes" as const, key: "fes" },
+  { href: "/tours/from/casablanca" as const, key: "casablanca" },
+  { href: "/tours/from/tangier" as const, key: "tangier" },
+  { href: "/tours/from/agadir" as const, key: "agadir" },
+] as const;
 
-const FOOTER_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/activities", label: "Activities Marrakech" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About" },
-  { href: "/day-trips", label: "Day Trips" },
-  { href: "/contact", label: "Contact" },
-];
+const FOOTER_EXPLORE = [
+  { href: "/day-trips" as const, key: "dayTrips" },
+  { href: "/activities" as const, key: "activities" },
+  { href: "/customize-your-tour" as const, key: "customTour" },
+  { href: "/blog" as const, key: "blog" },
+] as const;
 
-export default function Footer() {
+const FOOTER_COMPANY = [
+  { href: "/about" as const, key: "about" },
+  { href: "/about/morocco_tourist" as const, key: "aboutMorocco" },
+  { href: "/contact" as const, key: "contact" },
+  { href: "/favorites" as const, key: "favorites" },
+] as const;
+
+export default async function Footer() {
+  const t = await getTranslations("Footer");
+
   return (
     <footer className="w-full bg-footer text-footer-foreground">
-      <section className="px-4 pb-12 pt-14 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 sm:gap-14 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr] lg:gap-10">
-          {/* BRAND */}
+    
+      <section className="border-b border-footer-border bg-footer px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
+          <h2 className="text-2xl font-bold text-footer-foreground sm:text-3xl lg:text-4xl">
+            {t("cta.title")}
+          </h2>
+          <p className="max-w-xl text-sm leading-relaxed text-footer-muted sm:text-base">
+            {t("cta.subtitle")}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-xl"
+            >
+              {t("cta.button")}
+            </Link>
+            <a
+              href={CONTACT.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-footer-border px-7 py-3 text-sm font-semibold text-footer-foreground transition-all duration-300 hover:border-whatsapp hover:text-whatsapp"
+            >
+              <FaWhatsapp className="h-4 w-4" />
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
 
-          <div>
-            <Link href="/" className="inline-flex items-center">
+      {/* ── Main Footer Grid ── */}
+      <section className="px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_0.8fr_0.7fr_1.2fr] lg:gap-8">
+          {/* ── Brand ── */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link href="/" aria-label="Tours Marrakech Desert home">
               {/* <Image
-                src="/logo.png"
-                alt="Trips to Marrakech"
-                width={160}
-                height={40}
-                sizes="160px"
-                className="h-auto w-30"
-              /> */} Logo
+                src="/logo-white.png"
+                alt="Tours Marrakech Desert"
+                width={140}
+                height={36}
+                className="h-auto w-28 sm:w-32"
+              /> */}
+              LOgo
             </Link>
 
-            <p className="mt-2 max-w-sm text-sm leading-7 text-footer-muted sm:text-[15px] sm:leading-8">
-              Tours To Marrakech is a local Morocco tour operator creating
-              private tours, Sahara desert experiences and tailor-made journeys
-              across Marrakech, Fes, Merzouga, Chefchaouen and the Atlas
-              Mountains.
+            <p className="mt-4 max-w-xs text-sm leading-7 text-footer-muted">
+              {t("brand.description")}
             </p>
 
-            <div className=" flex justify-center sm:justify-start">
+            <div className="mt-6">
               <ReseauxSociaux />
             </div>
           </div>
 
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-footer-foreground sm:text-sm">
-              Popular Tours
+          {/* ── Popular Tours ── */}
+          <nav aria-label={t("tours.title")}>
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-footer-foreground">
+              {t("tours.title")}
             </h3>
-
-            <ul className="mt-6">
+            <ul className="mt-5 space-y-1">
               {FOOTER_TOURS.map((item) => (
-                <li key={item.href}>
+                <li key={item.key}>
                   <Link
-                    href={item.href}
-                    className="text-sm inline-flex min-h-11 font-medium text-footer-foreground/85 transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    href={
+                      {
+                        pathname: "/tours/from/[city]",
+                        params: { city: item.key },
+                      } as any
+                    }
+                    className="inline-flex py-1.5 text-sm text-footer-muted transition-colors hover:text-primary"
                   >
-                    {item.label}
+                    {t(`tours.${item.key}`)}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-footer-foreground sm:text-sm">
-              Useful Links
+          {/* ── Explore ── */}
+          <nav aria-label={t("explore.title")}>
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-footer-foreground">
+              {t("explore.title")}
             </h3>
-
-            <ul className="mt-6">
-              {FOOTER_LINKS.map((item) => (
-                <li key={item.href}>
+            <ul className="mt-5 space-y-1">
+              {FOOTER_EXPLORE.map((item) => (
+                <li key={item.key}>
                   <Link
                     href={item.href}
-                    className="text-sm inline-flex min-h-11 font-medium text-footer-foreground/85 transition hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    className="inline-flex py-1.5 text-sm text-footer-muted transition-colors hover:text-primary"
                   >
-                    {item.label}
+                    {t(`explore.${item.key}`)}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* CONTACT */}
+          {/* ── Company ── */}
+          <nav aria-label={t("company.title")}>
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-footer-foreground">
+              {t("company.title")}
+            </h3>
+            <ul className="mt-5 space-y-1">
+              {FOOTER_COMPANY.map((item) => (
+                <li key={item.key}>
+                  <Link
+                    href={item.href}
+                    className="inline-flex py-1.5 text-sm text-footer-muted transition-colors hover:text-primary"
+                  >
+                    {t(`company.${item.key}`)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
+          {/* ── Contact ── */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-footer-foreground sm:text-sm">
-              Contact
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-footer-foreground">
+              {t("contact.title")}
             </h3>
 
-            <ul className="mt-6 space-y-5">
-              <li className="flex gap-3 text-sm leading-6 text-footer-muted">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
-
-                <span>Morocco · Marrakech · Fes · Merzouga</span>
-              </li>
-
-              <li className="flex gap-3 text-sm leading-6 text-footer-muted">
-                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
-
+            <ul className="mt-5 space-y-4">
+              <li>
                 <a
-                  href="tel:+212643577845"
-                  className="transition hover:text-gold"
+                  href={CONTACT.phoneHref}
+                  className="group flex items-center gap-3 text-sm text-footer-muted transition-colors hover:text-primary"
                 >
-                  +212643577845
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-footer-border transition-colors group-hover:bg-primary/20">
+                    <Phone className="h-4 w-4 text-primary" />
+                  </span>
+                  {CONTACT.phone}
                 </a>
               </li>
 
-              <li className="flex gap-3 text-sm leading-6 text-footer-muted">
-                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
-
+              <li>
                 <a
-                  href="mailto:info@tripstomarrakech.com"
-                  className="break-all transition hover:text-gold"
+                  href={CONTACT.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 text-sm text-footer-muted transition-colors hover:text-whatsapp"
                 >
-                  info@tripstomarrakech.com
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-footer-border transition-colors group-hover:bg-whatsapp/20">
+                    <FaWhatsapp className="h-4 w-4 text-whatsapp" />
+                  </span>
+                  WhatsApp
                 </a>
+              </li>
+
+              <li>
+                <a
+                  href={CONTACT.emailHref}
+                  className="group flex items-center gap-3 text-sm text-footer-muted transition-colors hover:text-primary"
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-footer-border transition-colors group-hover:bg-primary/20">
+                    <Mail className="h-4 w-4 text-primary" />
+                  </span>
+                  <span className="break-all">{CONTACT.email}</span>
+                </a>
+              </li>
+
+              <li className="flex items-start gap-3 text-sm text-footer-muted">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-footer-border">
+                  <MapPin className="h-4 w-4 text-primary" />
+                </span>
+                <span className="pt-2">{t("contact.location")}</span>
               </li>
             </ul>
 
-            {/* PAYMENT */}
-
-            <div className="flex flex-row justify-center items-center">
-              <div className="mt-8">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-footer-foreground">
-                  Accepted Payment
+            {/* ── Trust badges ── */}
+            <div className="mt-8 flex items-center gap-2">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-footer-muted">
+                  {t("contact.payment")}
                 </p>
                 <Image
                   src="/images/payement.webp"
-                  alt="Accepted payment methods"
-                  quality={70}
-                  width={140}
-                  height={44}
-                  className="h-20 w-auto object-contain"
+                  alt="Visa, Mastercard, PayPal accepted"
+                  width={120}
+                  height={36}
+                  className="mt-2 h-12 w-auto object-contain opacity-70"
                 />
               </div>
 
-              <div className="mt-6 sm:ml-6 sm:mt-8">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-footer-foreground">
-                  Trusted By Travelers
-                </p>
 
-                <div className="mt-3 flex items-center gap-3">
-                  <div className="flex items-centerpx-3">
-                    <a
-                      aria-label="View Trips to Marrakech reviews on TripAdvisor"
-                      href={TRIPADVISOR_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Image
-                        src="/images/tripadvisor-logo-circle-owl-icon-black-green-1536x1536-1.webp"
-                        alt=""
-                        width={65}
-                        height={65}
-                        className="h-20 w-20 object-contain"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <a
+                href="https://www.tripadvisor.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TripAdvisor reviews"
+              >
+                <Image
+                  src="/images/tripadvisor-logo-circle-owl-icon-black-green-1536x1536-1.webp"
+                  alt="TripAdvisor"
+                  width={44}
+                  height={44}
+                  className="h-16 w-16 object-contain"
+                />
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* COPYRIGHT */}
-
-      <section className="border-t border-footer-border px-4 py-5 sm:px-6 lg:px-8">
-        <p className="text-center text-sm text-footer-muted/80">
-          © {new Date().getFullYear()} Tours To Marrakech. All rights reserved.
-        </p>
+      {/* ── Copyright ── */}
+      <section className="border-t border-footer-border px-4 py-3 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 sm:flex-row">
+          <p className="text-xs text-footer-muted/60">
+            © {new Date().getFullYear()} Tours Marrakech Desert.{" "}
+            {t("copyright")}
+          </p>
+          <div className="flex gap-4 text-xs text-footer-muted/60">
+            <Link
+              href="/about"
+              className="transition-colors hover:text-footer-foreground"
+            >
+              {t("legal.privacy")}
+            </Link>
+            <Link
+              href="/about"
+              className="transition-colors hover:text-footer-foreground"
+            >
+              {t("legal.terms")}
+            </Link>
+          </div>
+        </div>
       </section>
     </footer>
   );

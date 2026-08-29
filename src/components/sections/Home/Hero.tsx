@@ -7,8 +7,8 @@ export default async function HeroSection(): Promise<React.JSX.Element> {
   const t=await getTranslations("Hero");
   return (
     <section className="relative w-full overflow-hidden bg-background">
-      <div className="relative mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-15">
+      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:pt-12 lg:px-8 lg:pt-16">
+        <div className="grid grid-cols-1 items-center gap-2  lg:grid-cols-2 lg:gap-16">
           <div className="order-1 lg:order-1">
             <p className="font-body text-xs font-semibold text-center sm:text-start uppercase tracking-[0.25em] text-primary sm:text-sm">
               {t("eyebrow")}
@@ -30,10 +30,10 @@ export default async function HeroSection(): Promise<React.JSX.Element> {
               {t("description")}
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+            <div className="sm:mt-8 mt-6 flex items-center  justify-center lg:justify-start gap-2 sm:gap-4">
               <Link
                 href="/tours"
-                className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary-hover"
+                className="group inline-flex items-center gap-2 rounded-full bg-primary px-4 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary-hover"
               >
                 <Users
                   className="h-4 w-4 transition-transform group-hover:scale-110"

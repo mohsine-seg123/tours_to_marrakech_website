@@ -77,6 +77,102 @@
       }
     ]
   },
+  "Footer": {
+    "cta": {
+      "title": "¿Listo para Explorar Marruecos?",
+      "subtitle": "Deja que nuestro equipo bereber local diseñe tu tour perfecto por el desierto de Marrakech. Privado, en grupo o totalmente personalizado — tu aventura en el Sahara empieza aquí.",
+      "button": "Planificar Mi Viaje"
+    },
+    "brand": {
+      "description": "Tours Marrakech Desert es un operador turístico local en Marruecos especializado en tours privados por el Sahara, excursiones de un día y viajes a medida desde Marrakech, Fez y más allá."
+    },
+    "tours": {
+      "title": "Tours Populares",
+      "marrakech": "Tours desde Marrakech",
+      "fes": "Tours desde Fez",
+      "casablanca": "Tours desde Casablanca",
+      "tangier": "Tours desde Tánger",
+      "agadir": "Tours desde Agadir"
+    },
+    "explore": {
+      "title": "Explorar",
+      "dayTrips": "Excursiones",
+      "activities": "Actividades",
+      "customTour": "Tour Personalizado",
+      "blog": "Blog"
+    },
+    "company": {
+      "title": "Empresa",
+      "about": "Sobre Nosotros",
+      "aboutMorocco": "Sobre Marruecos",
+      "contact": "Contacto",
+      "favorites": "Mis Favoritos"
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "location": "Marrakech · Fez · Merzouga, Marruecos",
+      "payment": "Aceptamos"
+    },
+    "copyright": "Todos los derechos reservados.",
+    "legal": {
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio"
+    }
+  },
+  "MoroccoTourist": {
+    "meta": {
+      "title": "Guía de Viaje a Marruecos — Cultura, Geografía y Mejores Destinos | Tours Marrakech Desert",
+      "description": "Todo lo que necesitas saber antes de viajar a Marruecos: geografía, cultura, población, mejores destinos, seguridad, clima y por qué millones de viajeros eligen Marruecos cada año."
+    },
+    "hero": {
+      "eyebrow": "Guía de Viaje a Marruecos",
+     "title": "Guía de Viaje a Marruecos : Cultura, Destinos & Tours del Desierto del Sahara",
+      "subtitle": "Un país de medinas milenarias, cumbres nevadas del Atlas, dunas doradas del Sahara y cálida hospitalidad bereber. Todo lo que debes saber antes de tu aventura marroquí."
+    },
+    "stats": {
+      "tourists": "Turistas por año",
+      "sites": "Sitios UNESCO",
+      "coastline": "De costa",
+      "sunny": "Días de sol al año"
+    },
+    "geography": {
+      "title": "¿Dónde Está Marruecos?",
+      "paragraph1": "<bold>Marruecos</bold> se encuentra en la punta noroeste de África, separado de España por solo 14 kilómetros a través del Estrecho de Gibraltar. Limitado por el océano Atlántico al oeste, el mar Mediterráneo al norte, Argelia al este y Mauritania al sur, la <bold>ubicación de Marruecos</bold> lo convierte en uno de los países africanos más accesibles desde Europa.",
+      "paragraph2": "El paisaje cambia drásticamente desde las <bold>montañas del Rif</bold> en el norte a través de las llanuras fértiles alrededor de Fez y Meknes, sobre el <bold>Alto Atlas</bold> nevado (alcanzando 4.167 m en el Jebel Toubkal, la cumbre más alta del norte de África), hasta el vasto <bold>desierto del Sahara</bold> en el sureste — donde las icónicas dunas de Erg Chebbi cerca de Merzouga se elevan más de 150 metros.",
+      "flagTitle": "La Bandera de Marruecos",
+      "flagDescription": "Un campo rojo con un pentáculo verde (estrella de cinco puntas), el Sello de Salomón. El rojo representa la dinastía alauita gobernante y el verde simboliza el Islam, la paz y la esperanza."
+    },
+    "culture": {
+      "eyebrow": "Un cruce de civilizaciones",
+      "title": "El Pueblo y la Cultura de Marruecos",
+      "paragraph1": "La <bold>cultura marroquí</bold> es un mosaico vibrante moldeado por influencias bereberes (amazigh), árabes, andalusíes y saharianas a lo largo de miles de años. Los <bold>bereberes</bold> autóctonos — que han habitado el norte de África durante más de 5.000 años — siguen siendo centrales en la vida diaria, desde la arquitectura de las kasbahs hasta los ritmos de la música Gnawa en la plaza Jemaa el-Fna de Marrakech.",
+      "paragraph2": "La hospitalidad está en el corazón de la <bold>sociedad marroquí</bold>. Un vaso de té de menta nunca se rechaza, los extraños son recibidos como familia y las comidas se comparten alrededor de tagines comunales. Con más de 37 millones de habitantes que hablan árabe, tamazight, francés y cada vez más inglés, <bold>Marruecos</bold> es un país multilingüe y multicultural que se siente tanto antiguo como vivo."
+    },
+    "why": {
+      "eyebrow": "Más que un destino",
+      "title": "¿Por Qué Viajar a Marruecos?",
+      "p1": "<bold>Marruecos</bold> ha sido durante mucho tiempo uno de los países más fascinantes de África para visitar, y las cifras de turismo lo confirman. Con cerca de 300 días de sol al año, el país concentra desiertos, playas y cumbres nevadas en un solo viaje — algo que muy pocos destinos en el mundo pueden igualar.",
+      "p2": "El impulso es real: Marruecos recibió cerca de <bold>19,8 millones de visitantes en 2025</bold>, un salto del 14 % respecto al año anterior, con ingresos turísticos que superaron los 130.000 millones de dírhams. El sector representa aproximadamente el 7 % del PIB nacional y genera millones de empleos en todo el país.",
+      "p3": "Gran parte de este crecimiento está siendo acelerado por un evento: la <bold>Copa del Mundo FIFA 2030</bold>, coorganizada con España y Portugal. Marruecos está invirtiendo decenas de miles de millones de dírhams en nuevos estadios, tren de alta velocidad entre Tánger, Kenitra y <bold>Marrakech</bold>, y el doble de capacidad aeroportuaria — el aeropuerto Mohammed V de Casablanca se está reconstruyendo para manejar más de 30 millones de pasajeros al año.",
+      "p4": "Nada de esto es solo fútbol. Las carreteras, trenes y aeropuertos construidos para el Mundial servirán a los viajeros mucho después del pitido final, facilitando más que nunca llegar a <bold>Marrakech, Fez, Casablanca</bold> y el sur. Las mejores relaciones con Argelia también han reabierto rutas terrestres, mientras los cruceros siguen llenando los puertos de Casablanca y Tánger.",
+      "p5": "La mayoría de visitantes vienen por la misma razón: la mezcla de cultura y paisaje concentrada en un solo país. Ciudades imperiales como <bold>Fez y Marrakech</bold> guardan siglos de historia islámica y romana dentro de sus medinas y kasbahs. La costa atlántica alrededor de Agadir atrae a buscadores de sol durante todo el año, mientras el Atlas y el Rif atraen a senderistas. Y luego está el desierto. Un viaje a Marruecos sin una noche bajo las estrellas cerca de <bold>Merzouga</bold>, paseo en camello incluido, se considera ampliamente incompleto. Ya sean los zocos de una medina, un atardecer sobre las dunas o un pueblo de montaña tranquilo, <bold>Marruecos</bold> siempre da razones para volver — y con 2030 en el horizonte, nunca ha habido mejor momento para ir."
+    },
+    "destinations": {
+      "eyebrow": "Dónde ir",
+      "title": "Los Mejores Destinos de Marruecos",
+      "p1": "<bold>Marrakech</bold> es donde la mayoría de los viajes comienzan y donde las primeras impresiones golpean más fuerte. La Ciudad Roja encierra siglos de historia dentro de sus murallas ocres — la plaza Jemaa el-Fna sigue vibrando con cuentacuentos y puestos de comida al anochecer, el Palacio Bahía susurra grandeza del siglo XIX, y los zocos detrás de la plaza principal venden de todo, desde cuero cosido a mano hasta torres de comino y azafrán.",
+      "p2": "Al sureste de Marrakech, el paisaje se abre en una de las rutas más cinematográficas de Marruecos. La carretera cruza el <bold>paso del Tizi n'Tichka</bold> a 2.260 metros, desciende por la kasbah UNESCO de <bold>Aït Ben Haddou</bold> — escenario de Gladiator y Juego de Tronos — y continúa por las <bold>gargantas del Dadès y el Todra</bold> antes de llegar a las dunas doradas de <bold>Erg Chebbi cerca de Merzouga</bold>. Son las dunas de arena más altas de Marruecos, con más de 150 metros, y el escenario del clásico <bold>tour del desierto desde Marrakech</bold>: un paseo en camello al atardecer, percusión bereber alrededor de una hoguera y una noche bajo un cielo cuajado de estrellas.",
+      "p3": "<bold>Fez</bold> es como retroceder 800 años. La vieja medina — Fez el-Bali — es la mayor zona urbana peatonal del mundo, un laberinto de 9.000 callejones que esconde la Universidad de al-Qarawiyyin (fundada en 859, la institución que otorga títulos más antigua del mundo), curtidurías que aún usan técnicas medievales y mezquitas cuyos azulejos tardaron generaciones en completarse. Más al norte, <bold>Chefchaouen</bold> se asienta en las montañas del Rif con cada pared, puerta y escalera pintada en tonos de azul.",
+      "p4": "En la costa atlántica, <bold>Essaouira</bold> atrae a los amantes del viento, surfistas y artistas a su puerto amurallado, mientras que <bold>Agadir</bold> y <bold>Taghazout</bold> ofrecen largas playas de arena y calidez todo el año. Al sur, los valles oasis del <bold>Draa</bold> y el <bold>Ziz</bold> atraviesan palmerales y pueblos fortificados, conectando Marrakech con el borde del Sahara a través de algunos de los paisajes más secretamente hermosos del norte de África."
+    },
+    "practical": {
+      "eyebrow": "Antes de ir",
+      "title": "Consejos Prácticos para Viajar a Marruecos",
+      "p1": "La <bold>mejor época para visitar Marruecos</bold> depende de tu destino. Marzo a mayo y septiembre a noviembre ofrecen las temperaturas más cómodas — días cálidos en Marrakech (22-28°C), noches frescas en el desierto y cielos despejados en las montañas. El verano es ideal para la costa atlántica (Essaouira, Agadir), mientras que el invierno trae nieve al Atlas y noches saharianas estrelladas, convirtiéndolo en una temporada sorprendentemente buena para los <bold>tours del desierto desde Marrakech</bold>.",
+      "p2": "Los ciudadanos de la UE, Reino Unido, EE.UU., Canadá, Australia y más de 70 países pueden entrar en <bold>Marruecos sin visado</bold> para estancias de hasta 90 días. La moneda nacional es el <bold>dírham marroquí (MAD)</bold>, con 1 EUR ≈ 11 MAD. Los viajeros con presupuesto ajustado pueden explorar cómodamente con 30-50 €/día; los presupuestos medios (80-150 €/día) permiten disfrutar de hermosos riads, guías privados y comidas excelentes.",
+      "p3": "<bold>Marruecos</bold> es uno de los países más seguros de África para el turismo. Las precauciones estándar aplican — asegurar objetos de valor en zocos concurridos, usar guías con licencia en las medinas y reservar tours del desierto con operadores establecidos. El francés se habla ampliamente junto al árabe y tamazight, y el inglés crece rápidamente. Nuestro equipo en <bold>Tours Marrakech Desert</bold> habla español, inglés, francés y árabe, y está disponible las 24 horas para acompañarte."
+    }
+  },
   "NotFound": {
     "title": "Página no encontrada",
     "description": "Lo sentimos, la página que buscas no existe.",

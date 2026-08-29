@@ -46,7 +46,8 @@ const NAV_LINKS: NavLink[] = [
   { href: "/tours", label: "Tours", dropdown: TOURS_DROPDOWN },
   { href: "/day-trips", label: "Day Trips" },
   { href: "/activities", label: "Activities" },
-  { href: "/customize-your-tour", label: "Customize Your Tour" },
+  { href: "/customize-your-tour", label: "Custom Tour" },
+  { href: "/morocco-student-trips", label: "Student Trips" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About Us", dropdown: ABOUT_DROPDOWN },
   { href: "/contact", label: "Contact" },
@@ -214,13 +215,13 @@ function DesktopDropdown({
       <Link
         href={link.href}
         aria-current={isActive ? "page" : undefined}
-        className={`relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+        className={`relative flex items-center gap-1 rounded-lg px-2 py-2 text-sm font-semibold tracking-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
           isActive ? "text-primary" : "text-foreground hover:bg-muted hover:text-primary"
         }`}
       >
         {link.label}
         <ChevronDown
-          className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180"
+          className="h-3 w-3 transition-transform duration-300 group-hover:rotate-180"
           aria-hidden="true"
         />
       </Link>

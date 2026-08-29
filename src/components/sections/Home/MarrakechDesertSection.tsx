@@ -33,7 +33,7 @@ export default async function MarrakechDesertSection() {
             </p>
             <h2
               id="marrakech-desert-title"
-              className="max-w-2xl mb-2  text-center sm:text-start text-3xl font-medium leading-[1.05] text-heading "
+              className="m-2  text-center sm:text-start text-3xl font-medium leading-[1.05] text-heading "
             >
               {t("title")}
             </h2>

@@ -77,6 +77,102 @@
       }
     ]
   },
+  "Footer": {
+    "cta": {
+      "title": "Prêt à Explorer le Maroc ?",
+      "subtitle": "Laissez notre équipe berbère locale concevoir votre circuit désert idéal au départ de Marrakech. Privé, en groupe ou sur mesure — votre aventure saharienne commence ici.",
+      "button": "Planifier Mon Voyage"
+    },
+    "brand": {
+      "description": "Tours Marrakech Desert est un tour-opérateur local au Maroc spécialisé dans les circuits privés au Sahara, les excursions à la journée et les voyages sur mesure au départ de Marrakech, Fès et au-delà."
+    },
+    "tours": {
+      "title": "Circuits Populaires",
+      "marrakech": "Circuits depuis Marrakech",
+      "fes": "Circuits depuis Fès",
+      "casablanca": "Circuits depuis Casablanca",
+      "tangier": "Circuits depuis Tanger",
+      "agadir": "Circuits depuis Agadir"
+    },
+    "explore": {
+      "title": "Explorer",
+      "dayTrips": "Excursions",
+      "activities": "Activités",
+      "customTour": "Circuit Sur Mesure",
+      "blog": "Blog"
+    },
+    "company": {
+      "title": "Entreprise",
+      "about": "À Propos",
+      "aboutMorocco": "Le Maroc",
+      "contact": "Contact",
+      "favorites": "Mes Favoris"
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "location": "Marrakech · Fès · Merzouga, Maroc",
+      "payment": "Nous Acceptons"
+    },
+    "copyright": "Tous droits réservés.",
+    "legal": {
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions Générales"
+    }
+  },
+  "MoroccoTourist": {
+    "meta": {
+      "title": "Guide Voyage Maroc — Culture, Géographie & Meilleures Destinations | Tours Marrakech Desert",
+      "description": "Tout ce qu'il faut savoir avant de voyager au Maroc : géographie, culture, population, meilleures destinations, sécurité, climat et pourquoi des millions de voyageurs choisissent le Maroc chaque année."
+    },
+    "hero": {
+      "eyebrow": "Guide de Voyage au Maroc",
+       "title": "Guide de Voyage au Maroc : Culture, Destinations & Circuits Désert du Sahara",
+      "subtitle": "Un pays de médinas millénaires, de sommets enneigés de l'Atlas, de dunes dorées du Sahara et d'hospitalité berbère chaleureuse. Tout ce que vous devez savoir avant votre aventure marocaine."
+    },
+    "stats": {
+      "tourists": "Touristes par an",
+      "sites": "Sites UNESCO",
+      "coastline": "De littoral",
+      "sunny": "Jours de soleil par an"
+    },
+    "geography": {
+      "title": "Où Se Trouve le Maroc ?",
+      "paragraph1": "Le <bold>Maroc</bold> se situe à la pointe nord-ouest de l'Afrique, séparé de l'Espagne par seulement 14 kilomètres à travers le détroit de Gibraltar. Bordé par l'océan Atlantique à l'ouest, la mer Méditerranée au nord, l'Algérie à l'est et la Mauritanie au sud, la <bold>position du Maroc</bold> en fait l'un des pays africains les plus accessibles depuis l'Europe.",
+      "paragraph2": "Le paysage change radicalement, des <bold>montagnes du Rif</bold> au nord en passant par les plaines fertiles autour de Fès et Meknès, par-dessus le <bold>Haut Atlas</bold> enneigé (culminant à 4 167 m au Jebel Toubkal, plus haut sommet d'Afrique du Nord), jusqu'au vaste <bold>désert du Sahara</bold> au sud-est — où les dunes emblématiques de l'Erg Chebbi près de Merzouga s'élèvent à plus de 150 mètres.",
+      "flagTitle": "Le Drapeau du Maroc",
+      "flagDescription": "Un fond rouge orné d'un pentacle vert (étoile à cinq branches), le Sceau de Salomon. Le rouge représente la dynastie Alaouite au pouvoir et le vert symbolise l'Islam, la paix et l'espoir."
+    },
+    "culture": {
+      "eyebrow": "Un carrefour de civilisations",
+      "title": "Le Peuple et la Culture du Maroc",
+      "paragraph1": "La <bold>culture marocaine</bold> est une mosaïque vibrante façonnée par les influences berbères (amazighes), arabes, andalouses et sahariennes au fil de milliers d'années. Les <bold>Berbères</bold> autochtones — qui habitent l'Afrique du Nord depuis plus de 5 000 ans — restent au cœur de la vie quotidienne, de l'architecture des kasbahs aux rythmes de la musique Gnaoua résonnant à travers Jemaa el-Fna à Marrakech.",
+      "paragraph2": "L'hospitalité est au cœur de la <bold>société marocaine</bold>. Un verre de thé à la menthe ne se refuse jamais, les étrangers sont accueillis comme de la famille, et les repas se partagent autour de tagines communs. Avec plus de 37 millions d'habitants parlant arabe, tamazight, français et de plus en plus anglais, le <bold>Maroc</bold> est un pays multilingue et multiculturel à la fois ancien et vivant."
+    },
+    "why": {
+      "eyebrow": "Bien plus qu'une destination",
+      "title": "Pourquoi Voyager au Maroc ?",
+      "p1": "Le <bold>Maroc</bold> est depuis longtemps l'un des pays les plus fascinants d'Afrique à visiter, et les chiffres le confirment. Avec près de 300 jours de soleil par an, le pays concentre déserts, plages et sommets enneigés en un seul voyage — un privilège que très peu de destinations au monde peuvent offrir.",
+      "p2": "La dynamique est réelle : le Maroc a accueilli près de <bold>19,8 millions de visiteurs en 2025</bold>, soit une hausse de 14 % par rapport à l'année précédente, avec des recettes touristiques dépassant 130 milliards de dirhams. Le secteur représente désormais environ 7 % du PIB national et fait vivre des millions de personnes, directement et indirectement, à travers le pays.",
+      "p3": "Une grande partie de cette croissance est accélérée par un événement majeur : la <bold>Coupe du Monde FIFA 2030</bold>, co-organisée avec l'Espagne et le Portugal. Le Maroc investit des dizaines de milliards de dirhams dans de nouveaux stades, le TGV entre Tanger, Kénitra et <bold>Marrakech</bold>, et le doublement de la capacité aéroportuaire — l'aéroport Mohammed V de Casablanca est reconstruit pour accueillir plus de 30 millions de passagers par an.",
+      "p4": "Tout cela ne concerne pas uniquement le football. Les routes, les trains et les aéroports construits pour la Coupe du Monde serviront les voyageurs bien après le coup de sifflet final, rendant <bold>Marrakech, Fès, Casablanca</bold> et le sud plus accessibles que jamais. Le rapprochement avec l'Algérie voisine a également rouvert des routes terrestres, tandis que les navires de croisière remplissent les ports de Casablanca et Tanger.",
+      "p5": "La plupart des visiteurs viennent pour la même raison : le mélange de culture et de paysage concentré dans un seul pays. Les villes impériales comme <bold>Fès et Marrakech</bold> renferment des siècles d'histoire islamique et romaine dans leurs médinas et kasbahs. La côte atlantique autour d'Agadir attire les amateurs de soleil de France, d'Espagne et du Royaume-Uni toute l'année, tandis que l'Atlas et le Rif attirent les randonneurs. Et puis il y a le désert. Un voyage au Maroc sans une nuit sous les étoiles près de <bold>Merzouga</bold>, balade à dos de chameau incluse, est largement considéré comme incomplet. Que ce soient les souks d'une médina, un coucher de soleil sur les dunes ou un village de montagne tranquille, le <bold>Maroc</bold> donne toujours une raison d'y revenir — et avec 2030 à l'horizon, il n'y a jamais eu de meilleur moment pour partir."
+    },
+    "destinations": {
+      "eyebrow": "Où aller",
+      "title": "Les Meilleures Destinations du Maroc",
+      "p1": "<bold>Marrakech</bold> est le point de départ de la plupart des voyages et l'endroit où les premières impressions frappent le plus fort. La Ville Rouge enferme des siècles d'histoire dans ses remparts ocre — la place Jemaa el-Fna vibre encore de conteurs et d'échoppes le soir, le Palais Bahia murmure la grandeur du XIXe siècle, et les souks derrière la place principale vendent tout, du cuir cousu main aux pyramides de cumin et de safran. Au-delà de la médina, le Jardin Majorelle offre un côté plus calme de la ville, tandis que les restaurants en terrasse de la Kasbah servent des tagines mijotés avec vue sur l'Atlas.",
+      "p2": "Au sud-est de Marrakech, le paysage s'ouvre sur l'un des trajets les plus cinématographiques du Maroc. La route franchit le <bold>col du Tizi n'Tichka</bold> à 2 260 mètres, descend vers la kasbah UNESCO d'<bold>Aït Ben Haddou</bold> — décor de Gladiator et Game of Thrones — et continue à travers les <bold>gorges du Dadès et du Todra</bold> avant d'atteindre les dunes dorées de l'<bold>Erg Chebbi près de Merzouga</bold>. Ce sont les plus hautes dunes de sable du Maroc, culminant à plus de 150 mètres, et le décor du classique <bold>circuit désert de Marrakech</bold> : une balade à dos de chameau au coucher du soleil, des percussions berbères autour d'un feu de camp et une nuit sous un ciel constellé d'étoiles.",
+      "p3": "<bold>Fès</bold> donne l'impression de remonter 800 ans dans le temps. La vieille médina — Fès el-Bali — est la plus grande zone urbaine piétonne au monde, un labyrinthe de 9 000 ruelles abritant l'Université al-Qarawiyyin (fondée en 859, la plus ancienne institution diplômante au monde), des tanneries utilisant encore des techniques médiévales, et des mosquées dont les zelliges ont pris des générations à achever. Plus au nord, <bold>Chefchaouen</bold> se niche dans les montagnes du Rif avec chaque mur, porte et escalier peint en nuances de bleu.",
+      "p4": "Sur la côte atlantique, <bold>Essaouira</bold> attire les amateurs de vent, les surfeurs et les artistes dans son port bordé de remparts, tandis qu'<bold>Agadir</bold> et <bold>Taghazout</bold> offrent de longues plages de sable et une douceur toute l'année. Au sud, les vallées oasiennes du <bold>Draa</bold> et du <bold>Ziz</bold> traversent des palmeraies et des villages fortifiés, reliant Marrakech à la lisière du Sahara à travers certains des paysages les plus secrètement beaux d'Afrique du Nord."
+    },
+    "practical": {
+      "eyebrow": "Avant de partir",
+      "title": "Conseils Pratiques pour Voyager au Maroc",
+      "p1": "La <bold>meilleure période pour visiter le Maroc</bold> dépend de votre destination. Mars à mai et septembre à novembre offrent les températures les plus agréables — journées chaudes à Marrakech (22-28°C), nuits fraîches dans le désert et ciel dégagé en montagne. L'été est idéal pour la côte atlantique (Essaouira, Agadir), tandis que l'hiver apporte la neige dans l'Atlas et des nuits sahariennes étoilées, en faisant une saison étonnamment bonne pour les <bold>circuits désert depuis Marrakech</bold>.",
+      "p2": "Les citoyens de l'UE, du Royaume-Uni, des États-Unis, du Canada, d'Australie et de plus de 70 autres pays peuvent entrer au <bold>Maroc sans visa</bold> pour des séjours jusqu'à 90 jours. La monnaie nationale est le <bold>dirham marocain (MAD)</bold>, avec 1 EUR ≈ 11 MAD. Les voyageurs à petit budget peuvent explorer confortablement avec 30-50 € par jour ; les budgets intermédiaires (80-150 €/jour) permettent de profiter de beaux riads, de guides privés et d'excellents repas.",
+      "p3": "Le <bold>Maroc</bold> est parmi les pays les plus sûrs d'Afrique pour le tourisme. Les précautions standard s'appliquent — sécuriser ses objets de valeur dans les souks bondés, utiliser des guides agréés dans les médinas et réserver ses circuits désert auprès d'opérateurs établis. Le français est largement parlé aux côtés de l'arabe et du tamazight, et l'anglais progresse rapidement. Notre équipe chez <bold>Tours Marrakech Desert</bold> parle français, anglais, espagnol et arabe, et est disponible à toute heure pour vous accompagner."
+    }
+  },
   "NotFound": {
     "title": "Page introuvable",
     "description": "Désolé, la page que vous recherchez n'existe pas.",

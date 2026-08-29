@@ -7,6 +7,7 @@ import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import "./globals.css";
 import { setRequestLocale } from "next-intl/server";
+import { Toaster } from "sonner";
 
 
 const cormorant = Cormorant_Garamond({
@@ -157,6 +158,7 @@ export default async function LocaleLayout({children,params,}: {children: React.
           <Header />
           <main className="flex-1 w-full">{children}</main>
           <Footer />
+          <Toaster position="top-right" richColors />
         </NextIntlClientProvider>
       </body>
     </html>
