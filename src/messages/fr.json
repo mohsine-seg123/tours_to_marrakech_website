@@ -1,4 +1,12 @@
 {
+  "Hero": {
+    "eyebrow": "voyage au maroc circuit",
+    "title": "Tours <highlight>Marrakech</highlight> Désert",
+    "subtitle": "Circuit Désert de Marrakech & Voyages au Maroc",
+    "description": "Explorez le Maroc avec des experts locaux. Circuits privés, excursions dans le désert et activités inoubliables, avec des itinéraires sur mesure vers le Sahara.",
+    "ctaPrimary": "Circuits Privés",
+    "ctaSecondary": "Activités"
+  },
   "Destinations": {
     "title": "Explorez les Meilleures Destinations du Maroc",
     "subtitle": "Des dunes du Sahara aux ruelles bleues de Chefchaouen, trouvez votre prochaine aventure.",
@@ -27,17 +35,17 @@
     }
   },
    "MarrakechDesertSection": {
-    "imageAlt": "Caravane de chameaux traversant les dunes du Sahara au coucher du soleil",
+    "imageAlt": "Silhouette de caravane de chameaux traversant les dunes de l'Erg Chebbi au coucher du soleil",
 
-    "eyebrow": "Voyages authentiques de Marrakech au Sahara",
+    "eyebrow": "Circuits désert conçus par des experts berbères locaux",
 
-    "title": "Vos Experts du Circuit Désert de Marrakech",
+    "title": "Circuits Désert de Marrakech Conçus Pour Vous",
 
-    "paragraph1": "Un <bold>circuit désert au départ de Marrakech</bold> est bien plus qu'un voyage — c'est une traversée à travers des siècles de culture berbère, des paysages spectaculaires et le silence du Sahara. Chez Tours Marrakech Desert, notre équipe locale conçoit chaque itinéraire pour allier les sites emblématiques comme Aït Ben Haddou et la Vallée du Dadès avec des trésors cachés que seuls les locaux connaissent.",
+    "paragraph1": "Chaque <bold>circuit désert au départ de Marrakech</bold> que nous concevons commence par une question : à quoi ressemble votre expérience saharienne idéale ? Notre équipe d'origine berbère associe les incontournables — les kasbahs d'Aït Ben Haddou, les gorges du Todra, la Vallée du Dadès parfumée de roses — avec des détours hors des sentiers battus, des maisons d'hôtes familiales et des récits qu'aucun guide ne raconte.",
 
-    "paragraph2": "Que vous choisissiez une escapade de 2 jours à Zagora ou le classique circuit de 3 jours de <bold>Marrakech à Merzouga</bold> à travers les dunes de l'Erg Chebbi, chaque détail est pris en charge : transport en 4×4 confortable, riads sélectionnés, balade à dos de chameau au coucher du soleil et nuit sous les étoiles du Sahara.",
+    "paragraph2": "Optez pour un <bold>circuit désert de 2 jours à Zagora</bold> pour une première rencontre avec les dunes, le célèbre itinéraire de 3 jours de <bold>Marrakech à Merzouga</bold> à travers les imposantes dunes de l'Erg Chebbi, ou un circuit entièrement personnalisé à votre rythme. Chaque voyage inclut un 4×4 privé climatisé, des nuits en riads sélectionnés, une balade à dos de chameau au coucher du soleil et une nuit étoilée dans un camp berbère traditionnel.",
 
-    "cta": "Découvrir Nos Circuits Désert"
+    "cta": "Trouvez Votre Circuit Désert Idéal"
   },
   "FAQ": {
     "title": "Questions Fréquentes",

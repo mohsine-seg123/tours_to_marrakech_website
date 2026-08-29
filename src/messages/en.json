@@ -1,4 +1,12 @@
 {
+  "Hero": {
+    "eyebrow": "Morocco Expert Tours",
+    "title": "Tours <highlight>Marrakech</highlight> Desert",
+    "subtitle": "Marrakech Desert Tour & Morocco Tour Package",
+    "description": "Explore Morocco with local experts. Private tours, desert day trips and unforgettable activities, with tailor-made itineraries to the Sahara and beyond.",
+    "ctaPrimary": "Private Tours",
+    "ctaSecondary": "Activities"
+  },
   "Destinations": {
     "title": " Morocco Top Destinations",
     "subtitle": "From the Sahara dunes to the blue streets of Chefchaouen, find your next adventure.",
@@ -27,17 +35,17 @@
     }
   },
   "MarrakechDesertSection": {
-    "imageAlt": "Camel caravan crossing the Sahara dunes at sunset on a Marrakech desert tour",
+    "imageAlt": "Camel caravan silhouette crossing Erg Chebbi dunes at sunset on a Marrakech to Merzouga desert tour",
 
-    "eyebrow": "Authentic journeys from Marrakech to the Sahara",
+    "eyebrow": "Sahara desert tours crafted by local Berber experts",
 
-    "title": "Your Trusted Marrakech Desert Tour Experts",
+    "title": "Marrakech Desert Tours Built Around You",
 
-    "paragraph1": "A <bold>Marrakech desert tour</bold> is more than a trip  it's a journey through centuries of Berber culture, dramatic landscapes and Saharan silence. At Tours Marrakech Desert, our locally based team crafts each route to balance iconic highlights like Aït Ben Haddou and the Dadès Valley with hidden gems that only insiders know.",
+    "paragraph1": "Every <bold>Marrakech desert tour</bold> we design starts with one question: what does your perfect Sahara experience look like? Our Berber-born team pairs must-see landmarks — the kasbahs of Aït Ben Haddou, the gorges of Todra, the rose-scented Dadès Valley — with off-road detours, family-run guesthouses and stories no guidebook tells.",
 
-    "paragraph2": "Whether you choose a 2-day escape to Zagora or the classic 3-day <bold>Marrakech to Merzouga</bold> adventure across the Erg Chebbi dunes, every detail is handled: comfortable 4×4 transport, hand-picked riads, sunset camel treks and a night under the Saharan stars.",
+    "paragraph2": "Choose a 2-day <bold>Zagora desert tour</bold> for a first taste of the dunes, the signature 3-day <bold>Marrakech to Merzouga</bold> route across the towering Erg Chebbi sands, or a fully custom itinerary at your own pace. Every trip includes a private 4×4 with A/C, hand-picked riad stays, a sunset camel trek and a starlit night in a traditional Berber camp.",
 
-    "cta": "Explore Our Desert Tours"
+    "cta": "Find Your Perfect Desert Tour"
   },
   "FAQ": {
     "title": "Frequently Asked Questions",
