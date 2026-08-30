@@ -173,6 +173,89 @@
       "p3": "<bold>Marruecos</bold> es uno de los países más seguros de África para el turismo. Las precauciones estándar aplican — asegurar objetos de valor en zocos concurridos, usar guías con licencia en las medinas y reservar tours del desierto con operadores establecidos. El francés se habla ampliamente junto al árabe y tamazight, y el inglés crece rápidamente. Nuestro equipo en <bold>Tours Marrakech Desert</bold> habla español, inglés, francés y árabe, y está disponible las 24 horas para acompañarte."
     }
   },
+  "CustomTour": {
+    "meta": {
+      "title": "Personaliza Tu Tour por Marruecos — Aventuras del Desierto a Medida | Tours Marrakech Desert",
+      "description": "Diseña tu itinerario ideal por Marruecos con nuestros expertos locales. Tours privados del desierto desde Marrakech, aventuras personalizadas en el Sahara y viajes a medida adaptados a tu ritmo y presupuesto."
+    },
+    "hero": {
+      "eyebrow": "Experiencias Marroquíes a Medida",
+      "title": "Construye el Viaje a Marruecos que Siempre Soñaste",
+      "subtitle": "Sin itinerarios fijos, sin compromisos. Cuéntanos tu sueño y nuestro equipo bereber local diseñará un viaje completamente tuyo."
+    },
+    "intro": {
+      "eyebrow": "Tu Viaje, A Tu Manera",
+      "title": "Crea Tu Tour Perfecto por Marruecos",
+      "description": "Diseña un viaje adaptado a tus preferencias — desde destinos y actividades hasta ritmo y estilo. Ya busques aventura en el Sahara, cultura en las ciudades imperiales, relax en la costa atlántica o una mezcla de todo, crearemos una experiencia marroquí única para ti.",
+      "cta": "Personalizar Mi Tour"
+    },
+    "features": {
+      "guides": {
+        "title": "Guías Locales Expertos",
+        "description": "Nuestros guías locales usan su profunda experiencia en la cultura, historia y senderos ocultos de Marruecos para crear un tour diseñado enteramente alrededor de tus intereses — desde los vibrantes zocos de Marrakech hasta las dunas silenciosas del Sahara."
+      },
+      "timing": {
+        "title": "El Momento Ideal para Cada Destino",
+        "description": "Te asesoramos sobre las mejores épocas para visitar cada región. La primavera es ideal para Fez y el Atlas, el otoño para el Sahara, y el invierno para la costa atlántica alrededor de Essaouira y Agadir."
+      },
+      "itinerary": {
+        "title": "Itinerarios a Medida, Cero Compromisos",
+        "description": "Diseñamos itinerarios fluidos basados en tus lugares elegidos, combinando hitos icónicos como Aït Ben Haddou y Merzouga con joyas ocultas que solo los locales conocen. Cada ruta es personalizada, cada parada es intencional."
+      },
+      "booking": {
+        "title": "Proceso de Reserva Fácil y Flexible",
+        "description": "Comparte tus lugares imprescindibles, fechas preferidas y tamaño de grupo, y nosotros nos encargamos de cada detalle — transporte, alojamiento, guías y actividades. Contáctanos por WhatsApp, email o formulario, y recibe tu itinerario personalizado en 24 horas."
+      }
+    },
+    "steps": {
+      "eyebrow": "Simple y personal",
+      "title": "¿Cómo Funciona?",
+      "p1": "Todo empieza con una conversación. <bold>Cuéntanos qué te emociona de Marruecos</bold> — las dunas del Sahara, las calles azules de Chefchaouen, una clase de cocina en Marrakech, un amanecer en camello, o algo totalmente fuera de ruta. No hay respuestas incorrectas ni paquetes fijos.",
+      "p2": "En 24 horas, nuestro equipo te envía un <bold>itinerario personalizado detallado</bold> con un plan día a día, alojamientos seleccionados (riads, campamentos del desierto, hoteles boutique), actividades recomendadas y un desglose de precios transparente. Todo es ajustable — añade un día aquí, cambia una parada allá, mejora un hotel. Es tu viaje.",
+      "p3": "Una vez satisfecho, un <bold>depósito del 20% confirma tu reserva</bold>. El saldo se paga el primer día de tu tour, en efectivo o con tarjeta. Cambios de fecha gratuitos hasta 48 horas antes de la salida, y nuestro equipo está disponible durante todo tu viaje."
+    },
+    "promises": {
+      "title": "Lo Que Garantizamos",
+      "items": {
+        "private": {
+          "title": "Tours 100% Privados",
+          "description": "Cada tour a medida es exclusivamente tuyo — tu propio vehículo, tu propio guía, tu propio horario. Sin compartir con desconocidos."
+        },
+        "flexible": {
+          "title": "Itinerarios Completamente Flexibles",
+          "description": "¿Cambias de opinión durante el viaje? Sin problema. ¿Quieres quedarte una noche más en el desierto? Hecho. Tu itinerario se adapta a ti."
+        },
+        "support": {
+          "title": "Asistencia 24/7 Durante Tu Viaje",
+          "description": "Desde que aterrizas en Marruecos hasta tu último traslado al aeropuerto, nuestro equipo está a un mensaje de WhatsApp. Día y noche, estamos contigo."
+        },
+        "local": {
+          "title": "Conocimiento Local que No Puedes Googlear",
+          "description": "Nuestros guías de origen bereber conocen los atajos, los restaurantes familiares, los miradores sin multitudes y las historias detrás de cada puerta de kasbah. Eso es lo que hace un tour a medida inolvidable."
+        }
+      }
+    },
+    "sidebar": {
+      "title": "Explora Otras Opciones",
+      "description": "¿No estás seguro de un tour personalizado? Descubre nuestras experiencias listas abajo.",
+      "tours": {
+        "title": "Tours Privados del Desierto",
+        "desc": "Tours al Sahara de 2 a 7 días desde Marrakech"
+      },
+      "dayTrips": {
+        "title": "Excursiones",
+        "desc": "Essaouira, Atlas, Valle del Ourika"
+      },
+      "activities": {
+        "title": "Actividades",
+        "desc": "Quad, paseo en camello, globo, clase de cocina"
+      },
+      "students": {
+        "title": "Viajes para Estudiantes",
+        "desc": "Tours grupales para colegios y universidades"
+      }
+    }
+  },
   "NotFound": {
     "title": "Página no encontrada",
     "description": "Lo sentimos, la página que buscas no existe.",

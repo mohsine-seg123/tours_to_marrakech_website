@@ -172,6 +172,89 @@
     "p3": "<bold>Morocco</bold> ranks among the safest countries in Africa for tourism. Standard precautions apply — keep valuables secure in crowded souks, use licensed guides in the medinas, and book desert tours through established operators. French is widely spoken alongside Arabic and Tamazight, and English is growing rapidly, particularly among younger Moroccans in tourism. Our team at <bold>Tours Marrakech Desert</bold> speaks English, French, Spanish, and Arabic, and is available around the clock to help plan and support your journey."
   }
   },
+  "CustomTour": {
+    "meta": {
+      "title": "Customize Your Morocco Tour — Tailor-Made Desert Adventures | Tours Marrakech Desert",
+      "description": "Design your perfect Morocco itinerary with our local experts. Private Marrakech desert tours, custom Sahara adventures, and personalized journeys built around your pace, interests and budget."
+    },
+    "hero": {
+      "eyebrow": "Tailor-Made Morocco Experiences",
+      "title": "Build the Morocco Trip You've Always Imagined",
+      "subtitle": "No fixed itineraries, no compromises. Tell us what you dream of and our local Berber team will design a journey that's entirely yours."
+    },
+    "intro": {
+      "eyebrow": "Your Journey, Your Way",
+      "title": "Create Your Perfect Morocco Tour",
+      "description": "Design a journey tailored to your preferences — from destinations and activities to pace and style. Whether you seek adventure in the Sahara, culture in the imperial cities, relaxation on the Atlantic coast, or a mix of all three, we'll craft a unique Morocco experience just for you.",
+      "cta": "Customize Your Tour"
+    },
+    "features": {
+      "guides": {
+        "title": "Expert Local Guides",
+        "description": "Our local guides use their deep expertise in Morocco's culture, history and hidden trails to create a tour shaped entirely around your interests — from Marrakech's vibrant souks to the silent dunes of the Sahara."
+      },
+      "timing": {
+        "title": "Ideal Timing for Every Destination",
+        "description": "We guide you on the best times to visit each region for perfect weather and fewer crowds. Spring suits Fes and the Atlas, autumn is ideal for the Sahara, and winter is great for the Atlantic coast around Essaouira and Agadir."
+      },
+      "itinerary": {
+        "title": "Custom Itineraries, Zero Compromises",
+        "description": "We craft seamless itineraries based on your chosen spots, blending iconic landmarks like Aït Ben Haddou and Merzouga with hidden gems that only locals know. Every route is personalized, every stop is intentional."
+      },
+      "booking": {
+        "title": "Easy, Flexible Booking Process",
+        "description": "Share your must-see places, preferred dates and group size, and we'll handle every detail — transport, accommodation, guides and activities. Contact us by WhatsApp, email or form, and receive your custom itinerary within 24 hours."
+      }
+    },
+    "steps": {
+      "eyebrow": "Simple and personal",
+      "title": "How Does It Work?",
+      "p1": "It starts with a conversation. <bold>Tell us what excites you about Morocco</bold> — the Sahara dunes, the blue streets of Chefchaouen, a cooking class in Marrakech, a sunrise camel trek, or something entirely off the beaten path. There are no wrong answers and no fixed packages to choose from.",
+      "p2": "Within 24 hours, our team sends you a <bold>detailed custom itinerary</bold> with a day-by-day plan, hand-picked accommodations (riads, desert camps, boutique hotels), recommended activities, and a transparent price breakdown. Everything is adjustable — add a day here, swap a stop there, upgrade a hotel. It's your trip.",
+      "p3": "Once you're happy, a small <bold>20% deposit confirms your booking</bold>. The balance is payable on the first day of your tour, in cash or by card. Free date changes up to 48 hours before departure, and our team is on call throughout your journey for anything you need."
+    },
+    "promises": {
+      "title": "What We Guarantee",
+      "items": {
+        "private": {
+          "title": "100% Private Tours",
+          "description": "Every custom tour is exclusively yours — your own vehicle, your own guide, your own schedule. No sharing with strangers, no rushed group stops."
+        },
+        "flexible": {
+          "title": "Fully Flexible Itineraries",
+          "description": "Change your mind mid-trip? No problem. Want to stay an extra night in the desert? Done. Your itinerary adapts to you, not the other way around."
+        },
+        "support": {
+          "title": "24/7 On-Trip Support",
+          "description": "From the moment you land in Morocco to your last airport transfer, our team is one WhatsApp message away. Day or night, rain or shine, we've got your back."
+        },
+        "local": {
+          "title": "Local Knowledge You Can't Google",
+          "description": "Our Berber-born guides know the shortcuts, the family-run restaurants, the viewpoints without crowds, and the stories behind every kasbah door. That's what makes a custom tour unforgettable."
+        }
+      }
+    },
+    "sidebar": {
+      "title": "Explore Other Options",
+      "description": "Not sure about a custom tour? Browse our ready-made experiences below.",
+      "tours": {
+        "title": "Private Desert Tours",
+        "desc": "2 to 7-day Sahara tours from Marrakech"
+      },
+      "dayTrips": {
+        "title": "Day Trips",
+        "desc": "Essaouira, Atlas Mountains, Ourika Valley"
+      },
+      "activities": {
+        "title": "Activities",
+        "desc": "Quad, camel ride, hot air balloon, cooking class"
+      },
+      "students": {
+        "title": "Student Trips",
+        "desc": "Group tours designed for schools and universities"
+      }
+    }
+  },
   "NotFound": {
     "title": "Page not found",
     "description": "Sorry, the page you are looking for does not exist.",

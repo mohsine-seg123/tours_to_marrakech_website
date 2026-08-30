@@ -50,6 +50,12 @@ export const routing = defineRouting({
       es: "/actividades/[slug]",
     },
 
+    "/morocco-student-trips": {
+      en: "/morocco-student-trips",
+      fr: "/voyages-etudiants-maroc",
+      es: "/viajes-estudiantes-marruecos",
+    },
+
     // Customize
     "/customize-your-tour": {
       en: "/customize-your-tour",

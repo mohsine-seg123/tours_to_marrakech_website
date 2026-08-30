@@ -173,6 +173,89 @@
       "p3": "Le <bold>Maroc</bold> est parmi les pays les plus sûrs d'Afrique pour le tourisme. Les précautions standard s'appliquent — sécuriser ses objets de valeur dans les souks bondés, utiliser des guides agréés dans les médinas et réserver ses circuits désert auprès d'opérateurs établis. Le français est largement parlé aux côtés de l'arabe et du tamazight, et l'anglais progresse rapidement. Notre équipe chez <bold>Tours Marrakech Desert</bold> parle français, anglais, espagnol et arabe, et est disponible à toute heure pour vous accompagner."
     }
   },
+  "CustomTour": {
+    "meta": {
+      "title": "Personnalisez Votre Circuit au Maroc — Aventures Désert Sur Mesure | Tours Marrakech Desert",
+      "description": "Concevez votre itinéraire idéal au Maroc avec nos experts locaux. Circuits désert privés au départ de Marrakech, aventures Sahara personnalisées et voyages sur mesure adaptés à votre rythme et budget."
+    },
+    "hero": {
+      "eyebrow": "Expériences Marocaines Sur Mesure",
+      "title": "Construisez le Voyage au Maroc que Vous Avez Toujours Rêvé",
+      "subtitle": "Pas d'itinéraires figés, pas de compromis. Dites-nous ce dont vous rêvez et notre équipe berbère locale concevra un voyage entièrement pour vous."
+    },
+    "intro": {
+      "eyebrow": "Votre Voyage, À Votre Façon",
+      "title": "Créez Votre Circuit Maroc Idéal",
+      "description": "Concevez un voyage adapté à vos préférences — des destinations et activités au rythme et au style. Que vous cherchiez l'aventure au Sahara, la culture dans les villes impériales, la détente sur la côte atlantique ou un mélange des trois, nous créerons une expérience marocaine unique pour vous.",
+      "cta": "Personnaliser Mon Circuit"
+    },
+    "features": {
+      "guides": {
+        "title": "Guides Locaux Experts",
+        "description": "Nos guides locaux utilisent leur expertise approfondie de la culture, de l'histoire et des sentiers cachés du Maroc pour créer un circuit façonné entièrement autour de vos intérêts — des souks animés de Marrakech aux dunes silencieuses du Sahara."
+      },
+      "timing": {
+        "title": "Le Meilleur Moment pour Chaque Destination",
+        "description": "Nous vous guidons sur les meilleures périodes pour visiter chaque région. Le printemps convient à Fès et l'Atlas, l'automne est idéal pour le Sahara, et l'hiver est parfait pour la côte atlantique autour d'Essaouira et d'Agadir."
+      },
+      "itinerary": {
+        "title": "Itinéraires Sur Mesure, Zéro Compromis",
+        "description": "Nous élaborons des itinéraires harmonieux basés sur vos lieux choisis, alliant sites emblématiques comme Aït Ben Haddou et Merzouga avec des trésors cachés que seuls les locaux connaissent. Chaque route est personnalisée, chaque étape est intentionnelle."
+      },
+      "booking": {
+        "title": "Réservation Simple et Flexible",
+        "description": "Partagez vos lieux incontournables, dates préférées et taille de groupe, et nous gérons chaque détail — transport, hébergement, guides et activités. Contactez-nous par WhatsApp, email ou formulaire, et recevez votre itinéraire sur mesure sous 24 heures."
+      }
+    },
+    "steps": {
+      "eyebrow": "Simple et personnel",
+      "title": "Comment Ça Marche ?",
+      "p1": "Tout commence par une conversation. <bold>Dites-nous ce qui vous passionne au Maroc</bold> — les dunes du Sahara, les ruelles bleues de Chefchaouen, un cours de cuisine à Marrakech, un lever de soleil à dos de chameau, ou quelque chose de totalement hors des sentiers battus. Il n'y a pas de mauvaise réponse et pas de forfait figé.",
+      "p2": "Sous 24 heures, notre équipe vous envoie un <bold>itinéraire sur mesure détaillé</bold> avec un programme jour par jour, des hébergements sélectionnés (riads, camps désert, hôtels boutique), des activités recommandées et un devis transparent. Tout est ajustable — ajoutez un jour ici, changez une étape là, améliorez un hôtel. C'est votre voyage.",
+      "p3": "Une fois satisfait, un <bold>acompte de 20 % confirme votre réservation</bold>. Le solde est payable le premier jour de votre circuit, en espèces ou par carte. Changements de date gratuits jusqu'à 48 heures avant le départ, et notre équipe reste disponible tout au long de votre voyage."
+    },
+    "promises": {
+      "title": "Ce Que Nous Garantissons",
+      "items": {
+        "private": {
+          "title": "Circuits 100% Privés",
+          "description": "Chaque circuit sur mesure est exclusivement le vôtre — votre propre véhicule, votre propre guide, votre propre emploi du temps. Pas de partage avec des inconnus."
+        },
+        "flexible": {
+          "title": "Itinéraires Entièrement Flexibles",
+          "description": "Vous changez d'avis en cours de route ? Aucun problème. Vous voulez rester une nuit de plus dans le désert ? C'est fait. Votre itinéraire s'adapte à vous."
+        },
+        "support": {
+          "title": "Assistance 24/7 Pendant Votre Voyage",
+          "description": "De votre atterrissage au Maroc à votre dernier transfert aéroport, notre équipe est à un message WhatsApp. Jour et nuit, nous sommes là pour vous."
+        },
+        "local": {
+          "title": "Un Savoir Local Introuvable sur Google",
+          "description": "Nos guides d'origine berbère connaissent les raccourcis, les restaurants familiaux, les points de vue sans foule et les histoires derrière chaque porte de kasbah. C'est ce qui rend un circuit sur mesure inoubliable."
+        }
+      }
+    },
+    "sidebar": {
+      "title": "Explorez D'autres Options",
+      "description": "Pas sûr pour un circuit sur mesure ? Découvrez nos expériences prêtes ci-dessous.",
+      "tours": {
+        "title": "Circuits Désert Privés",
+        "desc": "Circuits Sahara de 2 à 7 jours depuis Marrakech"
+      },
+      "dayTrips": {
+        "title": "Excursions",
+        "desc": "Essaouira, Atlas, Vallée de l'Ourika"
+      },
+      "activities": {
+        "title": "Activités",
+        "desc": "Quad, balade en chameau, montgolfière, cours de cuisine"
+      },
+      "students": {
+        "title": "Voyages Étudiants",
+        "desc": "Circuits de groupe pour écoles et universités"
+      }
+    }
+  },
   "NotFound": {
     "title": "Page introuvable",
     "description": "Désolé, la page que vous recherchez n'existe pas.",

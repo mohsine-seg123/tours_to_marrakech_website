@@ -7,6 +7,7 @@ import {
   Plane,
   Globe,
 } from "lucide-react";
+import { getPathname } from "@/i18n/routing";
 
 
 
@@ -17,7 +18,10 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://toursmarrakechdesert.com";
 
-  const path = locale === "en" ? "/about/morocco-tourist" : `/${locale}/about/morocco-tourist`;
+  const localizedPath = getPathname({
+    locale,
+    href: "/about/morocco_tourist",
+  });
 
   return {
     title: t("title"),
@@ -35,7 +39,7 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
       "is morocco safe for tourists",
     ],
     alternates: {
-      canonical: `${baseUrl}${path}`,
+      canonical: `${baseUrl}${localizedPath}`,
       languages: {
         en: `${baseUrl}/about/morocco-tourist`,
         fr: `${baseUrl}/fr/a-propos/tourisme-maroc`,
@@ -46,7 +50,7 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: `${baseUrl}${path}`,
+      url: `${baseUrl}${localizedPath}`,
       siteName: "Tours Marrakech Desert",
       type: "article",
       images: [
@@ -151,7 +155,7 @@ export default async function MoroccoTouristPage({params,}: {params: Promise<{ l
 
           {/* Content */}
           <div className="relative mx-auto flex min-h-[360px] max-w-4xl flex-col items-center justify-center px-4 py-14 text-center sm:px-6 lg:min-h-[500px] lg:px-8">
-            <span className="text-xl font-bold uppercase tracking-widest text-primary drop-shadow-md">
+            <span className="text-xl font-bold uppercase tracking-widest text-orange-100 drop-shadow-md">
               {t("hero.eyebrow")}
             </span>
             <h1 className="mt-4 text-3xl font-bold leading-tight text-white drop-shadow-lg sm:text-4xl lg:text-5xl xl:text-6xl">
