@@ -57,7 +57,7 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
 
   const content = metadataByLocale[locale as keyof typeof metadataByLocale] ?? metadataByLocale.en;
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://toursmarrakechdesert.com";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://toursmarrakechdesert.com";
 
   const currentUrl = locale === "en" ? baseUrl : `${baseUrl}/${locale}`;
 
@@ -137,6 +137,7 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
     },
   };
 }
+
 
 export default async function LocaleLayout({children,params,}: {children: React.ReactNode;params: Promise<{ locale: string }>;}) {
 

@@ -23,7 +23,7 @@ const WHATSAPP_NUMBER = "212642618936";
 
 const SITE = {
   name: "Marrakech Package",
-  url: "https://marrakechpackage.com",
+  url: "https://toursmarrakechdesert.com",
   email: "info@marrakechpackage.com",
   phone: "+212642618936",
   city: "Marrakech",
@@ -68,28 +68,6 @@ const ITEMS: ContactItem[] = [
   },
 ];
 
-const REASONS: Reason[] = [
-  {
-    icon: <Zap className="h-6 w-6" aria-hidden="true" />,
-    title: "Fast Response",
-    description: "We reply quickly to every inquiry.",
-  },
-  {
-    icon: <Users className="h-6 w-6" aria-hidden="true" />,
-    title: "Local Experts",
-    description: "Get advice directly from people who know Morocco.",
-  },
-  {
-    icon: <Map className="h-6 w-6" aria-hidden="true" />,
-    title: "Tailor-Made Tours",
-    description: "Every itinerary is customized for your travel style.",
-  },
-  {
-    icon: <ShieldCheck className="h-6 w-6" aria-hidden="true" />,
-    title: "Honest & Transparent",
-    description: "No hidden fees. Just clear communication and fair pricing.",
-  },
-];
 
 const FAQS: Faq[] = [
   {
