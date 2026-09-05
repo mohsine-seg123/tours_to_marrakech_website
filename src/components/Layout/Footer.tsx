@@ -41,7 +41,7 @@ export default async function Footer() {
   return (
     <footer className="w-full bg-footer text-footer-foreground">
     
-      <section className="border-b border-footer-border bg-footer px-4 py-6 sm:px-6 lg:px-8">
+      {/* <section className="border-b border-footer-border bg-footer px-4 py-6 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
           <h2 className="text-2xl font-bold text-footer-foreground sm:text-3xl lg:text-4xl">
             {t("cta.title")}
@@ -67,7 +67,7 @@ export default async function Footer() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Main Footer Grid ── */}
       <section className="px-4 py-6 sm:px-6 lg:px-8">

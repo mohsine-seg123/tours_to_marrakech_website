@@ -2,8 +2,11 @@
 
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
+import { useParams } from "next/navigation";
+import { useAlternateSlugs } from "@/contexts/AlternateSlugsContext";
+import type { Locale } from "@/lib/supabase/blogs";
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 const LANGUAGES = [
@@ -28,6 +31,8 @@ function FlagIcon({ country, alt }: { country: string; alt: string }) {
 export default function LanguageSwitcher() {
   const locale = useLocale();
   const pathname = usePathname();
+  const params = useParams(); // ex: { slug: "ultimate-guide-solo-travel-morocco" } sur /blog/[slug]
+  const { alternateSlugs } = useAlternateSlugs();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -49,11 +54,23 @@ export default function LanguageSwitcher() {
   }, []);
 
   const handleChange = (newLocale: string) => {
-    router.replace(
-      // @ts-expect-error — pathname includes dynamic segments at runtime
-      pathname,
-      { locale: newLocale },
-    );
+    const currentSlug =
+      typeof params.slug === "string" ? params.slug : undefined;
+    const targetSlug =
+      pathname === "/blog/[slug]"
+        ? (alternateSlugs?.[newLocale as Locale] ?? currentSlug)
+        : currentSlug;
+
+    if (pathname === "/blog/[slug]") {
+      router.replace(
+        { pathname, params: { slug: targetSlug ?? "" } },
+        { locale: newLocale },
+      );
+    } else {
+      // Runtime pathname and useParams() cannot be correlated by next-intl's types.
+      // @ts-expect-error -- params match the current dynamic pathname at runtime.
+      router.replace({ pathname, params }, { locale: newLocale });
+    }
     setIsOpen(false);
   };
 

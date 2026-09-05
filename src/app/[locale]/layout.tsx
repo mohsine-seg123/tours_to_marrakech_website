@@ -8,7 +8,7 @@ import Footer from "@/components/Layout/Footer";
 import "./globals.css";
 import { setRequestLocale } from "next-intl/server";
 import { Toaster } from "sonner";
-
+import { AlternateSlugsProvider } from "@/contexts/AlternateSlugsContext";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -16,7 +16,6 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
-
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -29,8 +28,11 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-
-export async function generateMetadata({params,}: {params: Promise<{ locale: string }>;}): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
 
   const metadataByLocale = {
@@ -55,9 +57,12 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
     },
   };
 
-  const content = metadataByLocale[locale as keyof typeof metadataByLocale] ?? metadataByLocale.en;
+  const content =
+    metadataByLocale[locale as keyof typeof metadataByLocale] ??
+    metadataByLocale.en;
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://toursmarrakechdesert.com";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL ?? "https://toursmarrakechdesert.com";
 
   const currentUrl = locale === "en" ? baseUrl : `${baseUrl}/${locale}`;
 
@@ -138,12 +143,16 @@ export async function generateMetadata({params,}: {params: Promise<{ locale: str
   };
 }
 
-
-export default async function LocaleLayout({children,params,}: {children: React.ReactNode;params: Promise<{ locale: string }>;}) {
-
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
 
-  setRequestLocale(locale); 
+  setRequestLocale(locale);
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -156,10 +165,12 @@ export default async function LocaleLayout({children,params,}: {children: React.
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <NextIntlClientProvider>
-          <Header />
-          <main className="flex-1 w-full">{children}</main>
-          <Footer />
-          <Toaster position="top-right" richColors />
+          <AlternateSlugsProvider>
+            <Header />
+            <main className="flex-1 w-full">{children}</main>
+            <Footer />
+            <Toaster position="top-right" richColors />
+          </AlternateSlugsProvider>
         </NextIntlClientProvider>
       </body>
     </html>

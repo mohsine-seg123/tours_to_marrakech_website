@@ -35,18 +35,18 @@
     }
   },
     "MarrakechDesertSection": {
-    "imageAlt": "Silueta de caravana de camellos cruzando las dunas de Erg Chebbi al atardecer",
+      "imageAlt": "Silueta de caravana de camellos cruzando las dunas de Erg Chebbi al atardecer",
 
-    "eyebrow": "Tours del desierto diseñados por expertos bereberes locales",
+      "eyebrow": "Tours del desierto diseñados por expertos bereberes locales",
 
-    "title": "Tours del Desierto de Marrakech Diseñados Para Ti",
+      "title": "Tours del Desierto de Marrakech Diseñados Para Ti",
 
-    "paragraph1": "Cada <bold>tour del desierto desde Marrakech</bold> que diseñamos empieza con una pregunta: ¿cómo sería tu experiencia perfecta en el Sahara? Nuestro equipo de origen bereber combina los lugares imprescindibles — las kasbahs de Aït Ben Haddou, las gargantas del Todra, el Valle del Dadès perfumado de rosas — con desvíos fuera de ruta, casas de huéspedes familiares e historias que ninguna guía cuenta.",
+      "paragraph1": "Cada <bold>tour del desierto desde Marrakech</bold> que diseñamos empieza con una pregunta: ¿cómo sería tu experiencia perfecta en el Sahara? Nuestro equipo de origen bereber combina los lugares imprescindibles — las kasbahs de Aït Ben Haddou, las gargantas del Todra, el Valle del Dadès perfumado de rosas — con desvíos fuera de ruta, casas de huéspedes familiares e historias que ninguna guía cuenta.",
 
-    "paragraph2": "Elige un <bold>tour del desierto de 2 días a Zagora</bold> para un primer contacto con las dunas, la emblemática ruta de 3 días de <bold>Marrakech a Merzouga</bold> a través de las imponentes dunas de Erg Chebbi, o un itinerario totalmente personalizado a tu ritmo. Cada viaje incluye un 4×4 privado con aire acondicionado, noches en riads seleccionados, paseo en camello al atardecer y una noche estrellada en un campamento bereber tradicional.",
+      "paragraph2": "Elige una escapada corta al desierto para una primera toma de contacto con las dunas, una <bold>travesía de varios días</bold> hasta las imponentes arenas del Sahara, o un itinerario totalmente personalizado a tu ritmo. Cada viaje incluye un 4×4 privado con A/C, riads cuidadosamente seleccionados, un paseo en camello al atardecer y una noche estrellada en un campamento bereber tradicional.",
 
-    "cta": "Encuentra Tu Tour del Desierto Ideal"
-  },
+      "cta": "Encuentra Tu Tour del Desierto Ideal"
+    },
   "FAQ": {
     "title": "Preguntas Frecuentes",
     "subtitle": "Todo lo que necesitas saber antes de reservar tu tour al desierto desde Marrakech",
@@ -256,6 +256,11 @@
       }
     }
   },
+  "blogs": {
+  "title": "Blog Tours y Desierto Marrakech",
+  "subtitle": "Historias, Guías y Secretos Locales",
+  "content": "Descubre consejos de expertos, rutas recomendadas y secretos locales para planificar tu viaje inolvidable por Marruecos."
+},
   "NotFound": {
     "title": "Página no encontrada",
     "description": "Lo sentimos, la página que buscas no existe.",

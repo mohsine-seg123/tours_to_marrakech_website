@@ -43,7 +43,7 @@
 
     "paragraph1": "Every <bold>Marrakech desert tour</bold> we design starts with one question: what does your perfect Sahara experience look like ? Our Berber-born team pairs must see landmarks, the kasbahs of Aït Ben Haddou, the gorges of Todra, the rose-scented Dadès Valley with off-road detours, family run guesthouses and stories no guidebook tells.",
 
-    "paragraph2": "Choose a 2-day <bold>Zagora desert tour</bold> for a first taste of the dunes, the signature 3-day <bold>Marrakech to Merzouga</bold> route across the towering Erg Chebbi sands, or a fully custom itinerary at your own pace. Every trip includes a private 4×4 with A/C, hand-picked riad stays, a sunset camel trek and a starlit night in a traditional Berber camp.",
+    "paragraph2": "Choose a short desert getaway for a first taste of the dunes, a multi-day <bold>desert crossing</bold> to reach the towering Saharan sands, or a fully custom itinerary at your own pace. Every trip includes a private 4×4 with A/C, hand-picked riad stays, a sunset camel trek and a starlit night in a traditional Berber camp.",
 
     "cta": "Find Your Perfect Desert Tour"
   },
@@ -254,6 +254,11 @@
         "desc": "Group tours designed for schools and universities"
       }
     }
+  },
+  "blogs":{
+    "title": "tours marrakech desert blogs",
+    "subtitle":" Stories, Guides & Local Secrets",
+    "content": "Discover expert advice, insider travel tips, and inspiring stories to help you plan your ultimate journey through Morocco."
   },
   "NotFound": {
     "title": "Page not found",

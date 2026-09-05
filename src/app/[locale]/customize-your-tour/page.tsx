@@ -416,7 +416,7 @@ const jsonLd = {
               </Link>
 
               <Link
-                href="/morocco-student-trips"
+                href="/offers"
                 className="group flex items-center gap-4 rounded-xl border border-primary p-4"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">

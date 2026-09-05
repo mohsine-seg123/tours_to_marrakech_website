@@ -47,7 +47,7 @@ const NAV_LINKS: NavLink[] = [
   { href: "/day-trips", label: "Day Trips" },
   { href: "/activities", label: "Activities" },
   { href: "/customize-your-tour", label: "Custom Tour" },
-  { href: "/morocco-student-trips", label: "Student Trips" },
+  { href: "/offers", label: "Offers" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About Us", dropdown: ABOUT_DROPDOWN },
   { href: "/contact", label: "Contact" },

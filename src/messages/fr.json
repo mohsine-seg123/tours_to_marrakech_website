@@ -43,9 +43,9 @@
 
     "paragraph1": "Chaque <bold>circuit désert au départ de Marrakech</bold> que nous concevons commence par une question : à quoi ressemble votre expérience saharienne idéale ? Notre équipe d'origine berbère associe les incontournables — les kasbahs d'Aït Ben Haddou, les gorges du Todra, la Vallée du Dadès parfumée de roses — avec des détours hors des sentiers battus, des maisons d'hôtes familiales et des récits qu'aucun guide ne raconte.",
 
-    "paragraph2": "Optez pour un <bold>circuit désert de 2 jours à Zagora</bold> pour une première rencontre avec les dunes, le célèbre itinéraire de 3 jours de <bold>Marrakech à Merzouga</bold> à travers les imposantes dunes de l'Erg Chebbi, ou un circuit entièrement personnalisé à votre rythme. Chaque voyage inclut un 4×4 privé climatisé, des nuits en riads sélectionnés, une balade à dos de chameau au coucher du soleil et une nuit étoilée dans un camp berbère traditionnel.",
+    "paragraph2": "Optez pour une courte escapade dans le désert pour une première découverte des dunes, une <bold>traversée du désert</bold> de plusieurs jours vers les majestueuses dunes sahariennes, ou un itinéraire entièrement sur-mesure à votre rythme. Chaque voyage comprend un 4×4 privé climatisé, des riads soigneusement sélectionnés, une balade à dos de chameau au coucher du soleil et une nuit étoilée dans un camp berbère traditionnel.",
 
-    "cta": "Trouvez Votre Circuit Désert Idéal"
+     "cta": "Trouvez Votre Circuit Désert Idéal"
   },
   "FAQ": {
     "title": "Questions Fréquentes",
@@ -255,6 +255,11 @@
         "desc": "Circuits de groupe pour écoles et universités"
       }
     }
+  },
+  "blogs": {
+  "title": "Blog Tours & Désert Marrakech",
+  "subtitle": "Récits, Guides & Secrets Locaux",
+  "content": "Découvrez nos conseils d'experts, guides d'itinéraires et astuces locales pour préparer votre aventure inoubliable au Maroc."
   },
   "NotFound": {
     "title": "Page introuvable",

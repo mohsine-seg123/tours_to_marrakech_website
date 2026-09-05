@@ -50,10 +50,10 @@ export const routing = defineRouting({
       es: "/actividades/[slug]",
     },
 
-    "/morocco-student-trips": {
-      en: "/morocco-student-trips",
-      fr: "/voyages-etudiants-maroc",
-      es: "/viajes-estudiantes-marruecos",
+    "/offers": {
+      en: "/offers",
+      fr: "/offres",
+      es: "/ofertas",
     },
 
     // Customize
@@ -69,6 +69,7 @@ export const routing = defineRouting({
       fr: "/blog",
       es: "/blog",
     },
+    
     "/blog/[slug]": {
       en: "/blog/[slug]",
       fr: "/blog/[slug]",

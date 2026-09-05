@@ -3,44 +3,56 @@ import { BlogCard } from "@/components/sections/blog/BlogCard";
 import { BlogPagination } from "@/components/sections/blog/BlogPagination";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import { redirect, notFound } from "next/navigation";
 
 export const revalidate = 3600;
 
-export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "fr" }, { locale: "es" }];
+interface PaginatedBlogProps {
+  params: Promise<{ locale: Locale; number: string }>;
 }
 
-interface BlogPageProps {
-  params: Promise<{ locale: Locale }>;
-}
-
-export async function generateMetadata({ params }: BlogPageProps) {
-  const { locale } = await params;
+export async function generateMetadata({ params }: PaginatedBlogProps) {
+  const { locale, number } = await params;
   const t = await getTranslations({ locale, namespace: "blogs" });
   return {
-    title: t("title"),
+    title: `${t("title")} - Page ${number}`,
     description: t("content"),
     alternates: {
-      canonical: `/${locale}/blog`,
+      canonical: `/${locale}/blog/page/${number}`,
       languages: {
-        en: "/en/blog",
-        fr: "/fr/blog",
-        es: "/es/blog",
-        "x-default": "/en/blog",
+        en: `/en/blog/page/${number}`,
+        fr: `/fr/blog/page/${number}`,
+        es: `/es/blog/page/${number}`,
+        "x-default": `/en/blog/page/${number}`,
       },
     },
   };
 }
 
-export default async function BlogPage({ params }: BlogPageProps) {
-  const { locale } = await params;
-  const currentPage = 1;
 
-  const { cards, totalPages } = await getBlogCards(locale, currentPage);
+export default async function PaginatedBlogPage({params,}: PaginatedBlogProps) {
+  const { locale, number } = await params;
+  const pageNumber = parseInt(number, 10);
+
+  if (pageNumber === 1) {
+    redirect(`/${locale}/blog`);
+  }
+
+  if (isNaN(pageNumber) || pageNumber < 1) {
+    notFound();
+  }
+
+  const { cards, totalPages } = await getBlogCards(locale, pageNumber);
+
+  if (cards.length === 0 && pageNumber > 1) {
+    notFound();
+  }
+
   const t = await getTranslations({ locale, namespace: "blogs" });
 
   return (
     <section className="bg-background">
+      {/* Hero Section */}
       <section className="relative w-full overflow-hidden bg-background">
         <div className="relative min-h-[360px] w-full lg:min-h-[500px]">
           <Image
@@ -81,9 +93,10 @@ export default async function BlogPage({ params }: BlogPageProps) {
         )}
       </section>
 
+      {/* Pagination */}
       <BlogPagination
         locale={locale}
-        currentPage={currentPage}
+        currentPage={pageNumber}
         totalPages={totalPages}
       />
     </section>
