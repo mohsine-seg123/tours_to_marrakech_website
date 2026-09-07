@@ -5,6 +5,7 @@ import MarrakechDesertSection from "@/components/sections/Home/MarrakechDesertSe
 import { setRequestLocale } from "next-intl/server";
 import { Locale } from "@/lib/supabase/blogs";
 import HomeBlogSection from "@/components/sections/Home/HomeBlogSection";
+import LatestActivities from "@/components/sections/Home/LatestActivities";
 
 export default async function Home({ params,}: { params: Promise<{ locale: string }>;}) {
 
@@ -15,6 +16,7 @@ export default async function Home({ params,}: { params: Promise<{ locale: strin
       <Hero />
       <Destinations />
       <MarrakechDesertSection />
+      <LatestActivities locale={locale as Locale} />
       <HomeBlogSection locale={locale as Locale} />
       <Faq locale={locale} />
     </>

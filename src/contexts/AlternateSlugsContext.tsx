@@ -32,8 +32,7 @@ const AlternateSlugsContext = createContext<
 >(undefined);
 
 export function AlternateSlugsProvider({ children }: { children: ReactNode }) {
-  const [alternateSlugs, setAlternateSlugsState] =
-    useState<AlternateSlugsMap>(null);
+  const [alternateSlugs, setAlternateSlugsState] = useState<AlternateSlugsMap>(null);
 
   const setAlternateSlugs = useCallback((map: AlternateSlugsMap) => {
     setAlternateSlugsState(map);

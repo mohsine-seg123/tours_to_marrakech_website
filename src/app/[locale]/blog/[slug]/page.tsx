@@ -11,6 +11,7 @@ import {
 } from "@/lib/supabase/blogs";
 import { RegisterAlternateSlugs } from "@/components/RegisterAlternaternateSlugs";
 import {BlogFaqAccordion} from "@/components/sections/blog/BlogFaqAccordion";
+import ContactForm from "@/components/sections/Contact/ContactForms";
 
 export const revalidate = 3600;
 
@@ -207,8 +208,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         </section>
 
         {/* MAIN LAYOUT (CONTENU + SIDEBAR CTA) */}
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-2">
+        <div className="mx-auto max-w-7xl mt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
             <main className="lg:col-span-8">
               <div
                 className="prose prose-lg dark:prose-invert max-w-none
@@ -243,6 +244,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
             <aside className="lg:col-span-4">
               <div className="sticky top-24 space-y-6">
+                <ContactForm />
                 <div className="flex items-center justify-between pb-3 border-b border-border/80">
                   <h3 className="font-serif text-2xl font-medium tracking-tight text-foreground">
                     More Blogs

@@ -260,6 +260,17 @@
     "subtitle":" Stories, Guides & Local Secrets",
     "content": "Discover expert advice, insider travel tips, and inspiring stories to help you plan your ultimate journey through Morocco."
   },
+  "ActivityDetail": {
+    "overviewTitle": "Activity Overview",
+    "itineraryTitle": "Itinerary",
+    "includeTitle": "What's Included",
+    "excludeTitle": "Not Included",
+    "highlightsTitle": "Highlights",
+    "whyKicker": "Why choose this activity",
+    "whyTitle": "An experience designed down to the last detail",
+    "faqTitle": "Frequently Asked Questions",
+    "faqSubtitle": "Everything you need to know before booking"
+  },
   "NotFound": {
     "title": "Page not found",
     "description": "Sorry, the page you are looking for does not exist.",

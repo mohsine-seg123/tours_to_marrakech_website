@@ -53,26 +53,52 @@ export default function LanguageSwitcher() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleChange = (newLocale: string) => {
-    const currentSlug =
-      typeof params.slug === "string" ? params.slug : undefined;
-    const targetSlug =
-      pathname === "/blog/[slug]"
-        ? (alternateSlugs?.[newLocale as Locale] ?? currentSlug)
-        : currentSlug;
 
-    if (pathname === "/blog/[slug]") {
-      router.replace(
-        { pathname, params: { slug: targetSlug ?? "" } },
-        { locale: newLocale },
-      );
-    } else {
-      // Runtime pathname and useParams() cannot be correlated by next-intl's types.
-      // @ts-expect-error -- params match the current dynamic pathname at runtime.
-      router.replace({ pathname, params }, { locale: newLocale });
-    }
+const handleChange = (newLocale: Locale) => {
+  const currentSlug = typeof params.slug === "string" ? params.slug : "";
+
+  const targetSlug = alternateSlugs?.[newLocale] ?? currentSlug;
+
+  if (pathname === "/blog/[slug]") {
+    router.replace(
+      {
+        pathname: "/blog/[slug]",
+        params: {
+          slug: targetSlug,
+        },
+      },
+      { locale: newLocale },
+    );
+
     setIsOpen(false);
-  };
+    return;
+  }
+
+  if (pathname === "/activities/[slug]") {
+    router.replace(
+      {
+        pathname: "/activities/[slug]",
+        params: {
+          slug: targetSlug,
+        },
+      },
+      { locale: newLocale },
+    );
+
+    setIsOpen(false);
+    return;
+  }
+
+  // @ts-expect-error pathname et params sont cohérents à l'exécution.
+   router.replace({
+      pathname,
+      params,
+    },
+    { locale: newLocale },
+  );
+
+  setIsOpen(false);
+};;;
 
   return (
     <div className="relative" ref={dropdownRef}>

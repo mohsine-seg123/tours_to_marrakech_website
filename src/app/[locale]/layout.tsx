@@ -9,6 +9,7 @@ import "./globals.css";
 import { setRequestLocale } from "next-intl/server";
 import { Toaster } from "sonner";
 import { AlternateSlugsProvider } from "@/contexts/AlternateSlugsContext";
+import { FavoritesProvider } from "@/contexts/FavoritesContext";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -61,8 +62,7 @@ export async function generateMetadata({
     metadataByLocale[locale as keyof typeof metadataByLocale] ??
     metadataByLocale.en;
 
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ?? "https://toursmarrakechdesert.com";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://toursmarrakechdesert.com";
 
   const currentUrl = locale === "en" ? baseUrl : `${baseUrl}/${locale}`;
 
@@ -157,22 +157,24 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  return (
-    <html
-      lang={locale}
-      suppressHydrationWarning
-      className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
-    >
-      <body className="min-h-screen flex flex-col bg-background text-foreground">
-        <NextIntlClientProvider>
-          <AlternateSlugsProvider>
-            <Header />
-            <main className="flex-1 w-full">{children}</main>
-            <Footer />
-            <Toaster position="top-right" richColors />
-          </AlternateSlugsProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
-  );
+   return (
+     <html
+       lang={locale}
+       suppressHydrationWarning
+       className={`${cormorant.variable} ${manrope.variable} h-full antialiased`}
+     >
+       <body className="min-h-screen flex flex-col bg-background text-foreground">
+         <NextIntlClientProvider>
+           <AlternateSlugsProvider>
+             <FavoritesProvider>
+               <Header />
+               <main className="flex-1 w-full">{children}</main>
+               <Footer />
+               <Toaster position="top-right" richColors />
+             </FavoritesProvider>
+           </AlternateSlugsProvider>
+         </NextIntlClientProvider>
+       </body>
+     </html>
+   );
 }

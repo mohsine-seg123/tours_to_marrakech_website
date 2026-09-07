@@ -260,7 +260,18 @@
   "title": "Blog Tours y Desierto Marrakech",
   "subtitle": "Historias, Guías y Secretos Locales",
   "content": "Descubre consejos de expertos, rutas recomendadas y secretos locales para planificar tu viaje inolvidable por Marruecos."
-},
+  },
+  "ActivityDetail": {
+    "overviewTitle": "Descripción de la Actividad",
+    "itineraryTitle": "Itinerario",
+    "includeTitle": "Qué Incluye",
+    "excludeTitle": "No Incluye",
+    "highlightsTitle": "Destacados",
+    "whyKicker": "Por qué elegir esta actividad",
+    "whyTitle": "Una experiencia pensada hasta el último detalle",
+    "faqTitle": "Preguntas Frecuentes",
+    "faqSubtitle": "Todo lo que necesitas saber antes de reservar"
+  },
   "NotFound": {
     "title": "Página no encontrada",
     "description": "Lo sentimos, la página que buscas no existe.",

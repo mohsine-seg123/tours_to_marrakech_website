@@ -261,6 +261,17 @@
   "subtitle": "Récits, Guides & Secrets Locaux",
   "content": "Découvrez nos conseils d'experts, guides d'itinéraires et astuces locales pour préparer votre aventure inoubliable au Maroc."
   },
+  "ActivityDetail": {
+    "overviewTitle": "Aperçu de l'activité",
+    "itineraryTitle": "Itinéraire",
+    "includeTitle": "Ce qui est inclus",
+    "excludeTitle": "Non inclus",
+    "highlightsTitle": "Points forts",
+    "whyKicker": "Pourquoi choisir cette activité",
+    "whyTitle": "Une expérience pensée dans les moindres détails",
+    "faqTitle": "Questions fréquentes",
+    "faqSubtitle": "Tout ce qu'il faut savoir avant de réserver"
+  },
   "NotFound": {
     "title": "Page introuvable",
     "description": "Désolé, la page que vous recherchez n'existe pas.",
