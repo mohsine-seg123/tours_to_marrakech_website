@@ -375,7 +375,8 @@ async function page({params,}: {params: Promise<{ locale: string; slug: string }
           </aside>
         </div>
       </div>
-      {/* ─────────────── WHY THIS ACTIVITY + IMAGE ─────────────── */}
+    
+    
       {(activityDetail?.itinerary?.length || activityDetail?.imageUrl2) && (
         <section className="mx-auto max-w-7xl px-3 sm:py-4 sm:pl-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">

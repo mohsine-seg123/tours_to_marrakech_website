@@ -127,7 +127,7 @@ export function ActivityCard({card,locale,}: {card: ActivityCardType;locale: Loc
               flex-1
               text-[14px]
               leading-[1.7]
-              text-text-muted
+              text-text-secondary
             "
           >
             {card.description}

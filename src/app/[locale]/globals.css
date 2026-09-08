@@ -83,11 +83,11 @@ h6 {
   /* #5C5049 - brun moyen */
 
   /* ─── TEXT ─── */
-  --text-main: 25 12% 26%;
-  /* #4A423C - brun-gris chaud */
+ --text-main: 25 8% 8%;
+/* #161412 */
 
-  --text-secondary: 25 8% 44%;
-  /* #756B63 - gris chaud pour paragraphes */
+--text-secondary: 25 6% 22%;
+/* #3C3936 */
 
   --text-muted: 30 8% 56%;
   /* #97907F - beige-gris pour labels */
