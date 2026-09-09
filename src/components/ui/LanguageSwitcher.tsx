@@ -89,6 +89,22 @@ const handleChange = (newLocale: Locale) => {
     return;
   }
 
+  if (pathname === "/day-trips/[slug]") {
+    router.replace(
+      {
+        pathname: "/day-trips/[slug]",
+        params: {
+          slug: targetSlug,
+        },
+      },
+      { locale: newLocale },
+    );
+
+    setIsOpen(false);
+    return;
+  }
+
+
   // @ts-expect-error pathname et params sont cohérents à l'exécution.
    router.replace({
       pathname,

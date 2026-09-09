@@ -77,6 +77,7 @@ const OG_LOCALE: Record<Locale, string> = {
   es: "es_ES",
 };
 
+
 function buildActivityUrl(locale: Locale, slug: string) {
   const path = `${LOCALE_PATH[locale]}/${slug}`;
   return locale === "en" ? `${BASE_URL}/${path}` : `${BASE_URL}/${locale}/${path}`;

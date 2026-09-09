@@ -11,7 +11,6 @@ import {
   Shield,
   Compass,
   Mountain,
-  GraduationCap,
 } from "lucide-react";
 import ContactForm from "@/components/sections/Contact/ContactForms";
 
@@ -415,22 +414,6 @@ const jsonLd = {
                 </div>
               </Link>
 
-              <Link
-                href="/offers"
-                className="group flex items-center gap-4 rounded-xl border border-primary p-4"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  <GraduationCap className="h-4 w-4" />
-                </span>
-                <div>
-                  <p className="text-xm font-bold text-heading">
-                    {t("sidebar.students.title")}
-                  </p>
-                  <p className="text-xs text-text-muted">
-                    {t("sidebar.students.desc")}
-                  </p>
-                </div>
-              </Link>
             </div>
           </div>
         </div>

@@ -49,13 +49,6 @@ export const routing = defineRouting({
       fr: "/activites/[slug]",
       es: "/actividades/[slug]",
     },
-
-    "/offers": {
-      en: "/offers",
-      fr: "/offres",
-      es: "/ofertas",
-    },
-
     // Customize
     "/customize-your-tour": {
       en: "/customize-your-tour",

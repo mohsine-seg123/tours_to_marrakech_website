@@ -6,24 +6,25 @@ const PAGE_COPY: Record<
   { title: string; subtitle: string; empty: string }
 > = {
   en: {
-    title: "Marrakech Activities & Excursions",
+    title: "Activities to Do in Morocco",
     subtitle:
-      "Hand-picked experiences beyond the usual tours, bookable directly with no middleman.",
+      "Find carefully selected experiences across Marrakech, Fes, Casablanca and the Moroccan Sahara, available to book directly with local providers.",
     empty: "No activities published yet. Check back soon.",
   },
   fr: {
-    title: "Activités & Excursions à Marrakech",
+    title: "Activités à Faire au Maroc",
     subtitle:
-      "Des expériences sélectionnées au-delà des circuits classiques, réservables en direct sans intermédiaire.",
+      "Découvrez une sélection d’expériences à Marrakech, Fès, Casablanca et dans le Sahara marocain, réservables directement auprès de prestataires locaux.",
     empty: "Aucune activité publiée pour le moment. Revenez bientôt.",
   },
   es: {
-    title: "Actividades y Excursiones en Marrakech",
+    title: "Actividades para Hacer en Marruecos",
     subtitle:
-      "Experiencias seleccionadas más allá de los tours clásicos, reservables directamente sin intermediarios.",
+      "Encuentra experiencias seleccionadas en Marrakech, Fez, Casablanca y el Sahara marroquí, reservables directamente con proveedores locales.",
     empty: "Aún no hay actividades publicadas. Vuelve pronto.",
   },
 };
+
 
 interface ActivitiesPageProps {
   params: Promise<{ locale: Locale }>;
@@ -72,7 +73,7 @@ export default async function ActivitiesPage({ params }: ActivitiesPageProps) {
         <p className="mt-4 max-w-lg text-text-secondary">{copy.subtitle}</p>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-24">
+      <section className="mx-auto max-w-6xl px-4 pb-24">
         {activities.length === 0 ? (
           <p className="text-text-secondary">{copy.empty}</p>
         ) : (
