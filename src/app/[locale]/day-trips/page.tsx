@@ -5,7 +5,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { getPathname } from "@/i18n/routing";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://toursmarrakechdesert.com";
 

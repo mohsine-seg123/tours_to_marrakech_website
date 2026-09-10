@@ -42,15 +42,15 @@ export default async function LatestActivities({ locale }: { locale: Locale }) {
         {/* Left content */}
         <div className="max-w-2xl">
           <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary">
-            {content.eyebrow}
+            {content?.eyebrow}
           </span>
 
           <h2 className="text-3xl font-semibold leading-tight tracking-[-0.02em] text-heading sm:text-4xl">
-            {content.title}
+            {content?.title}
           </h2>
 
           <p className="mt-2 max-w-xl text-sm leading-6 text-text-secondary sm:text-[15px]">
-            {content.description}
+            {content?.description}
           </p>
         </div>
 

@@ -174,6 +174,8 @@ export async function getDayTripsByCity(
     .filter((card): card is DayTripCard => card !== null);
 }
 
+
+
 /** Détail d'un day trip à partir du slug traduit. */
 export async function getDayTripDetail(
   locale: Locale,

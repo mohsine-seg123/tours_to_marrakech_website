@@ -111,7 +111,7 @@ export function DayTripCard({
         </div>
 
         {/* CONTENT */}
-        <div className="flex flex-1 flex-col px-5 pb-5 pt-5 sm:px-6 sm:pb-6">
+        <div className="flex flex-1 flex-col px-5 py-3 sm:px-6 sm:pb-6">
           <h3
             className="
               line-clamp-2 text-[25px] font-bold
@@ -123,12 +123,12 @@ export function DayTripCard({
             {card.title}
           </h3>
 
-          <p className="mt-3 line-clamp-2 text-sm leading-7 text-text-secondary">
+          <p className="mt-1 line-clamp-2 text-sm leading-7 text-text-secondary">
             {card.description}
           </p>
 
           {/* FOOTER */}
-          <div className="mt-auto pt-5">
+          <div className="mt-auto pt-2">
             <div className="flex items-center justify-between gap-3 pt-4">
               <div className="min-w-0">
                 <span className="block text-[10px] font-semibold uppercase tracking-[0.12em] text-text-secondary">
