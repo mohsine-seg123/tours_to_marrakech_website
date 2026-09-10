@@ -31,7 +31,7 @@ interface ActivitiesPageProps {
 }
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://deluxemoroccotrips.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "toursmarrakechdesert.com";
 
 const LOCALE_PATHS: Record<Locale, string> = {
   en: "/activities",

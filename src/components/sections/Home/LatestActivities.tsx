@@ -1,5 +1,5 @@
 import { getActivityCards, type Locale } from "@/lib/supabase/activities";
-import Link from "next/link";
+import {Link} from "@/i18n/routing";
 import { ActivityCard } from "@/components/sections/activities/ActivityCard";
 
 const CONTENT: Record<

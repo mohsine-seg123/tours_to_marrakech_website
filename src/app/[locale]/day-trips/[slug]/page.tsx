@@ -247,11 +247,9 @@ async function page({params}: {params: Promise<{ locale: Locale; slug: string }>
 
               {trip?.overview && (
                 <div className="blog-content mt-6">
-                  <p className="whitespace-pre-line">
                     <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeSanitize]}>
                       {trip.overview}
                     </ReactMarkdown>
-                  </p>
                 </div>
               )}
 

@@ -1,19 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ComponentProps } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 import { ChevronDown, Heart, Mail, Menu, Phone, X } from "lucide-react";
-// import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "@/i18n/routing";
+import { usePathname, Link } from "@/i18n/routing";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
 
+type StaticHref = Extract<ComponentProps<typeof Link>["href"], string>;
+
 type DropdownItem = {
-  href: string;
+  href: StaticHref | {
+    pathname: "/tours/from/[city]";
+    params: { city: string };
+  };
   label: string;
 };
 
 type NavLink = {
-  href: string;
+  href: StaticHref;
   label: string;
   dropdown?: DropdownItem[];
 };
@@ -26,30 +31,30 @@ const CONTACT = {
 };
 
 const TOURS_DROPDOWN: DropdownItem[] = [
-  { href: "/tours/from/marrakech", label: "Tours from Marrakech" },
-  { href: "/tours/from/fes", label: "Tours from Fes" },
-  { href: "/tours/from/casablanca", label: "Tours from Casablanca" },
-  { href: "/tours/from/tangier", label: "Tours from Tangier" },
-  { href: "/tours/from/agadir", label: "Tours from Agadir" },
-  { href: "/tours", label: "All Tours" },
+  { href: { pathname: "/tours/from/[city]", params: { city: "marrakech" } }, label: "fromMarrakech" },
+  { href: { pathname: "/tours/from/[city]", params: { city: "fes" } }, label: "fromFes" },
+  { href: { pathname: "/tours/from/[city]", params: { city: "casablanca" } }, label: "fromCasablanca" },
+  { href: { pathname: "/tours/from/[city]", params: { city: "tangier" } }, label: "fromTangier" },
+  { href: { pathname: "/tours/from/[city]", params: { city: "agadir" } }, label: "fromAgadir" },
+  { href: "/tours", label: "allTours" },
 ];
 
 const ABOUT_DROPDOWN: DropdownItem[] = [
-  { href: "/about", label: "About Tours Marrakech Desert" },
-  { href: "/about/morocco_tourist", label: "About Morocco Tourist" },
+  { href: "/about", label: "aboutCompany" },
+  { href: "/about/morocco_tourist", label: "aboutMorocco" },
 ];
 
 
 
 const NAV_LINKS: NavLink[] = [
-  { href: "/", label: "Home" },
-  { href: "/tours", label: "Tours", dropdown: TOURS_DROPDOWN },
-  { href: "/day-trips", label: "Day Trips" },
-  { href: "/activities", label: "Activities" },
-  { href: "/customize-your-tour", label: "Custom Tour" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About Us", dropdown: ABOUT_DROPDOWN },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "home" },
+  { href: "/tours", label: "tours", dropdown: TOURS_DROPDOWN },
+  { href: "/day-trips", label: "dayTrips" },
+  { href: "/activities", label: "activities" },
+  { href: "/customize-your-tour", label: "customTour" },
+  { href: "/blog", label: "blog" },
+  { href: "/about", label: "about", dropdown: ABOUT_DROPDOWN },
+  { href: "/contact", label: "contact" },
 ];
 
 
@@ -57,9 +62,22 @@ function isLinkActive(pathname: string, href: string): boolean {
   return pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
 }
 
+function isDropdownActive(
+  pathname: string,
+  href: DropdownItem["href"],
+  city: string | string[] | undefined,
+): boolean {
+  return typeof href === "string"
+    ? pathname === href
+    : pathname === href.pathname && city === href.params.city;
+}
+
 export default function Header(): React.JSX.Element {
   const pathname = usePathname();
-  return <HeaderContent key={pathname} pathname={pathname} />;
+  const locale = useLocale();
+  const params = useParams();
+  const navigationKey = JSON.stringify([locale, pathname, params]);
+  return <HeaderContent key={navigationKey} pathname={pathname} />;
 }
 
 function HeaderContent({ pathname }: { pathname: string }): React.JSX.Element {
@@ -110,12 +128,13 @@ function HeaderContent({ pathname }: { pathname: string }): React.JSX.Element {
 }
 
 function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
+  const t = useTranslations("Header");
   return (
     <Link
       href="/"
       onClick={onClick}
       className="flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-      aria-label="Trips To Marrakech home"
+      aria-label={t("homeLabel")}
     >
       {/* <Image
         src="/logo.png"
@@ -133,28 +152,30 @@ function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
 }
 
 function FavoritesButton() {
+  const t = useTranslations("Header");
   return (
     <Link
       href="/favorites"
       className="group relative flex flex-col items-center gap-0.5 rounded-lg px-3 py-1.5 text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-      aria-label="Favorites"
+      aria-label={t("favorites")}
     >
       <span className="relative">
         <Heart className="h-5 w-5 transition-transform group-hover:scale-110" />
       </span>
-      <span className="text-xs font-medium">Favorites</span>
+      <span className="text-xs font-medium">{t("favorites")}</span>
     </Link>
   );
 }
 
 
 function MobileMenuButton({ isOpen, onToggle }: { isOpen: boolean; onToggle: () => void }): React.JSX.Element {
+  const t = useTranslations("Header");
   return (
     <button
       type="button"
       onClick={onToggle}
       className="flex h-12 w-12 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
-      aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+      aria-label={t(isOpen ? "closeMenu" : "openMenu")}
       aria-expanded={isOpen}
       aria-controls="mobile-menu"
     >
@@ -164,8 +185,9 @@ function MobileMenuButton({ isOpen, onToggle }: { isOpen: boolean; onToggle: () 
 }
 
 function DesktopNav({ pathname }: { pathname: string }): React.JSX.Element {
+  const t = useTranslations("Header");
   return (
-    <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
+    <nav aria-label={t("mainNavigation")} className="hidden items-center gap-1 lg:flex">
       {NAV_LINKS.map((link) => {
         const isActive = isLinkActive(pathname, link.href);
 
@@ -191,7 +213,7 @@ function DesktopNav({ pathname }: { pathname: string }): React.JSX.Element {
               isActive ? "text-primary" : "text-foreground hover:bg-muted hover:text-primary"
             }`}
           >
-            {link.label}
+            {t(link.label)}
           </Link>
         );
       })}
@@ -209,6 +231,8 @@ function DesktopDropdown({
   isActive: boolean;
   pathname: string;
 }): React.JSX.Element {
+  const t = useTranslations("Header");
+  const params = useParams();
   return (
     <div className="group relative">
       <Link
@@ -218,7 +242,7 @@ function DesktopDropdown({
           isActive ? "text-primary" : "text-foreground hover:bg-muted hover:text-primary"
         }`}
       >
-        {link.label}
+        {t(link.label)}
         <ChevronDown
           className="h-3 w-3 transition-transform duration-300 group-hover:rotate-180"
           aria-hidden="true"
@@ -229,9 +253,9 @@ function DesktopDropdown({
       <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
         <ul className="min-w-[240px] rounded-xl border border-border bg-card p-2 shadow-lg">
           {link.dropdown?.map((item) => {
-            const isItemActive = pathname === item.href;
+            const isItemActive = isDropdownActive(pathname, item.href, params.city);
             return (
-              <li key={item.href}>
+              <li key={item.label}>
                 <Link
                   href={item.href}
                   className={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
@@ -240,7 +264,7 @@ function DesktopDropdown({
                       : "text-text-secondary hover:bg-muted hover:text-primary"
                   }`}
                 >
-                  {item.label}
+                  {t(item.label)}
                 </Link>
               </li>
             );
@@ -258,10 +282,11 @@ function MobileNav({
   pathname: string;
   onCloseMobileMenu: () => void;
 }): React.JSX.Element {
+  const t = useTranslations("Header");
   return (
     <nav
       id="mobile-menu"
-      aria-label="Mobile navigation"
+      aria-label={t("mobileNavigation")}
       className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-card shadow-xl lg:hidden"
     >
       <ul className="flex flex-col gap-1 px-4 py-5">
@@ -294,7 +319,7 @@ function MobileNav({
                     : "text-text-secondary hover:bg-muted hover:text-foreground"
                 }`}
               >
-                {link.label}
+                {t(link.label)}
               </Link>
             </li>
           );
@@ -343,6 +368,8 @@ function MobileDropdown({
   pathname: string;
   onCloseMobileMenu: () => void;
 }): React.JSX.Element {
+  const t = useTranslations("Header");
+  const params = useParams();
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -357,7 +384,7 @@ function MobileDropdown({
             : "text-text-secondary hover:bg-muted hover:text-foreground"
         }`}
       >
-        <span>{link.label}</span>
+        <span>{t(link.label)}</span>
         <ChevronDown
           className={`h-4 w-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
           aria-hidden="true"
@@ -367,9 +394,9 @@ function MobileDropdown({
       {isExpanded && (
         <ul className="mt-1 flex flex-col gap-0.5 pl-4">
           {link.dropdown?.map((item) => {
-            const isItemActive = pathname === item.href;
+            const isItemActive = isDropdownActive(pathname, item.href, params.city);
             return (
-              <li key={item.href}>
+              <li key={item.label}>
                 <Link
                   href={item.href}
                   onClick={onCloseMobileMenu}
@@ -379,7 +406,7 @@ function MobileDropdown({
                       : "text-text-secondary hover:bg-muted hover:text-foreground"
                   }`}
                 >
-                  {item.label}
+                  {t(item.label)}
                 </Link>
               </li>
             );

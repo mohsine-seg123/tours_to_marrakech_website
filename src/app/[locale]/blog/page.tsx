@@ -17,16 +17,17 @@ interface BlogPageProps {
 export async function generateMetadata({ params }: BlogPageProps) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blogs" });
+
   return {
     title: t("title"),
     description: t("content"),
     alternates: {
-      canonical: `/${locale}/blog`,
+      canonical: locale === "en" ? "/blog" : `/${locale}/blog`,
       languages: {
-        en: "/en/blog",
+        en: "/blog",
         fr: "/fr/blog",
         es: "/es/blog",
-        "x-default": "/en/blog",
+        "x-default": "/blog",
       },
     },
   };

@@ -1,10 +1,10 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useParams } from "next/navigation";
 import { useAlternateSlugs } from "@/contexts/AlternateSlugsContext";
-import type { Locale } from "@/lib/supabase/blogs";
+import type { Locale } from "@/i18n/routing";
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
@@ -29,6 +29,7 @@ function FlagIcon({ country, alt }: { country: string; alt: string }) {
 }
 
 export default function LanguageSwitcher() {
+  const t = useTranslations("Header");
   const locale = useLocale();
   const pathname = usePathname();
   const params = useParams(); // ex: { slug: "ultimate-guide-solo-travel-morocco" } sur /blog/[slug]
@@ -121,7 +122,9 @@ const handleChange = (newLocale: Locale) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
-        aria-label="Change language"
+        type="button"
+        aria-label={t("changeLanguage")}
+        aria-expanded={isOpen}
       >
         {currentLanguage && (
           <FlagIcon
@@ -142,6 +145,7 @@ const handleChange = (newLocale: Locale) => {
           {LANGUAGES.map((lang) => (
             <button
               key={lang.code}
+              type="button"
               onClick={() => handleChange(lang.code)}
               className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                 locale === lang.code

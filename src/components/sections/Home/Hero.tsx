@@ -1,7 +1,8 @@
 import { Users, Compass } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import {Link} from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
+
 
 export default async function HeroSection(): Promise<React.JSX.Element> {
   const t=await getTranslations("Hero");

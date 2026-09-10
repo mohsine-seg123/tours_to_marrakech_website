@@ -25,104 +25,22 @@ const manrope = Manrope({
   display: "swap",
 });
 
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
 
-  const metadataByLocale = {
-    en: {
-      title:
-        "tours marrakech desert | sahara desert trips & moroccan adventure",
-      description:
-        "Discover the best Marrakech desert tours, Sahara desert trips, and Moroccan adventures. Explore Merzouga, ride camels through the desert, and enjoy unforgettable Morocco excursions with local guides.",
-      ogLocale: "en_US",
-    },
-    fr: {
-      title: "Désert maroc | circuit sahara maroc",
-      description:
-        "Découvrez des circuits désert depuis Marrakech vers le Sahara, Merzouga et les plus beaux paysages du Maroc avec des guides locaux.",
-      ogLocale: "fr_FR",
-    },
-    es: {
-      title: "excursiones desierto Marrakech | Excursiones al Sahara",
-      description:
-        "Descubre excursiones desde Marrakech al desierto del Sahara, rutas en camello y aventuras inolvidables por Marruecos.",
-      ogLocale: "es_ES",
-    },
-  };
-
-  const content =
-    metadataByLocale[locale as keyof typeof metadataByLocale] ??
-    metadataByLocale.en;
-
+export function generateMetadata(): Metadata {
+  
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://toursmarrakechdesert.com";
-
-  const currentUrl = locale === "en" ? baseUrl : `${baseUrl}/${locale}`;
 
   return {
     metadataBase: new URL(baseUrl),
-
-    title: content.title,
-
-    description: content.description,
-
-    keywords: [
-      "marrakech to desert tour",
-      "Marrakech Sahara tour",
-      "Merzouga desert tour",
-      "merzouga au maroc",
-      "Sahara camel",
-      "tauck tours morocco",
-      "Marrakech excursions",
-      "marrakech private tours",
-    ],
-
-    authors: [
-      {
-        name: "Tours Marrakech Desert",
-      },
-    ],
+    title: "Tours Marrakech Desert",
+    authors: [{ name: "Tours Marrakech Desert" }],
     creator: "Tours Marrakech Desert",
     publisher: "Tours Marrakech Desert",
-    openGraph: {
-      type: "website",
-      url: currentUrl,
-      title: content.title,
-      description: content.description,
-      siteName: "Tours Marrakech Desert",
-      locale: content.ogLocale,
-      images: [
-        {
-          url: "/og-image.jpg",
-          width: 1200,
-          height: 630,
-          alt: "Tours Marrakech Desert - Sahara Morocco",
-        },
-      ],
-    },
-
-    twitter: {
-      card: "summary_large_image",
-      title: content.title,
-      description: content.description,
-      images: ["/og-image.jpg"],
-    },
-
-    alternates: {
-      canonical: currentUrl,
-      languages: {
-        en: baseUrl,
-        fr: `${baseUrl}/fr`,
-        es: `${baseUrl}/es`,
-      },
-    },
 
     robots: {
       index: true,
@@ -143,19 +61,18 @@ export async function generateMetadata({
   };
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
+
+
+
+export default async function LocaleLayout({children,params,}: {children: React.ReactNode;params: Promise<{ locale: string }>;}) {
+
   const { locale } = await params;
 
-  setRequestLocale(locale);
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
    return (
      <html

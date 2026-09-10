@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /admin/
+Disallow: /favorites
+Disallow: /en/favorites
+Disallow: /fr/favoris
+Disallow: /es/favoritos
