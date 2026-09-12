@@ -329,6 +329,8 @@ async function page({params}: {params: Promise<{ locale: Locale; slug: string }>
                   )}
                 </section>
               )}
+
+              
               {/* INFORMATIONS COMPLÉMENTAIRES */}
               {trip?.moreInformation && (
                 <section className="mt-12" aria-labelledby="more-information-heading"  >
