@@ -1,5 +1,5 @@
 import { getAllTourSlugs, getAlternateTourSlugsBySlug, getTourDetail,type Locale } from '@/lib/supabase/tours';
-import { Link, routing } from "@/i18n/routing";
+import { Link, routing, getPathname } from "@/i18n/routing";
 import Image from 'next/image';
 import ContactForm from '@/components/sections/Contact/ContactForms';
 import ReactMarkdown from 'react-markdown';
@@ -12,14 +12,14 @@ import Highlits from '@/components/sections/tours/Highlits';
 import Gallery from '@/components/sections/tours/Gallery';
 import Map from '@/components/sections/tours/Map';
 import { RegisterAlternateSlugs } from '@/components/RegisterAlternaternateSlugs';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 
 export const revalidate = 3600;
 
 
-export async function generateStaticParams(): Promise<
-  Array<{ locale: Locale; slug: string }>
-> {
+export async function generateStaticParams(): Promise<Array<{ locale: Locale; slug: string }>> {
   const params = await Promise.all(
     routing.locales.map(async (locale) => {
       const slugs = await getAllTourSlugs(locale);
@@ -35,6 +35,125 @@ export async function generateStaticParams(): Promise<
 }
 
 
+type TourDetailPageProps = {
+  params: Promise<{ locale: string; slug: string }>;
+};
+
+function isLocale(value: string): value is Locale {
+  return value === "en" || value === "fr" || value === "es";
+}
+
+export async function generateMetadata({
+  params,
+}: TourDetailPageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const [tour, alternateSlugs] = await Promise.all([
+    getTourDetail(locale, slug),
+    getAlternateTourSlugsBySlug(locale, slug),
+  ]);
+
+  if (!tour) {
+    notFound();
+  }
+
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://toursmarrakechdesert.com";
+
+  const getUrl = (language: Locale, translatedSlug: string) =>
+    new URL(
+      getPathname({
+        locale: language,
+        href: {
+          pathname: "/tours/[slug]",
+          params: { slug: translatedSlug },
+        },
+      }),
+      baseUrl,
+    ).toString();
+
+  const canonicalUrl = getUrl(locale, tour.slug);
+
+  // La page actuelle est toujours présente.
+  const languages: Record<string, string> = {
+    [locale]: canonicalUrl,
+  };
+
+  // Ajouter uniquement les traductions disponibles.
+  for (const language of routing.locales) {
+    if (language === locale) continue;
+
+    const translatedSlug = alternateSlugs?.[language]?.trim();
+
+    if (translatedSlug) {
+      languages[language] = getUrl(language, translatedSlug);
+    }
+  }
+
+  if (languages.en) {
+    languages["x-default"] = languages.en;
+  }
+
+  const title = tour.seoTitle?.trim() || tour.title;
+  const description = tour.seoDescription?.trim() || tour.description;
+
+  const imageUrl = new URL(
+    tour.imageUrl || "/images/hero.jpg",
+    baseUrl,
+  ).toString();
+
+  const image = {
+    url: imageUrl,
+    alt: tour.imageAlt || tour.title,
+  };
+
+  const ogLocales: Record<Locale, string> = {
+    en: "en_US",
+    fr: "fr_FR",
+    es: "es_ES",
+  };
+
+  return {
+    title,
+    description,
+    keywords: tour.keywords ?? [],
+
+    alternates: {
+      canonical: canonicalUrl,
+      languages,
+    },
+
+    openGraph: {
+      type: "website",
+      siteName: "Tours Marrakech Desert",
+      title,
+      description,
+      url: canonicalUrl,
+      locale: ogLocales[locale],
+      alternateLocale: routing.locales
+        .filter(
+          (language) => language !== locale && Boolean(languages[language]),
+        )
+        .map((language) => ogLocales[language]),
+      images: [image],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+  };
+}
+
+
 async function page(params: { params: { locale: Locale; slug: string } }) {
   const { locale, slug } =await params.params
 
@@ -43,12 +162,8 @@ async function page(params: { params: { locale: Locale; slug: string } }) {
     getAlternateTourSlugsBySlug(locale, slug),
   ]);
 
-  if (!tour || !alternateSlugs) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        not found
-   </div>
-      )
+  if (!tour) {
+    notFound();
    }
 
   return (

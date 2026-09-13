@@ -294,6 +294,9 @@ export async function getToursByCity(
   return toCards(rows);
 }
 
+
+
+
 /** Détail par slug traduit. null = circuit absent ou traduction inexploitable.
  * Sans limit(1) : un slug dupliqué déclenche une erreur au lieu d'être masqué.
  */
@@ -354,6 +357,9 @@ export async function getTourDetail(
   };
 }
 
+
+
+
 /** Slugs publiés, avec titre non vide, pour sitemap / generateStaticParams. */
 export async function getAllTourSlugs(locale: Locale): Promise<string[]> {
   assertLocale(locale);
@@ -387,6 +393,7 @@ const ALTERNATE_SELECT = `
   es_slug:es->>slug, es_title:es->>title
 `;
 
+
 function normalizeAlternateSlugs(data: unknown): AlternateTourSlugs {
   const row = record(data);
   function available(locale: Locale): string | null {
@@ -396,6 +403,8 @@ function normalizeAlternateSlugs(data: unknown): AlternateTourSlugs {
   }
   return { en: available("en"), fr: available("fr"), es: available("es") };
 }
+
+
 
 /** Slugs du même circuit publié ; une traduction sans titre ou slug vaut null. */
 export async function getAlternateTourSlugs(
@@ -411,6 +420,8 @@ export async function getAlternateTourSlugs(
   if (error) fail("getAlternateTourSlugs", error);
   return data ? normalizeAlternateSlugs(data) : null;
 }
+
+
 
 
 

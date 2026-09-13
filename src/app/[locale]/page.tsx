@@ -10,6 +10,7 @@ import Homedaytrips from "@/components/sections/Home/Homedaytrips";
 import { Metadata } from "next";
 import { routing,getPathname} from "@/i18n/routing";
 import {notFound} from "next/navigation";
+import Hometours from "@/components/sections/Home/Hometours";
 
 
 export async function generateMetadata({params,}: { params: Promise<{ locale: string }>;}): Promise<Metadata> {
@@ -132,7 +133,8 @@ export default async function Home({ params,}: { params: Promise<{ locale: strin
     <>
       <Hero />
       <Destinations />
-       <Homedaytrips locale={locale as Locale} />
+       <Hometours locale={locale as Locale} />
+      <Homedaytrips locale={locale as Locale} />
       <MarrakechDesertSection />
       <LatestActivities locale={locale as Locale} />
       <HomeBlogSection locale={locale as Locale} />

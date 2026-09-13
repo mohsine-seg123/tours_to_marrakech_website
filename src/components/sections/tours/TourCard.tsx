@@ -123,7 +123,7 @@ export function TourCard({card,locale,}: {card: TourCardType;locale: Locale;}) {
         </div>
 
         {/* CONTENU */}
-        <div className="flex flex-1 flex-col px-5 pb-5 pt-4 sm:px-6 sm:pb-6">
+        <div className="flex flex-1 flex-col px-5 pb-3 pt-3 sm:px-6">
           {tourType && (
             <span className="mb-1 text-[10px] font-bold uppercase tracking-[0.14em] text-primary">
               {tourType}
@@ -145,7 +145,7 @@ export function TourCard({card,locale,}: {card: TourCardType;locale: Locale;}) {
           </p>
 
           {/* PIED DE CARTE */}
-          <div className="mt-auto pt-3">
+          <div className="mt-auto pt-2">
             <div className="flex items-center justify-between gap-3 pt-2">
               <div className="min-w-0">
                 <span className="block text-[10px] font-semibold uppercase tracking-[0.12em] text-text-secondary">

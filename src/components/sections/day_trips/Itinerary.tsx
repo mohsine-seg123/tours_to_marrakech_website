@@ -103,7 +103,7 @@ export default function Itinerary({
                   hidden={!isOpen}
                   className="px-5 pb-5 sm:px-6 sm:pb-6"
                 >
-                  <p className="whitespace-pre-line text-[15px] leading-7 text-text-secondary">
+                  <p className="whitespace-pre-line text-[17px] leading-7 text-text-main">
                     {step.description}
                   </p>
                 </div>

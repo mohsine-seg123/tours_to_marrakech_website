@@ -1,7 +1,11 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { getAllTours, type Locale } from "@/lib/supabase/tours";
+import { getAllToursGroupedByCity, type Locale } from "@/lib/supabase/tours";
 import TourCard from "@/components/sections/tours/TourCard";
+import type { Metadata } from "next";
+import { getPathname, routing } from "@/i18n/routing";
+
+export const revalidate = 3600;
 
 const CONTENT = {
   en: {
@@ -30,13 +34,125 @@ const CONTENT = {
   { label: string; title: string; description: string; empty: string }
 >;
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const metadataByLocale = {
+    en: {
+      title: "Morocco Tour Package | Marrakech & Sahara Desert Tours",
+      description:
+        "Find your Morocco tour package, from Marrakech to the dunes of Merzouga. Compare itineraries, durations and prices to plan your Sahara desert journey.",
+      keywords: [
+        "morocco tour package",
+        "Morocco tours",
+        "Marrakech desert tour",
+        "Marrakech to Merzouga",
+        "Sahara desert tours",
+        "Morocco travel packages",
+      ],
+      ogLocale: "en_US",
+      imageAlt: "Tours Marrakech Desert — Morocco tours",
+    },
+
+    fr: {
+      title: "Voyage au Maroc : circuits de Marrakech au Sahara",
+      description:
+        "Préparez votre voyage au Maroc : circuits depuis Marrakech, dunes de Merzouga et paysages du Sahara. Comparez les itinéraires, les durées et les prix.",
+      keywords: [
+        "voyage au maroc circuit",
+        "circuits au Maroc",
+        "circuit désert Maroc",
+        "circuit Marrakech Merzouga",
+        "voyage Sahara Maroc",
+        "circuits au départ de Marrakech",
+      ],
+      ogLocale: "fr_FR",
+      imageAlt: "Tours Marrakech Desert — circuits au Maroc",
+    },
+
+    es: {
+      title: "Tours por Marruecos | Marrakech, Merzouga y el Sahara",
+      description:
+        "Elige tu tour por Marruecos, desde Marrakech hasta las dunas de Merzouga. Compara itinerarios, duración y precios para preparar tu viaje al Sahara.",
+      keywords: [
+        "tours por Marruecos",
+        "circuitos por Marruecos",
+        "tour desierto Marrakech",
+        "Marrakech a Merzouga",
+        "viaje al Sahara",
+        "paquetes de viaje a Marruecos",
+      ],
+      ogLocale: "es_ES",
+      imageAlt: "Tours Marrakech Desert — circuitos por Marruecos",
+    },
+  };
+
+  const content = metadataByLocale[locale];
+
+  const canonical = getPathname({
+    locale,
+    href: "/tours",
+  });
+
+  const image = {
+    url: "/og-image.jpg",
+    alt: content.imageAlt,
+  };
+
+  return {
+    title: content.title,
+    description: content.description,
+    keywords: content.keywords,
+
+    alternates: {
+      canonical,
+      languages: {
+        en: getPathname({ locale: "en", href: "/tours" }),
+        fr: getPathname({ locale: "fr", href: "/tours" }),
+        es: getPathname({ locale: "es", href: "/tours" }),
+        "x-default": getPathname({ locale: "en", href: "/tours" }),
+      },
+    },
+
+    openGraph: {
+      type: "website",
+      siteName: "Tours Marrakech Desert",
+      title: content.title,
+      description: content.description,
+      url: canonical,
+      locale: content.ogLocale,
+      alternateLocale: routing.locales
+        .filter((language) => language !== locale)
+        .map((language) => metadataByLocale[language].ogLocale),
+      images: [image],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: content.title,
+      description: content.description,
+      images: [image],
+    },
+  };
+}
 
 function isLocale(value: string): value is Locale {
   return value === "en" || value === "fr" || value === "es";
 }
 
-export default async function ToursPage({ params,}: {params: Promise<{ locale: string }>;}) {
-
+export default async function ToursPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
 
   if (!isLocale(locale)) {
@@ -46,7 +162,18 @@ export default async function ToursPage({ params,}: {params: Promise<{ locale: s
   setRequestLocale(locale);
 
   const t = CONTENT[locale];
-  const tours = await getAllTours(locale);
+  const groupedTours = await getAllToursGroupedByCity(locale);
+
+  const cities = Object.entries(groupedTours).filter(
+    ([, tours]) => tours.length > 0,
+  );
+
+  const fromLabel =
+    locale === "fr"
+      ? "Circuits au départ de"
+      : locale === "es"
+        ? "Tours desde"
+        : "Tours from";
 
   return (
     <section
@@ -62,7 +189,7 @@ export default async function ToursPage({ params,}: {params: Promise<{ locale: s
 
           <h1
             id="tours-heading"
-            className=" text-4xl font-semibold leading-tight tracking-tight text-heading sm:text-5xl lg:text-6xl"
+            className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-heading sm:text-5xl lg:text-6xl"
           >
             {t.title}
           </h1>
@@ -72,11 +199,24 @@ export default async function ToursPage({ params,}: {params: Promise<{ locale: s
           </p>
         </header>
 
-        {/* CIRCUITS */}
-        {tours.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {tours.map((card) => (
-              <TourCard key={card.id} card={card} locale={locale} />
+        {/* CIRCUITS PAR VILLE */}
+        {cities.length > 0 ? (
+          <div className="space-y-14">
+            {cities.map(([city, tours], index) => (
+              <section key={city} aria-labelledby={`city-heading-${index}`}>
+                <h2
+                  id={`city-heading-${index}`}
+                  className="mb-8 text-center text-3xl font-semibold text-heading sm:text-4xl"
+                >
+                  {fromLabel} <span className="text-primary">{city}</span>
+                </h2>
+
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {tours.map((card) => (
+                    <TourCard key={card.id} card={card} locale={locale} />
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
         ) : (
