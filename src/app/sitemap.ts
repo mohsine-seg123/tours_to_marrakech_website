@@ -8,7 +8,7 @@ import { getAllDayTripSlugs } from "@/lib/supabase/day_trips";
 import { getAllActivitySlugs } from "@/lib/supabase/activities";
 import { getAllBlogSlugs } from "@/lib/supabase/blogs";
 
-export const revalidate = 0;
+export const revalidate = 120;
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://toursmarrakechdesert.com";
 
