@@ -6,15 +6,11 @@ import {
   MapPin,
   Phone,
   Mail,
-  ShieldCheck,
-  Users,
-  Zap,
-  Map,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import React from "react";
 import type { Metadata } from "next";
-import { ContactItem, Faq, Reason } from "@/type/contact";
+import { ContactItem, Faq} from "@/type/contact";
 import FaqSection from "@/components/sections/Contact/FaqSection";
 import ContactJsonLd from "@/components/seo/ContactJsonLd";
 import FindUs from "@/components/sections/Contact/FindUs";

@@ -287,7 +287,95 @@ body {
   font-weight: 700;
 }
 
+/* TABLEAU BLOG */
+.blog-content table {
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
 
+  border-collapse: separate;
+  border-spacing: 0;
+
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  overflow: hidden;
+
+  font-size: 1rem;
+  background: hsl(var(--background));
+}
+
+/* Header */
+.blog-content thead {
+  background: hsl(var(--primary) / 0.08);
+}
+
+.blog-content th {
+  padding: 1rem 1.25rem;
+
+  text-align: left;
+  font-weight: 700;
+  color: hsl(var(--heading));
+
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+/* Cells */
+.blog-content td {
+  padding: 1rem 1.25rem;
+
+  color: hsl(var(--heading));
+  vertical-align: top;
+
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+/* Séparation verticale */
+.blog-content th:not(:last-child),
+.blog-content td:not(:last-child) {
+  border-right: 1px solid hsl(var(--border));
+}
+
+/* Dernière ligne sans border bottom */
+.blog-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Ligne alternée */
+.blog-content tbody tr:nth-child(even) {
+  background: hsl(var(--primary) / 0.025);
+}
+
+/* Hover */
+.blog-content tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.blog-content tbody tr:hover {
+  background: hsl(var(--primary) / 0.06);
+}
+
+/* Empêche le texte d'être collé */
+.blog-content th,
+.blog-content td {
+  min-width: 140px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .blog-content table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .blog-content th,
+  .blog-content td {
+    min-width: 180px;
+    padding: 0.85rem 1rem;
+  }
+}
 
 
 

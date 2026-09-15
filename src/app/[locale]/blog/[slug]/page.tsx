@@ -210,9 +210,9 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         {/* MAIN LAYOUT (CONTENU + SIDEBAR CTA) */}
         <div className="mx-auto max-w-7xl mt-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-            <main className="lg:col-span-8">
+            <main className="min-w-0 lg:col-span-8">
               <div
-                className="prose prose-lg dark:prose-invert max-w-none
+                className="blog-content prose prose-lg dark:prose-invert max-w-none
     [&_h2]:text-2xl [&_h2]:sm:text-3xl [&_h2]:font-extrabold [&_h2]:text-foreground [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:tracking-tight [&_h2]:pb-2
     /* Titres H3 */
     [&_h3]:text-xl [&_h3]:sm:text-2xl [&_h3]:font-bold [&_h3]:text-foreground [&_h3]:mt-8 [&_h3]:mb-3
