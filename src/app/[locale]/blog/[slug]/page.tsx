@@ -12,6 +12,10 @@ import {
 import { RegisterAlternateSlugs } from "@/components/RegisterAlternaternateSlugs";
 import {BlogFaqAccordion} from "@/components/sections/blog/BlogFaqAccordion";
 import ContactForm from "@/components/sections/Contact/ContactForms";
+import { getToursByCity } from "@/lib/supabase/tours";
+import { TourCard } from "@/components/sections/tours/TourCard";
+import TourHelpSection from "@/components/ui/TourHelpSection";
+import { ArrowUpRight } from "lucide-react";
 
 export const revalidate = 3600;
 
@@ -91,11 +95,14 @@ export async function generateMetadata({params,}: BlogDetailPageProps): Promise<
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
   const { locale, slug } = await params;
-  const [blog, blogCardsData, alternateSlugs] = await Promise.all([
+
+  const [blog, blogCardsData, alternateSlugs, tours] = await Promise.all([
     getBlogDetail(locale, slug),
     getBlogCards(locale, 1, 4),
     getAlternateBlogSlugsBySlug(locale, slug),
-  ]);
+    getToursByCity(locale, "marrakech", 3)
+    ]);
+
 
   if (!blog) {
     notFound();
@@ -295,6 +302,34 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               </div>
             </aside>
           </div>
+          <section className="mt-10">
+            {/* Section heading */}
+            <div className="mb-6 flex items-end justify-between gap-4">
+              <div className="max-w-2xl">
+                <h2 className="font-heading text-3xl font-semibold leading-tight text-primary sm:text-4xl lg:text-5xl">
+                  Tours Marrakech Desert
+                </h2>
+              </div>
+
+              <Link
+                href="/tours"
+                locale={locale}
+                className="group inline-flex shrink-0 items-center gap-2 border-b border-border pb-1 text-sm font-semibold text-heading transition-colors hover:border-primary hover:text-primary"
+              >
+                All tours
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+
+            {/* Tours */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {tours.map((card) => (
+                <TourCard key={card.id} card={card} locale={locale} />
+              ))}
+            </div>
+
+            <TourHelpSection locale={locale} />
+          </section>
         </div>
       </article>
     </>

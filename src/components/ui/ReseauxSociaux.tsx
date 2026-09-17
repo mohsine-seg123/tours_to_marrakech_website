@@ -18,7 +18,7 @@ const socials: SocialItem[] = [
   },
   {
     name: "WhatsApp",
-    link: "https://wa.me/212667182357?text=Hello%20Trips%20to%20Marrakech%2C%20I%20would%20like%20more%20information.",
+    link: "https://wa.me/?text=Hello%20Trips%20to%20Marrakech%2C%20I%20would%20like%20more%20information.",
     bg: "bg-[#25D366]",
     icon: <FaWhatsapp aria-hidden="true" />,
   },

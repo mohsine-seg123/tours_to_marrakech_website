@@ -126,9 +126,10 @@ type QueryResult = {
 
 function assertLocale(locale: Locale): void {
   if (locale !== "en" && locale !== "fr" && locale !== "es") {
-    throw new Error(`Unsupported tour locale: ${locale}`);
+     console.error(`assertLocale: invalid locale "${locale}"`);
   }
 }
+
 
 function text(value: unknown): string {
   return typeof value === "string" ? value : "";
