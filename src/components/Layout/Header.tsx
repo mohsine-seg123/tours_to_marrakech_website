@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { ChevronDown, Heart, Mail, Menu, Phone, X } from "lucide-react";
 import { usePathname, Link } from "@/i18n/routing";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
+import Image from "next/image";
 
 type StaticHref = Extract<ComponentProps<typeof Link>["href"], string>;
 
@@ -136,17 +137,15 @@ function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
       className="flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       aria-label={t("homeLabel")}
     >
-      {/* <Image
+      <Image
         src="/logo.png"
-        alt="Trips to Marrakech logo"
-        width={100}
-        height={26}
+        alt="Tours Marrakech Desert"
+        width={120}
+        height={150}
         priority
-        quality={75}
-        sizes="(max-width: 1023px) 112px, 144px"
-        className="h-auto w-16 lg:w-24"
-      /> */}
-      Logo
+        quality={100}
+        className="h-[68px] w-auto object-contain lg:h-[76px]"
+      />
     </Link>
   );
 }

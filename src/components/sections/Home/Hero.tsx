@@ -44,7 +44,7 @@ export default async function HeroSection(): Promise<React.JSX.Element> {
               </Link>
 
               <Link
-                href="/activities"
+                href="/contact"
                 className="group inline-flex items-center gap-2 rounded-full border-2 border-heading bg-transparent px-7 py-3.5 text-sm font-semibold text-heading transition-all duration-300 hover:bg-heading hover:text-background"
               >
                 <Compass

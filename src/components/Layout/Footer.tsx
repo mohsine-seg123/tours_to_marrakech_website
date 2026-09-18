@@ -40,34 +40,6 @@ export default async function Footer() {
 
   return (
     <footer className="w-full bg-footer text-footer-foreground">
-    
-      {/* <section className="border-b border-footer-border bg-footer px-4 py-6 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
-          <h2 className="text-2xl font-bold text-footer-foreground sm:text-3xl lg:text-4xl">
-            {t("cta.title")}
-          </h2>
-          <p className="max-w-xl text-sm leading-relaxed text-footer-muted sm:text-base">
-            {t("cta.subtitle")}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/contact"
-              className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-xl"
-            >
-              {t("cta.button")}
-            </Link>
-            <a
-              href={CONTACT.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-footer-border px-7 py-3 text-sm font-semibold text-footer-foreground transition-all duration-300 hover:border-whatsapp hover:text-whatsapp"
-            >
-              <FaWhatsapp className="h-4 w-4" />
-              WhatsApp
-            </a>
-          </div>
-        </div>
-      </section> */}
 
       {/* ── Main Footer Grid ── */}
       <section className="px-4 py-6 sm:px-6 lg:px-8">
@@ -75,17 +47,16 @@ export default async function Footer() {
           {/* ── Brand ── */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" aria-label="Tours Marrakech Desert home">
-              {/* <Image
-                src="/logo-white.png"
+               <Image
+                src="/logo.png"
                 alt="Tours Marrakech Desert"
-                width={140}
+                width={100}
                 height={36}
-                className="h-auto w-28 sm:w-32"
-              /> */}
-              LOgo
+                className="h-auto w-20 sm:w-26"
+              />
             </Link>
 
-            <p className="mt-4 max-w-xs text-sm leading-7 text-footer-muted">
+            <p className="mt-2 max-w-xs text-sm leading-7 text-footer-muted">
               {t("brand.description")}
             </p>
 
