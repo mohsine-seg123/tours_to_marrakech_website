@@ -25,7 +25,7 @@ export function BlogPagination({
 
   // Génère /en/blog pour la page 1 et /en/blog/page/2 pour les pages suivantes
   const pageHref = (page: number) =>
-    page <= 1 ? `/${locale}/blog` : `/${locale}/blog/page/${page}`;
+page <= 1 ? `/${locale}/blog` : `/${locale}/blog/page/${page}`;
 
   const isFirst = currentPage <= 1;
   const isLast = currentPage >= totalPages;

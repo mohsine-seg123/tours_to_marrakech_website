@@ -27,9 +27,8 @@ interface AlternateSlugsContextValue {
   setAlternateSlugs: (map: AlternateSlugsMap) => void;
 }
 
-const AlternateSlugsContext = createContext<
-  AlternateSlugsContextValue | undefined
->(undefined);
+const AlternateSlugsContext = createContext<AlternateSlugsContextValue | undefined>(undefined);
+
 
 export function AlternateSlugsProvider({ children }: { children: ReactNode }) {
   const [alternateSlugs, setAlternateSlugsState] = useState<AlternateSlugsMap>(null);
@@ -39,9 +38,7 @@ export function AlternateSlugsProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <AlternateSlugsContext.Provider
-      value={{ alternateSlugs, setAlternateSlugs }}
-    >
+    <AlternateSlugsContext.Provider value={{ alternateSlugs, setAlternateSlugs }}>
       {children}
     </AlternateSlugsContext.Provider>
   );

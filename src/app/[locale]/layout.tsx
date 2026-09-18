@@ -10,6 +10,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Toaster } from "sonner";
 import { AlternateSlugsProvider } from "@/contexts/AlternateSlugsContext";
 import { FavoritesProvider } from "@/contexts/FavoritesContext";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -92,6 +93,7 @@ export default async function LocaleLayout({children,params,}: {children: React.
            </AlternateSlugsProvider>
          </NextIntlClientProvider>
        </body>
+       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
      </html>
    );
 }
