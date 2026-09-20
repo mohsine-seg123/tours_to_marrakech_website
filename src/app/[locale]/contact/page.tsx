@@ -159,7 +159,7 @@ export const metadata: Metadata = {
   },
 };
 
-async function page({params}: {params: {locale: string}}): React.JSX.Element {
+async function page({params}: {params: {locale: string}}) {
   const {locale}=await params;
   console.log("locale", locale);
   return (
