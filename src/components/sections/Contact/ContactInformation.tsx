@@ -1,11 +1,31 @@
 import { Mail } from "lucide-react";
 import { ContactItem } from "@/type/contact";
+import { hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
-export default function ContactInformation({
-  ITEMS,
-}: {
-  ITEMS: ContactItem[];
-}): React.JSX.Element {
+export default function ContactInformation({locale,ITEMS,}: {locale: string; ITEMS: ContactItem[];}): React.JSX.Element {
+
+  if(!hasLocale(routing.locales,locale)){
+    notFound();
+  }
+
+ const content = {
+  en: {
+    title: "Contact Information",
+    label: "Get in Touch",
+  },
+  fr: {
+    title: "Informations de contact",
+    label: "Entrer en contact",
+  },
+  es: {
+    title: "Información de contacto",
+    label: "Ponte en contacto",
+  },
+ };
+
+ const t= content[locale] || content.en;
   return (
     <div
       id="contact-form"
@@ -14,12 +34,12 @@ export default function ContactInformation({
       <div className="flex items-center gap-2">
         <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
         <span className="text-xs font-bold uppercase tracking-widest text-primary">
-          Get in Touch
+          {t?.label}
         </span>
       </div>
 
       <h2 className="mt-3 text-2xl font-bold text-heading sm:text-3xl">
-        Contact Information
+        {t?.title}
       </h2>
 
       <ul className="mt-6 space-y-3">

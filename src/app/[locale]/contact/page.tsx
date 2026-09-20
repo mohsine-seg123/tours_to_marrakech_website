@@ -11,16 +11,14 @@ import { FaWhatsapp } from "react-icons/fa";
 import React from "react";
 import type { Metadata } from "next";
 import { ContactItem, Faq} from "@/type/contact";
-import FaqSection from "@/components/sections/Contact/FaqSection";
 import ContactJsonLd from "@/components/seo/ContactJsonLd";
-import FindUs from "@/components/sections/Contact/FindUs";
 
 const WHATSAPP_NUMBER = "212642618936";
 
 const SITE = {
   name: "Marrakech Package",
   url: "https://toursmarrakechdesert.com",
-  email: "info@marrakechpackage.com",
+  email: "info@toursmarrakechdesert.com",
   phone: "+212642618936",
   city: "Marrakech",
   region: "Marrakech-Safi",
@@ -31,6 +29,7 @@ const SITE = {
   opens: "00:00",
   closes: "23:59",
 };
+
 
 const ITEMS: ContactItem[] = [
   {
@@ -49,8 +48,8 @@ const ITEMS: ContactItem[] = [
   {
     icon: <Mail className="h-5 w-5" aria-hidden="true" />,
     label: "Email",
-    value: "info@marrakechpackage.com",
-    href: "mailto:info@marrakechpackage.com",
+    value: "info@toursmarrakechdesert.com",
+    href: "mailto:info@toursmarrakechdesert.com",
   },
   {
     icon: <MapPin className="h-5 w-5" aria-hidden="true" />,
@@ -160,19 +159,19 @@ export const metadata: Metadata = {
   },
 };
 
-function page(): React.JSX.Element {
+async function page({params}: {params: {locale: string}}): React.JSX.Element {
+  const {locale}=await params;
+  console.log("locale", locale);
   return (
     <>
       <ContactJsonLd faqs={FAQS} site={SITE} />
-      <ContactHero numero={WHATSAPP_NUMBER} />
+      <ContactHero numero={WHATSAPP_NUMBER} locale={locale} />
       <section className="bg-background py-8 lg:py-10">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
+          <ContactInformation locale={locale} ITEMS={ITEMS} />
           <ContactForm />
-          <ContactInformation ITEMS={ITEMS} />
         </div>
       </section>
-      <FindUs />
-      <FaqSection faqs={FAQS} />
     </>
   );
 }
