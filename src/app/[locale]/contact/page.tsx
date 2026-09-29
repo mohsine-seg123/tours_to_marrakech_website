@@ -1,25 +1,23 @@
 import ContactForm from "@/components/sections/Contact/ContactForms";
 import ContactHero from "@/components/sections/Contact/ContactHero";
 import ContactInformation from "@/components/sections/Contact/ContactInformation";
-import {
-  Clock,
-  MapPin,
-  Phone,
-  Mail,
-} from "lucide-react";
+import {Clock,MapPin,Phone,Mail,} from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import React from "react";
 import type { Metadata } from "next";
 import { ContactItem, Faq} from "@/type/contact";
 import ContactJsonLd from "@/components/seo/ContactJsonLd";
+import { getPathname, type Locale } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
-const WHATSAPP_NUMBER = "212642618936";
+
+const WHATSAPP_NUMBER = "212704572370";
+
 
 const SITE = {
-  name: "Marrakech Package",
+  name: "Tours Marrakech Desert",
   url: "https://toursmarrakechdesert.com",
   email: "info@toursmarrakechdesert.com",
-  phone: "+212642618936",
+  phone: "+212704572370",
   city: "Marrakech",
   region: "Marrakech-Safi",
   country: "Morocco",
@@ -35,15 +33,15 @@ const ITEMS: ContactItem[] = [
   {
     icon: <FaWhatsapp className="h-5 w-5" aria-hidden="true" />,
     label: "WhatsApp",
-    value: "+212 6 42 61 89 36",
+    value: "+212 704572370",
     note: "Chat with us for a quick reply!",
     href: `https://wa.me/${WHATSAPP_NUMBER}`,
   },
   {
     icon: <Phone className="h-5 w-5" aria-hidden="true" />,
     label: "Phone",
-    value: "+212 6 42 61 89 36",
-    href: "tel:+212642618936",
+    value: "+212 704572370",
+    href: "tel:+212704572370",
   },
   {
     icon: <Mail className="h-5 w-5" aria-hidden="true" />,
@@ -107,64 +105,102 @@ const FAQS: Faq[] = [
   },
 ];
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE.url),
-  title: "Contact Marrakech Package | Plan Your Morocco Tour Today",
-  description:
-    "Contact Marrakech Package to plan your private Morocco tour, shared group trip, or custom desert itinerary. WhatsApp our local Marrakech team — fast replies, 7 days a week.",
-  keywords: [
-    "contact Marrakech tours",
-    "Morocco travel agency",
-    "Marrakech desert tours",
-    "private Morocco tours",
-    "WhatsApp Morocco travel",
-    "Sahara desert package",
-  ],
-  alternates: {
-    canonical: "/contact",
-  },
-  openGraph: {
-    type: "website",
-    url: `${SITE.url}/contact`,
-    siteName: SITE.name,
-    title: "Contact Marrakech Package | Plan Your Morocco Tour",
+type ContactPageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+function isLocale(locale: string): locale is Locale {
+  return locale === "en" || locale === "fr" || locale === "es";
+}
+
+const SEO = {
+  en: {
+    title: "Contact Tours Marrakech Desert | Plan Your Morocco Trip",
     description:
-      "Get in touch with our local Marrakech team. Private tours, shared groups, and tailor-made Morocco itineraries. Fast WhatsApp replies, 7 days a week.",
-    locale: "en_US",
-    images: [
-      {
-        url: "/images/hero.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "Marrakech skyline with the Koutoubia Mosque at sunset",
-      },
-    ],
+      "Contact our Marrakech team to plan your Morocco trip. Tell us your travel dates and preferences for a private tour or a personalised desert itinerary.",
+    imageAlt: "Morocco — Tours Marrakech Desert",
+    ogLocale: "en_US",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact Marrakech Package",
+  fr: {
+    title: "Contact Tours Marrakech Desert | Votre voyage au Maroc",
     description:
-      "Plan your Morocco tour with local experts. Fast WhatsApp replies, 7 days a week.",
-    images: ["/images/hero.jpeg"],
+      "Contactez notre équipe à Marrakech pour préparer votre voyage au Maroc. Partagez vos dates et vos envies pour un circuit privé ou un itinéraire sur mesure.",
+    imageAlt: "Maroc — Tours Marrakech Desert",
+    ogLocale: "fr_FR",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+  es: {
+    title: "Contacto Tours Marrakech Desert | Tu viaje a Marruecos",
+    description:
+      "Contacta con nuestro equipo en Marrakech para preparar tu viaje a Marruecos. Comparte tus fechas y preferencias para un tour privado o un itinerario a medida.",
+    imageAlt: "Marruecos — Tours Marrakech Desert",
+    ogLocale: "es_ES",
   },
 };
 
-async function page({params}: {params: {locale: string}}) {
-  const {locale}=await params;
-  console.log("locale", locale);
+export async function generateMetadata({params,}: ContactPageProps): Promise<Metadata> {
+
+  const { locale } = await params;
+
+  if (!isLocale(locale)) notFound();
+
+  const t = SEO[locale];
+
+  const contactUrl = (language: Locale) =>
+    new URL(getPathname({ locale: language, href: "/contact" }), SITE.url).href;
+
+  const canonical = contactUrl(locale);
+
+  return {
+    metadataBase: new URL(SITE.url),
+    title: t.title,
+    description: t.description,
+
+    alternates: {
+      canonical,
+      languages: {
+        en: contactUrl("en"),
+        fr: contactUrl("fr"),
+        es: contactUrl("es"),
+        "x-default": contactUrl("en"),
+      },
+    },
+
+    openGraph: {
+      type: "website",
+      url: canonical,
+      siteName: SITE.name,
+      title: t.title,
+      description: t.description,
+      locale: t.ogLocale,
+      images: [
+        {
+          url: "/images/hero.jpeg",
+          alt: t.imageAlt,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: t.title,
+      description: t.description,
+      images: ["/images/hero.jpeg"],
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
+
+async function page({params}: {params: {locale: Locale}}) {
+
+  const {locale} = await params;
+
   return (
     <>
-      <ContactJsonLd faqs={FAQS} site={SITE} />
+      <ContactJsonLd site={SITE} locale={locale} />
       <ContactHero numero={WHATSAPP_NUMBER} locale={locale} />
       <section className="bg-background py-8 lg:py-10">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">

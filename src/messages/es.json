@@ -275,9 +275,13 @@
         "title": "Actividades",
         "desc": "Quad, paseo en camello, globo, clase de cocina"
       },
-      "students": {
-        "title": "Viajes para Estudiantes",
-        "desc": "Tours grupales para colegios y universidades"
+      "blogs": {
+        "title": "Blog de Viajes",
+        "desc": "Historias, guías y secretos locales"
+      },
+      "contact": {
+        "title": "Contáctanos",
+        "desc": "¿Preguntas? Chatea con nosotros por WhatsApp o email"
       }
     }
   },

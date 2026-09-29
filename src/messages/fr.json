@@ -275,9 +275,13 @@
         "title": "Activités",
         "desc": "Quad, balade en chameau, montgolfière, cours de cuisine"
       },
-      "students": {
-        "title": "Voyages Étudiants",
-        "desc": "Circuits de groupe pour écoles et universités"
+      "blogs": {
+        "title": "Blog",
+        "desc": "Récits, guides et conseils locaux"
+      },
+      "contact": {
+        "title": "Contactez-nous",
+        "desc": "Nous sommes là pour vous aider à planifier votre voyage"
       }
     }
   },

@@ -4,8 +4,9 @@ import { BlogPagination } from "@/components/sections/blog/BlogPagination";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { redirect, notFound } from "next/navigation";
+import { getPathname } from "@/i18n/routing";
 
-export const revalidate = 3600;
+export const revalidate = 38600;
 
 interface PaginatedBlogProps {
   params: Promise<{ locale: Locale; number: string }>;
@@ -14,16 +15,26 @@ interface PaginatedBlogProps {
 export async function generateMetadata({ params }: PaginatedBlogProps) {
   const { locale, number } = await params;
   const t = await getTranslations({ locale, namespace: "blogs" });
+
+  const pageUrl = (language: Locale) =>
+    getPathname({
+      locale: language,
+      href: {
+        pathname: "/blog/page/[number]",
+        params: { number },
+      },
+    });
+
   return {
-    title: `${t("title")} - Page ${number}`,
+    title: `${t("title")} - ${locale === "es" ? "Página" : "Page"} ${number}`,
     description: t("content"),
     alternates: {
-      canonical: `/${locale}/blog/page/${number}`,
+      canonical: pageUrl(locale),
       languages: {
-        en: `/en/blog/page/${number}`,
-        fr: `/fr/blog/page/${number}`,
-        es: `/es/blog/page/${number}`,
-        "x-default": `/en/blog/page/${number}`,
+        en: pageUrl("en"),
+        fr: pageUrl("fr"),
+        es: pageUrl("es"),
+        "x-default": pageUrl("en"),
       },
     },
   };
@@ -35,10 +46,10 @@ export default async function PaginatedBlogPage({params,}: PaginatedBlogProps) {
   const pageNumber = parseInt(number, 10);
 
   if (pageNumber === 1) {
-    redirect(`/${locale}/blog`);
+    redirect(getPathname({ locale, href: "/blog" }));
   }
 
-  if (isNaN(pageNumber) || pageNumber < 1) {
+  if (!/^[1-9]\d*$/.test(number) || !Number.isSafeInteger(pageNumber)) {
     notFound();
   }
 

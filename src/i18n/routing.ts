@@ -5,6 +5,7 @@ export const routing = defineRouting({
   locales: ["en", "fr", "es"],
   defaultLocale: "en",
   localePrefix: "as-needed",
+  alternateLinks: false,
 
   pathnames: {
     "/": "/",
@@ -20,6 +21,7 @@ export const routing = defineRouting({
       fr: "/circuits/[slug]",
       es: "/tours/[slug]",
     },
+
     "/tours/from/[city]": {
       en: "/tours/from/[city]",
       fr: "/circuits/depuis/[city]",
@@ -62,11 +64,17 @@ export const routing = defineRouting({
       fr: "/blog",
       es: "/blog",
     },
-    
+
     "/blog/[slug]": {
       en: "/blog/[slug]",
       fr: "/blog/[slug]",
       es: "/blog/[slug]",
+    },
+
+    "/blog/page/[number]": {
+      en: "/blog/page/[number]",
+      fr: "/blog/page/[number]",
+      es: "/blog/page/[number]",
     },
 
     // About

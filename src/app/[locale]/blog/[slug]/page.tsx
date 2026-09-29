@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getBlogDetail,
@@ -16,6 +15,8 @@ import { getToursByCity } from "@/lib/supabase/tours";
 import { TourCard } from "@/components/sections/tours/TourCard";
 import TourHelpSection from "@/components/ui/TourHelpSection";
 import { ArrowUpRight } from "lucide-react";
+import { getPathname,Link } from "@/i18n/routing";
+import BlogSeo from "@/components/seo/BlogSeo";
 
 export const revalidate = 3600;
 
@@ -48,8 +49,18 @@ export async function generateMetadata({params,}: BlogDetailPageProps): Promise<
   if (!blog) return {};
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://toursmarrakechdesert.com";
-  const canonicalUrl = `${baseUrl}/${locale}/blog/${blog.slug}`;
 
+  const canonicalUrl = new URL(
+    getPathname({
+      locale,
+      href: {
+        pathname: "/blog/[slug]",
+        params: { slug: blog.slug },
+      },
+    }),
+    baseUrl,
+  ).href;
+  
   const alternateSlugs = await getAlternateBlogSlugsBySlug(locale, slug);
 
   return {
@@ -71,7 +82,7 @@ export async function generateMetadata({params,}: BlogDetailPageProps): Promise<
       title: blog.seoTitle || blog.title,
       description: blog.seoDescription,
       url: canonicalUrl,
-      siteName: "tours marrakech desert",
+      siteName: "Tours Marrakech Desert",
       images: [
         {
           url: blog.coverImage,
@@ -110,63 +121,17 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
   const recentBlogs = Array.isArray(blogCardsData) ? blogCardsData : blogCardsData?.cards || [];
 
-  // Schema.org Article JSON-LD (SEO Google)
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: blog.title,
-    description: blog.seoDescription,
-    "keywords": blog.keywords,
-    articleSection: "Travel",
-    image: [blog.coverImage],
-    inLanguage: locale,
-    author: {
-      "@type": "Organization",
-      name: "tours marrakech desert",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "tours marrakech desert",
-      logo: {
-        "@type": "ImageObject",
-        url: `${process.env.NEXT_PUBLIC_SITE_URL || ""}/logo.png`,
-      },
-    },
-  };
-
-  // Schema.org FAQ JSON-LD (Rich Snippets Google)
-  const faqJsonLd =
-    blog.faq && blog.faq.length > 0
-      ? {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: blog.faq.map((item) => ({
-            "@type": "Question",
-            name: item.question,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: item.answer,
-            },
-          })),
-        }
-      : null;
+  const blogContentWithoutFirstH2 = blog.content.replace(
+    /^\s*<h2\b[^>]*>[\s\S]*?<\/h2>\s*/i,
+    "",
+  );
 
   return (
     <>
       {/* Transmet les slugs FR/EN/ES équivalents au LanguageSwitcher */}
       <RegisterAlternateSlugs slugs={alternateSlugs} />
 
-      {/* Intégration des Données Structurées JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      {faqJsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
-      )}
+      <BlogSeo blog={blog} locale={locale} alternateSlugs={alternateSlugs} />
 
       <article className="min-h-screen bg-background pb-20 text-foreground">
         <section className="relative w-full overflow-hidden bg-slate-950 py-20 lg:py-22">
@@ -184,7 +149,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-left text-white">
             <div className="max-w-3xl">
               <Link
-                href={`/${locale}/blog`}
+                href={`/blog`}
                 className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-slate-200 hover:text-white transition-colors"
               >
                 <span>←</span>blogs
@@ -235,7 +200,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     [&_strong]:font-semibold [&_strong]:text-foreground
     /* Liens (A) */
     [&_a]:text-primary [&_a]:font-medium [&_a]:underline underline-offset-4 hover:[&_a]:opacity-80 transition"
-                dangerouslySetInnerHTML={{ __html: blog.content }}
+                dangerouslySetInnerHTML={{ __html: blogContentWithoutFirstH2 }}
               />
 
               {/* SECTION FAQ (Rendu si présent) */}
@@ -257,7 +222,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                     More Blogs
                   </h3>
                   <Link
-                    href={`/${locale}/blog`}
+                    href={`/blog`}
                     className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
                   >
                     View all
@@ -268,7 +233,10 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   {recentBlogs.map((item) => (
                     <Link
                       key={item.id || item.slug}
-                      href={`/${locale}/blog/${item.slug}`}
+                      href={{
+                        pathname: "/blog/[slug]",
+                        params: { slug: item.slug },
+                      }}
                       className="group flex items-center gap-4 transition-all"
                     >
                       {/* Image miniature */}

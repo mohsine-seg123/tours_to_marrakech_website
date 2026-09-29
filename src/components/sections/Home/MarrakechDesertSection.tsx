@@ -65,9 +65,11 @@ export default async function MarrakechDesertSection() {
             <div className="mt-5">
               {" "}
               <Link
-                href="/tours"
-                className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary-hover hover:shadow-lg"
-              >
+                href={{
+                  pathname: "/tours/from/[city]",
+                  params: { city: "marrakech" },
+                }}
+                className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary-hover hover:shadow-lg">
                 {t("cta")}
                 <span
                   aria-hidden="true"

@@ -213,7 +213,7 @@ export default async function DayTripsPage({params,}: {params: Promise<{ locale:
                 fill
                 priority
                 sizes="(min-width: 1280px) 580px, (min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
+                className="object-cover rounded-xl"
               />
             </div>
           </div>

@@ -274,9 +274,13 @@
         "title": "Activities",
         "desc": "Quad, camel ride, hot air balloon, cooking class"
       },
-      "students": {
-        "title": "Student Trips",
-        "desc": "Group tours designed for schools and universities"
+      "blogs": {
+        "title": "Travel Blog",
+        "desc": "Stories, guides and local secrets"
+      },
+      "contact": {
+        "title": "Contact Us",
+        "desc": "Questions? Let's chat on WhatsApp or email"
       }
     }
   },

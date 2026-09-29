@@ -94,7 +94,7 @@ const jsonLd = {
   logo: "https://toursmarrakechdesert.com/logo.png",
   image: "https://toursmarrakechdesert.com/og-image.webp",
   description: t("meta.description"),
-  telephone: "+212615683217",
+  telephone: "+212704572370",
   email: "info@toursmarrakechdesert.com",
   address: {
     "@type": "PostalAddress",
@@ -143,8 +143,6 @@ const jsonLd = {
       "Saturday",
       "Sunday",
     ],
-    opens: "08:00",
-    closes: "22:00",
   },
   sameAs: [
   ],
@@ -252,7 +250,7 @@ const jsonLd = {
                 src="/images/custome.jpeg"
                 alt="Our local Berber guides with happy travelers in the Sahara desert"
                 fill
-                className="object-cover"
+                className="object-cover rounded-xl"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 quality={85}
               />
@@ -414,6 +412,39 @@ const jsonLd = {
                 </div>
               </Link>
 
+              <Link
+                href="/blog"
+                className="group flex items-center gap-4 rounded-xl border border-primary p-4"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Mountain className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="text-sm font-bold text-heading">
+                    {t("sidebar.blogs.title")}
+                  </p>
+                  <p className="text-xs text-text-muted">
+                    {t("sidebar.blogs.desc")}
+                  </p>
+                </div>
+              </Link>
+
+              <Link
+                href="/contact"
+                className="group flex items-center gap-4 rounded-xl border border-primary p-4"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Mountain className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="text-sm font-bold text-heading">
+                    {t("sidebar.contact.title")}
+                  </p>
+                  <p className="text-xs text-text-muted">
+                    {t("sidebar.contact.desc")}
+                  </p>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

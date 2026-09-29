@@ -15,7 +15,7 @@ const DESTINATIONS = [
   },
   {
     slug: "tangier",
-    image: "/images/destinations/tangier.jpeg",
+    image: "/images/destinations/morocco.jpeg",
     tours: 10,
   },
   {

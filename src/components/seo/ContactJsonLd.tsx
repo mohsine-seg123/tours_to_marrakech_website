@@ -1,7 +1,7 @@
-import { Faq } from "@/type/contact";
+import { getPathname, type Locale } from "@/i18n/routing";
 
 type ContactJsonLdProps = {
-  faqs: Faq[];
+  locale: Locale;
   site: {
     name: string;
     url: string;
@@ -18,35 +18,52 @@ type ContactJsonLdProps = {
   };
 };
 
-export default function ContactJsonLd({
-  faqs,
-  site,
-}: ContactJsonLdProps): React.JSX.Element {
+const LABELS = {
+  en: { home: "Home", contact: "Contact" },
+  fr: { home: "Accueil", contact: "Contact" },
+  es: { home: "Inicio", contact: "Contacto" },
+};
+
+export default function ContactJsonLd({ locale, site }: ContactJsonLdProps) {
+  const t = LABELS[locale];
+  const baseUrl = site.url.replace(/\/+$/, "");
+
+  const homeUrl = new URL(getPathname({ locale, href: "/" }), `${baseUrl}/`)
+    .href;
+
+  const contactUrl = new URL(
+    getPathname({ locale, href: "/contact" }),
+    `${baseUrl}/`,
+  ).href;
+
+  const websiteId = `${baseUrl}/#website`;
+  const organizationId = `${baseUrl}/#organization`;
+  const breadcrumbId = `${contactUrl}#breadcrumb`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": `${site.url}/#website`,
-        url: site.url,
+        "@id": websiteId,
+        url: `${baseUrl}/`,
         name: site.name,
-        publisher: { "@id": `${site.url}/#organization` },
+        publisher: { "@id": organizationId },
+        inLanguage: ["en", "fr", "es"],
       },
       {
         "@type": "TravelAgency",
-        "@id": `${site.url}/#organization`,
+        "@id": organizationId,
         name: site.name,
-        url: site.url,
+        url: `${baseUrl}/`,
         email: site.email,
         telephone: site.phone,
-        image: `${site.url}/images/hero.jpeg`,
-        logo: `${site.url}/images/logofooter.jpeg`,
-        priceRange: "$$",
+        image: `${baseUrl}/images/hero.jpeg`,
+        logo: `${baseUrl}/images/logofooter.jpeg`,
         address: {
           "@type": "PostalAddress",
           addressLocality: site.city,
           addressRegion: site.region,
-          postalCode: "40000",
           addressCountry: site.countryCode,
         },
         geo: {
@@ -77,46 +94,37 @@ export default function ContactJsonLd({
           telephone: site.phone,
           email: site.email,
           contactType: "customer service",
-          areaServed: site.countryCode,
-          availableLanguage: ["English", "French", "Arabic", "Spanish"],
+          availableLanguage: ["English", "French", "Spanish", "Arabic"],
         },
       },
       {
         "@type": "ContactPage",
-        "@id": `${site.url}/contact/#webpage`,
-        url: `${site.url}/contact`,
-        name: `Contact ${site.name}`,
-        isPartOf: { "@id": `${site.url}/#website` },
-        about: { "@id": `${site.url}/#organization` },
+        "@id": `${contactUrl}#webpage`,
+        url: contactUrl,
+        name: `${t.contact} | ${site.name}`,
+        inLanguage: locale,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": organizationId },
+        mainEntity: { "@id": organizationId },
+        breadcrumb: { "@id": breadcrumbId },
       },
       {
         "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: "Home",
-            item: site.url,
+            name: t.home,
+            item: homeUrl,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: "Contact",
-            item: `${site.url}/contact`,
+            name: t.contact,
+            item: contactUrl,
           },
         ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${site.url}/contact/#faq`,
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
       },
     ],
   };
@@ -124,7 +132,9 @@ export default function ContactJsonLd({
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+      }}
     />
   );
 }

@@ -25,8 +25,8 @@ type NavLink = {
 };
 
 const CONTACT = {
-  phone: "+212 6 15683217",
-  phoneHref: "tel:+212615683217",
+  phone: "+212 704572370",
+  phoneHref: "tel:+212704572370",
   email: "info@toursmarrakechdesert.com",
   emailHref: "mailto:info@toursmarrakechdesert.com",
 };

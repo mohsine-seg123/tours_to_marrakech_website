@@ -6,9 +6,9 @@ import { Link } from "@/i18n/routing";
 import ReseauxSociaux from "@/components/ui/ReseauxSociaux";
 
 const CONTACT = {
-  phone: "+212 6 15 68 32 17",
-  phoneHref: "tel:+212615683217",
-  whatsapp: "https://wa.me/212615683217",
+  phone: "+212 704572370",
+  phoneHref: "tel:+212704572370",
+  whatsapp: "https://wa.me/212704572370",
   email: "info@toursmarrakechdesert.com",
   emailHref: "mailto:info@toursmarrakechdesert.com",
 } as const;
@@ -196,7 +196,7 @@ export default async function Footer() {
               </div>
 
 
-              <a
+              {/* <a
                 href="https://www.tripadvisor.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -209,7 +209,7 @@ export default async function Footer() {
                   height={44}
                   className="h-16 w-16 object-contain"
                 />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
