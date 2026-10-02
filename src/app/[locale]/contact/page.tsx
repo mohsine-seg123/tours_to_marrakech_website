@@ -106,7 +106,7 @@ const FAQS: Faq[] = [
 ];
 
 type ContactPageProps = {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 };
 
 function isLocale(locale: string): locale is Locale {
@@ -194,9 +194,8 @@ export async function generateMetadata({params,}: ContactPageProps): Promise<Met
   };
 }
 
-async function page({params}: {params: {locale: Locale}}) {
-
-  const {locale} = await params;
+async function page({ params }: ContactPageProps) {
+  const { locale } = await params;
 
   return (
     <>
