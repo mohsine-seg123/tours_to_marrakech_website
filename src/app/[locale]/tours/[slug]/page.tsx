@@ -36,7 +36,7 @@ export async function generateStaticParams(): Promise<Array<{ locale: Locale; sl
 
 
 type TourDetailPageProps = {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ locale: Locale; slug: string }>;
 };
 
 function isLocale(value: string): value is Locale {
@@ -151,17 +151,23 @@ export async function generateMetadata({
 }
 
 
-async function page(params: { params: { locale: Locale; slug: string } }) {
-  const { locale, slug } =await params.params
+async function page({ params }: TourDetailPageProps) {
 
-  const [tour, alternateSlugs] =await Promise.all([
+
+  const { locale, slug } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  const [tour, alternateSlugs] = await Promise.all([
     getTourDetail(locale, slug),
     getAlternateTourSlugsBySlug(locale, slug),
   ]);
 
   if (!tour) {
     notFound();
-   }
+  }
 
   return (
     <>
