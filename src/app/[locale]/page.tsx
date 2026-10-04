@@ -104,7 +104,7 @@ export async function generateMetadata({
         .map((language) => metadataByLocale[language].ogLocale),
       images: [
         {
-          url: "/og-image.jpg",
+          url: "/og-image.webp",
           width: 1200,
           height: 630,
           alt: content.imageAlt,
@@ -118,7 +118,7 @@ export async function generateMetadata({
       description: content.description,
       images: [
         {
-          url: "/og-image.jpg",
+          url: "/og-image.webp",
           alt: content.imageAlt,
         },
       ],
@@ -127,7 +127,7 @@ export async function generateMetadata({
 }
 
 export default async function Home({params,}: {params: Promise<{ locale: string }>;}) {
-  
+
   const { locale } = await params;
 
   if (locale !== "en" && locale !== "fr" && locale !== "es") {
