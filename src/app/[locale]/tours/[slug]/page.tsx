@@ -194,7 +194,7 @@ async function page({ params }: TourDetailPageProps) {
           />
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/20 to-transparent"
           />
 
           <div className="relative mx-auto w-full max-w-7xl px-4 py-10 text-white sm:px-6 sm:py-14 lg:px-8 lg:py-16">
