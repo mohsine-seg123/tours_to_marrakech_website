@@ -154,6 +154,12 @@ export default function BlogSeo({
         name: "Morocco",
       },
 
+      sameAs: [
+        "https://www.instagram.com/toursmarrakechdesert/",
+        "https://www.reddit.com/user/toursmarrakechdesert/",
+        "https://x.com/MohsineSeg92559",
+      ],
+
       knowsAbout: [
         "Morocco travel",
         "Morocco desert tours",
