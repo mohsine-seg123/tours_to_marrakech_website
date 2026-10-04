@@ -3,29 +3,30 @@ import Faq from "@/components/sections/Home/Faq";
 import Destinations from "@/components/sections/Home/Destinations";
 import MarrakechDesertSection from "@/components/sections/Home/MarrakechDesertSection";
 import { setRequestLocale } from "next-intl/server";
-import { Locale } from "@/lib/supabase/blogs";
 import HomeBlogSection from "@/components/sections/Home/HomeBlogSection";
 import LatestActivities from "@/components/sections/Home/LatestActivities";
 import Homedaytrips from "@/components/sections/Home/Homedaytrips";
 import { Metadata } from "next";
-import { routing,getPathname} from "@/i18n/routing";
-import {notFound} from "next/navigation";
+import { routing, getPathname, type Locale } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 import Hometours from "@/components/sections/Home/Hometours";
 
-
-export async function generateMetadata({params,}: { params: Promise<{ locale: string }>;}): Promise<Metadata> {
-
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
   const { locale } = await params;
 
   if (locale !== "en" && locale !== "fr" && locale !== "es") {
     notFound();
   }
 
-
   const metadataByLocale = {
     en: {
       title: "Tours Marrakech Desert | Sahara Trips & Morocco Tours",
-      description:"Plan your Morocco trip with desert tours from Marrakech, journeys to Merzouga, camel rides and day trips to mountain towns and historic sites.",
+      description:
+        "Plan your Morocco trip with desert tours from Marrakech, journeys to Merzouga, camel rides and day trips to mountain towns and historic sites.",
       keywords: [
         "tours marrakech desert",
         "Marrakech desert tours",
@@ -69,7 +70,7 @@ export async function generateMetadata({params,}: { params: Promise<{ locale: st
     },
   };
 
-  const content= metadataByLocale[locale];
+  const content = metadataByLocale[locale];
 
   const canonical = getPathname({
     locale,
@@ -125,21 +126,105 @@ export async function generateMetadata({params,}: { params: Promise<{ locale: st
   };
 }
 
-
-
-export default async function Home({ params,}: { params: Promise<{ locale: string }>;}) {
-
+export default async function Home({params,}: {params: Promise<{ locale: string }>;}) {
+  
   const { locale } = await params;
-  setRequestLocale(locale);    
+
+  if (locale !== "en" && locale !== "fr" && locale !== "es") {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  const siteUrl = "https://toursmarrakechdesert.com";
+
+  const pageUrl = new URL(getPathname({ locale, href: "/" }), siteUrl).href;
+
+  const titles = {
+    en: "Tours Marrakech Desert | Sahara Trips & Morocco Tours",
+    fr: "Tours Marrakech Desert | Circuits au Sahara et au Maroc",
+    es: "Tours Marrakech Desert | Viajes al Sahara y Marruecos",
+  };
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TravelAgency",
+        "@id": `${siteUrl}/#organization`,
+        name: "Tours Marrakech Desert",
+        url: `${siteUrl}/`,
+        image: `${siteUrl}/og-image.jpg`,
+        telephone: "+212704572370",
+        email: "info@toursmarrakechdesert.com",
+
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Marrakech",
+          addressCountry: "MA",
+        },
+
+        sameAs: [
+          "https://www.instagram.com/toursmarrakechdesert/",
+          "https://www.reddit.com/user/toursmarrakechdesert/",
+          "https://x.com/MohsineSeg92559",
+        ],
+
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+212704572370",
+          email: "info@toursmarrakechdesert.com",
+          contactType: "customer service",
+          availableLanguage: ["en", "fr", "es", "ar"],
+          url: "https://wa.me/212704572370",
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: `${siteUrl}/`,
+        name: "Tours Marrakech Desert",
+        inLanguage: ["en", "fr", "es"],
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: titles[locale],
+        inLanguage: locale,
+        isPartOf: {
+          "@id": `${siteUrl}/#website`,
+        },
+        about: {
+          "@id": `${siteUrl}/#organization`,
+        },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/og-image.jpg`,
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <Hero />
       <Destinations />
-       <Hometours locale={locale as Locale} />
-      <Homedaytrips locale={locale as Locale} />
+      <Hometours locale={locale} />
+      <Homedaytrips locale={locale} />
       <MarrakechDesertSection />
-      <LatestActivities locale={locale as Locale} />
-      <HomeBlogSection locale={locale as Locale} />
+      <LatestActivities locale={locale} />
+      <HomeBlogSection locale={locale} />
       <Faq locale={locale} />
     </>
   );

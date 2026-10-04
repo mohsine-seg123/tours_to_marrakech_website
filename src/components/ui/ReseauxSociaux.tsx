@@ -1,13 +1,14 @@
 import React from "react";
-
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
-
 type SocialItem = {
   name: string;
   link: string;
   bg: string;
   icon: React.ReactNode;
 };
+
+import { FaInstagram, FaWhatsapp, FaRedditAlien } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 
 const socials: SocialItem[] = [
   {
@@ -22,7 +23,21 @@ const socials: SocialItem[] = [
     bg: "bg-[#25D366]",
     icon: <FaWhatsapp aria-hidden="true" />,
   },
+  {
+    name: "Reddit",
+    link: "https://www.reddit.com/user/toursmarrakechdesert/",
+    bg: "bg-[#FF4500]",
+    icon: <FaRedditAlien aria-hidden="true" />,
+  },
+  {
+    name: "X",
+    link: "https://x.com/MohsineSeg92559",
+    bg: "bg-black",
+    icon: <FaXTwitter aria-hidden="true" />,
+  },
 ];
+
+
 
 function ReseauxSociaux(): React.JSX.Element {
   return (
@@ -52,5 +67,7 @@ function ReseauxSociaux(): React.JSX.Element {
     </div>
   );
 }
+
+
 
 export default ReseauxSociaux;

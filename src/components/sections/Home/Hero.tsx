@@ -58,7 +58,7 @@ export default async function HeroSection(): Promise<React.JSX.Element> {
 
           <div className="order-2 lg:order-2">
             <div className="relative mx-auto w-full max-w-md sm:max-w-lg py-6 lg:max-w-none lg:px-8">
-              <div className="group relative aspect-square overflow-hidden">
+              <div className="group relative aspect-square overflow-hidden  rounded-xl">
                 <Image
                   src="/images/marrakech.jpeg"
                   alt="Jemaa el-Fna square in Marrakech with traditional Moroccan souks and architecture | tours marrakech desert"
@@ -66,7 +66,7 @@ export default async function HeroSection(): Promise<React.JSX.Element> {
                   priority
                   quality={90}
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-transform rounded-xl duration-[900ms] ease-out hover:cursor-pointer group-hover:scale-110"
+                  className="object-cover transition-transform duration-[900ms] ease-out hover:cursor-pointer group-hover:scale-110"
                 />
               </div>
             </div>

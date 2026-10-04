@@ -144,7 +144,7 @@ function Logo({ onClick }: { onClick?: () => void }): React.JSX.Element {
         height={150}
         priority
         quality={100}
-        className="h-[68px] w-auto object-contain lg:h-[76px]"
+        className="h-[58px] w-[50px] object-contain lg:w-[80px] lg:h-[60px]"
       />
     </Link>
   );

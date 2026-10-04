@@ -14,6 +14,7 @@ import Map from '@/components/sections/tours/Map';
 import { RegisterAlternateSlugs } from '@/components/RegisterAlternaternateSlugs';
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import TourSeoJsonLd from '@/components/seo/TourSeoJsonLd';
 
 
 export const revalidate = 3600;
@@ -43,9 +44,8 @@ function isLocale(value: string): value is Locale {
   return value === "en" || value === "fr" || value === "es";
 }
 
-export async function generateMetadata({
-  params,
-}: TourDetailPageProps): Promise<Metadata> {
+export async function generateMetadata({params,}: TourDetailPageProps): Promise<Metadata> {
+
   const { locale, slug } = await params;
 
   if (!isLocale(locale)) {
@@ -168,9 +168,10 @@ async function page({ params }: TourDetailPageProps) {
   if (!tour) {
     notFound();
   }
-
+  
   return (
     <>
+      <TourSeoJsonLd tour={tour} locale={locale} />
       <RegisterAlternateSlugs slugs={alternateSlugs} />
       <section className="bg-background min-h-screen">
         <section
@@ -198,23 +199,11 @@ async function page({ params }: TourDetailPageProps) {
 
           <div className="relative mx-auto w-full max-w-7xl px-4 py-10 text-white sm:px-6 sm:py-14 lg:px-8 lg:py-16">
             {/* FIL D’ARIANE */}
-            <nav
-              aria-label={
-                locale === "fr"
-                  ? "Fil d’Ariane"
-                  : locale === "es"
-                    ? "Ruta de navegación"
-                    : "Breadcrumb"
-              }
-              className="mb-8 text-xs text-white"
-            >
-              <ol className="flex flex-wrap items-center gap-x-3 gap-y-2">
+
+            <nav aria-label="Breadcrumb">
+              <ol className="flex flex-wrap items-center gap-x-3 mb-8 gap-y-2">
                 <li>
-                  <Link
-                    href="/"
-                    locale={locale}
-                    className="transition-colors hover:text-white"
-                  >
+                  <Link href="/" locale={locale}>
                     {locale === "fr"
                       ? "Accueil"
                       : locale === "es"
@@ -223,34 +212,41 @@ async function page({ params }: TourDetailPageProps) {
                   </Link>
                 </li>
 
-                <li aria-hidden="true" className="text-white/40">
-                  /
+                <li aria-hidden="true">/</li>
+
+                <li>
+                  <Link href="/tours" locale={locale}>
+                    {locale === "fr" ? "Circuits" : "Tours"}
+                  </Link>
                 </li>
 
                 {tour.departureCity && (
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/tours/from/[city]",
-                        params: {
-                          city: tour.departureCity.toLowerCase(),
-                        },
-                      }}
-                      locale={locale}
-                      className="transition-colors hover:text-white"
-                    >
-                      {locale === "fr" ? "Circuits" : "Tours"}
-                    </Link>
-                  </li>
+                  <>
+                    <li aria-hidden="true">/</li>
+
+                    <li>
+                      <Link
+                        href={{
+                          pathname: "/tours/from/[city]",
+                          params: {
+                            city: tour.departureCity.toLowerCase(),
+                          },
+                        }}
+                        locale={locale}
+                      >
+                        {locale === "fr"
+                          ? `Circuits depuis ${tour.departureCity}`
+                          : locale === "es"
+                            ? `Tours desde ${tour.departureCity}`
+                            : `Tours from ${tour.departureCity}`}
+                      </Link>
+                    </li>
+                  </>
                 )}
 
-                <li aria-hidden="true" className="text-white/40">
-                  /
-                </li>
+                <li aria-hidden="true">/</li>
 
-                <li aria-current="page" className="font-medium text-white">
-                  {tour?.title}
-                </li>
+                <li aria-current="page">{tour.title}</li>
               </ol>
             </nav>
 
