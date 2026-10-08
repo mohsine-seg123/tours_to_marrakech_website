@@ -164,9 +164,9 @@ function fixDuplicateBlogHeading(html: string,title: string,locale: Locale,): st
   }
 
   const headings: Record<Locale, string> = {
-    en: "Travel Insights by Tours Marrakech Desert",
-    fr: "Conseils de voyage par Tours Marrakech Desert",
-    es: "Consejos de viaje de Tours Marrakech Desert",
+    en: " Travel Insights by Tours Marrakech Desert",
+    fr: " Conseils de voyage par Tours Marrakech Desert",
+    es: " Consejos de viaje de Tours Marrakech Desert",
   };
 
   return html.replace(firstH2[0], `${firstH2[1]}<h2>${headings[locale]}</h2>`);
