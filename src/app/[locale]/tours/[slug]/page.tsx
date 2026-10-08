@@ -17,7 +17,7 @@ import { notFound } from "next/navigation";
 import TourSeoJsonLd from '@/components/seo/TourSeoJsonLd';
 
 
-export const revalidate = 3600;
+export const revalidate = 4000;
 
 
 export async function generateStaticParams(): Promise<Array<{ locale: Locale; slug: string }>> {
@@ -168,6 +168,7 @@ async function page({ params }: TourDetailPageProps) {
   if (!tour) {
     notFound();
   }
+
   
   return (
     <>

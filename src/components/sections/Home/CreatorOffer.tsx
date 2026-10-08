@@ -24,7 +24,7 @@ const content = {
 
     title: "Special Offers for Travel Creators",
 
-    discount: "Up to 30% OFF",
+    discount: "Up to 25% OFF",
 
     discountText:
       "Special rates available on selected private tours for eligible creators.",

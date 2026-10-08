@@ -4,26 +4,11 @@ import { getPathname } from "@/i18n/routing";
 interface BlogSeoProps {
   blog: BlogDetail;
   locale: Locale;
-
-  /**
-   * Slugs correspondant au même article dans les autres langues.
-   */
   alternateSlugs?: Record<Locale, string> | null;
-
-  /**
-   * Facultatif.
-   * À utiliser quand tu ajouteras created_at à BlogDetail.
-   */
-  datePublished?: string;
-
-  /**
-   * Facultatif.
-   * À utiliser si tu ajoutes updated_at dans Supabase.
-   */
   dateModified?: string;
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://toursmarrakechdesert.com";
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://toursmarrakechdesert.com").replace(/\/+$/, "");
 
 const SITE_NAME = "Tours Marrakech Desert";
 
@@ -80,13 +65,8 @@ function getBlogLabel(locale: Locale) {
   }
 }
 
-export default function BlogSeo({
-  blog,
-  locale,
-  alternateSlugs,
-  datePublished,
-  dateModified,
-}: BlogSeoProps) {
+export default function BlogSeo({blog,locale,alternateSlugs,dateModified,}: BlogSeoProps) {
+  
   const pathname = getPathname({
     locale,
     href: {
@@ -171,6 +151,7 @@ export default function BlogSeo({
         "Merzouga",
         "Fes",
         "Ouarzazate",
+        "tours marrakech desert",
       ],
     },
 
@@ -242,8 +223,8 @@ export default function BlogSeo({
         },
       }),
 
-      ...(datePublished && {
-        datePublished,
+      ...(blog.created_at && {
+        datePublished: blog.created_at,
       }),
 
       ...(dateModified && {
@@ -341,9 +322,7 @@ export default function BlogSeo({
     graph.push({
       "@type": "FAQPage",
       "@id": faqId,
-
       url: canonicalUrl,
-
       mainEntity: blog.faq
         .filter(
           (item) =>
@@ -352,7 +331,6 @@ export default function BlogSeo({
         .map((item) => ({
           "@type": "Question",
           name: item.question.trim(),
-
           acceptedAnswer: {
             "@type": "Answer",
             text: stripHtml(item.answer),

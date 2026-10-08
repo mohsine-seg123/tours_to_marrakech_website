@@ -14,9 +14,9 @@ import ContactForm from "@/components/sections/Contact/ContactForms";
 import { getToursByCity } from "@/lib/supabase/tours";
 import { TourCard } from "@/components/sections/tours/TourCard";
 import TourHelpSection from "@/components/ui/TourHelpSection";
-import { ArrowUpRight } from "lucide-react";
 import { getPathname,Link } from "@/i18n/routing";
 import BlogSeo from "@/components/seo/BlogSeo";
+import { CalendarDays, Clock3, ArrowUpRight } from "lucide-react";
 
 export const revalidate = 3600;
 
@@ -41,14 +41,20 @@ export async function generateStaticParams() {
 
 
 
+
 export async function generateMetadata({params,}: BlogDetailPageProps): Promise<Metadata> {
 
   const { locale, slug } = await params;
+
   const blog = await getBlogDetail(locale, slug);
 
-  if (!blog) return {};
+  if (!blog) {
+    notFound();
+  }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://toursmarrakechdesert.com";
+  const baseUrl = (
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://toursmarrakechdesert.com"
+  ).replace(/\/+$/, "");
 
   const canonicalUrl = new URL(
     getPathname({
@@ -60,48 +66,112 @@ export async function generateMetadata({params,}: BlogDetailPageProps): Promise<
     }),
     baseUrl,
   ).href;
-  
+
   const alternateSlugs = await getAlternateBlogSlugsBySlug(locale, slug);
 
+  // Only include existing translations
+  const languages: Record<string, string> = {
+    [locale]: canonicalUrl,
+  };
+
+  if (alternateSlugs?.en) {
+    languages.en = `${baseUrl}/blog/${alternateSlugs.en}`;
+
+    languages["x-default"] = languages.en;
+  }
+
+  if (alternateSlugs?.fr) {
+    languages.fr = `${baseUrl}/fr/blog/${alternateSlugs.fr}`;
+  }
+
+  if (alternateSlugs?.es) {
+    languages.es = `${baseUrl}/es/blog/${alternateSlugs.es}`;
+  }
+
+  const title = blog.seoTitle?.trim() || blog.title;
+
+  const description = blog.seoDescription?.trim() || `Read ${blog.title} on Tours Marrakech Desert.`;
+
+  const images = blog.coverImage
+    ? [
+        {
+          url: blog.coverImage,
+          alt: blog.altImage || blog.title,
+        },
+      ]
+    : [];
+
   return {
-    title: blog.seoTitle || blog.title,
-    description: blog.seoDescription,
+    title,
+    description,
     keywords: blog.keywords,
     alternates: {
       canonical: canonicalUrl,
-      languages: alternateSlugs
-        ? {
-            en: `${baseUrl}/blog/${alternateSlugs.en}`,
-            fr: `${baseUrl}/fr/blog/${alternateSlugs.fr}`,
-            es: `${baseUrl}/es/blog/${alternateSlugs.es}`,
-            "x-default": `${baseUrl}/blog/${alternateSlugs.en}`,
-          }
-        : undefined,
+      languages,
     },
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+
     openGraph: {
-      title: blog.seoTitle || blog.title,
-      description: blog.seoDescription,
+      title,
+      description,
       url: canonicalUrl,
       siteName: "Tours Marrakech Desert",
-      images: [
-        {
-          url: blog.coverImage,
-          width: 1200,
-          height: 630,
-          alt: blog.altImage || blog.title,
-        },
-      ],
-      locale: locale === "fr" ? "fr_FR" : locale === "es" ? "es_ES" : "en_US",
       type: "article",
+      locale: locale === "fr" ? "fr_FR" : locale === "es" ? "es_ES" : "en_US",
+      images,
     },
+
     twitter: {
       card: "summary_large_image",
-      title: blog.seoTitle || blog.title,
-      description: blog.seoDescription,
-      images: [blog.coverImage],
+      title,
+      description,
+      site: "@toursmarrakechdesert",
+      images: blog.coverImage ? [blog.coverImage] : [],
     },
   };
 }
+
+
+
+
+function fixDuplicateBlogHeading(html: string,title: string,locale: Locale,): string {
+
+  const normalize = (value: string) =>
+    value
+      .replace(/<[^>]*>/g, "")
+      .replace(/&amp;/gi, "&")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
+
+  const firstH2 = html.match(/^(\s*)<h2\b[^>]*>([\s\S]*?)<\/h2>/i);
+
+  if (!firstH2) return html;
+
+  // Ne modifier que si le premier H2 répète le H1
+  if (normalize(firstH2[2]) !== normalize(title)) {
+    return html;
+  }
+
+  const headings: Record<Locale, string> = {
+    en: "Travel Insights by Tours Marrakech Desert",
+    fr: "Conseils de voyage par Tours Marrakech Desert",
+    es: "Consejos de viaje de Tours Marrakech Desert",
+  };
+
+  return html.replace(firstH2[0], `${firstH2[1]}<h2>${headings[locale]}</h2>`);
+}
+
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
@@ -114,17 +184,13 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     getToursByCity(locale, "marrakech", 3)
     ]);
 
-
   if (!blog) {
     notFound();
   }
 
   const recentBlogs = Array.isArray(blogCardsData) ? blogCardsData : blogCardsData?.cards || [];
 
-  const blogContentWithoutFirstH2 = blog.content.replace(
-    /^\s*<h2\b[^>]*>[\s\S]*?<\/h2>\s*/i,
-    "",
-  );
+  const blogContent = fixDuplicateBlogHeading(blog.content, blog.title, locale);
 
   return (
     <>
@@ -144,7 +210,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/20 to-black/10" />
 
           <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-left text-white">
             <div className="max-w-3xl">
@@ -171,9 +237,45 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 </p>
               )}
 
-              {/* 5. Méta-informations (Auteur, Temps de lecture) */}
-              <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-300 font-medium">
-                <span>{blog.timeread}</span>
+              {/* Publication date and reading time */}
+              <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-200 font-medium mb-6">
+                {blog.created_at && (
+                  <div className="flex items-center gap-2">
+                    <CalendarDays className="h-4 w-4" />
+
+                    <time dateTime={blog.created_at}>
+                      {new Intl.DateTimeFormat(
+                        locale === "fr"
+                          ? "fr-FR"
+                          : locale === "es"
+                            ? "es-ES"
+                            : "en-US",
+                        {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                          timeZone: "UTC",
+                        },
+                      ).format(new Date(blog.created_at))}
+                    </time>
+                  </div>
+                )}
+
+                <div className="flex items-center gap-2">
+                  <Clock3 className="h-4 w-4" />
+                  <span>{blog.timeread}</span>
+                </div>
+              </div>
+
+              {/* Get a Free Quote */}
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold  text-slate-950 shadow-lg transition-all duration-300 hover:bg-primary/50 hover:text-white hover:-translate-y-0.5"
+                >
+                  {locale === "fr" ? "Une question ? Contactez-nous !" : locale === "es" ? "¿Tienes preguntas? ¡Consúltanos!"  : "Have Questions? Ask Us!"}
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
               </div>
             </div>
           </div>
@@ -182,28 +284,12 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         {/* MAIN LAYOUT (CONTENU + SIDEBAR CTA) */}
         <div className="mx-auto max-w-7xl mt-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-            <main className="min-w-0 lg:col-span-8">
+            <div className="min-w-0 lg:col-span-8">
               <div
-                className="blog-content prose prose-lg dark:prose-invert max-w-none
-    [&_h2]:text-2xl [&_h2]:sm:text-3xl [&_h2]:font-extrabold [&_h2]:text-foreground [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:tracking-tight [&_h2]:pb-2
-    /* Titres H3 */
-    [&_h3]:text-xl [&_h3]:sm:text-2xl [&_h3]:font-bold [&_h3]:text-foreground [&_h3]:mt-8 [&_h3]:mb-3
-    /* Paragraphes */
-    [&_p]:text-base [&_p]:sm:text-lg [&_p]:text-muted-foreground [&_p]:leading-relaxed [&_p]:mb-6
-    /* Listes à puces (UL) */
-    [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-6 [&_ul]:space-y-3 [&_ul]:text-muted-foreground
-    /* Listes numérotées (OL) */
-    [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-6 [&_ol]:space-y-3 [&_ol]:text-muted-foreground
-    /* Éléments de liste (LI) */
-    [&_li]:text-base [&_li]:sm:text-lg [&_li]:leading-relaxed [&_li]:marker:text-primary
-    /* Textes en gras (STRONG) */
-    [&_strong]:font-semibold [&_strong]:text-foreground
-    /* Liens (A) */
-    [&_a]:text-primary [&_a]:font-medium [&_a]:underline underline-offset-4 hover:[&_a]:opacity-80 transition"
-                dangerouslySetInnerHTML={{ __html: blogContentWithoutFirstH2 }}
+                className="blog-content prose prose-lg max-w-none"
+                dangerouslySetInnerHTML={{ __html: blogContent }}
               />
 
-              {/* SECTION FAQ (Rendu si présent) */}
               {blog.faq && blog.faq.length > 0 && (
                 <section className="mt-16">
                   <h2 className="text-2xl font-bold tracking-tight mb-8">
@@ -212,15 +298,15 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   <BlogFaqAccordion faq={blog.faq} />
                 </section>
               )}
-            </main>
+            </div>
 
             <aside className="lg:col-span-4">
               <div className="sticky top-24 space-y-6">
                 <ContactForm />
                 <div className="flex items-center justify-between pb-3 border-b border-border/80">
-                  <h3 className="font-serif text-2xl font-medium tracking-tight text-foreground">
+                  <h2 className="font-serif text-2xl font-medium tracking-tight text-foreground">
                     More Blogs
-                  </h3>
+                  </h2>
                   <Link
                     href={`/blog`}
                     className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
@@ -256,9 +342,9 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                           {item.category || "Morocco Travel Tips"}
                         </span>
 
-                        <h4 className="font-serif text-xl font-semibold text-foreground leading-snug line-clamp-2 group-hover:text-primary transition-colors mb-1">
+                        <h3 className="font-serif text-xl font-semibold text-foreground leading-snug line-clamp-2 group-hover:text-primary transition-colors mb-1">
                           {item.title}
-                        </h4>
+                        </h3>
 
                         <span className="block text-xs text-muted-foreground/70">
                           {item.timeread || item.date || "5 min read"}

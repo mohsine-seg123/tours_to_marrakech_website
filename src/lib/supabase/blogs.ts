@@ -55,6 +55,7 @@ export interface BlogDetail {
   coverImage: string;
   altImage: string;
   timeread: string;
+  created_at?: string;
 }
 
 export interface PaginatedBlogCards {
@@ -114,13 +115,13 @@ export async function getBlogCards(locale: Locale, page: number = 1,pageSize: nu
   };
 }
 
-export async function getBlogDetail(
-  locale: Locale,
-  slug: string,
-): Promise<BlogDetail | null> {
+
+
+export async function getBlogDetail(locale: Locale,slug: string,): Promise<BlogDetail | null> {
+
   const { data, error } = await supabase
     .from(TABLE)
-    .select(`id, cover_image, alt_image, timeread, ${locale}`)
+    .select(`id,created_at,cover_image,alt_image,timeread,${locale}`)
     .eq("published", true)
     .eq(`${locale}->>slug`, slug)
     .limit(1)
@@ -134,8 +135,6 @@ export async function getBlogDetail(
   if (!data) return null;
 
   const localeContent = (data as any)[locale] as BlogLocaleContent;
-
-  // Vérification que le contenu traduit existe bien pour cette langue
   if (!localeContent || !localeContent.title) return null;
 
   return {
@@ -147,9 +146,10 @@ export async function getBlogDetail(
     keywords: localeContent.keywords || [],
     content: localeContent.content || "",
     faq: localeContent.faq ?? [],
-    coverImage: (data as any).cover_image,
-    altImage: (data as any).alt_image || localeContent.title,
-    timeread: (data as any).timeread,
+    coverImage:data?.cover_image,
+    altImage: data?.alt_image || localeContent.title,
+    timeread: data?.timeread,
+    created_at: data.created_at ?? undefined,
   };
 }
 
@@ -166,9 +166,8 @@ export async function getAllBlogSlugs(locale: Locale): Promise<string[]> {
   return (data ?? []).map((row: any) => row.slug).filter(Boolean);
 }
 
-export async function getAlternateBlogSlugs(
-  id: string,
-): Promise<Record<Locale, string> | null> {
+
+export async function getAlternateBlogSlugs(id: string,): Promise<Record<Locale, string> | null> {
   const { data, error } = await supabase
     .from(TABLE)
     .select("en_slug:en->>slug, fr_slug:fr->>slug, es_slug:es->>slug")
@@ -188,10 +187,8 @@ export async function getAlternateBlogSlugs(
   };
 }
 
-export async function getAlternateBlogSlugsBySlug(
-  locale: Locale,
-  slug: string,
-): Promise<Record<Locale, string> | null> {
+
+export async function getAlternateBlogSlugsBySlug(locale: Locale,slug: string,): Promise<Record<Locale, string> | null> {
   const { data, error } = await supabase
     .from(TABLE)
     .select("en_slug:en->>slug, fr_slug:fr->>slug, es_slug:es->>slug")
