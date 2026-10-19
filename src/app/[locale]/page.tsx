@@ -12,64 +12,64 @@ import { notFound } from "next/navigation";
 import Hometours from "@/components/sections/Home/Hometours";
 import CreatorOffer from "@/components/sections/Home/CreatorOffer";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params,}: {params: Promise<{ locale: Locale }>;}): Promise<Metadata> {
+
   const { locale } = await params;
 
   if (locale !== "en" && locale !== "fr" && locale !== "es") {
     notFound();
   }
 
-  const metadataByLocale = {
-    en: {
-      title: "Tours Marrakech Desert | Sahara Trips & Morocco Tours",
-      description:
-        "Plan your Morocco trip with desert tours from Marrakech, journeys to Merzouga, camel rides and day trips to mountain towns and historic sites.",
-      keywords: [
-        "tours marrakech desert",
-        "Marrakech desert tours",
-        "Marrakech Sahara tour",
-        "Merzouga desert tour",
-        "Morocco day trips",
-        "Marrakech excursions",
-      ],
-      ogLocale: "en_US",
-      imageAlt: "Tours Marrakech Desert — Sahara trips in Morocco",
-    },
-    fr: {
-      title: "Tours Marrakech Desert | Circuits au Sahara et au Maroc",
-      description:
-        "Préparez votre voyage au Maroc : circuits dans le désert depuis Marrakech, séjours à Merzouga, balades à dos de chameau et excursions à la journée.",
-      keywords: [
-        "circuit désert Marrakech",
-        "circuit Sahara Maroc",
-        "excursion Marrakech",
-        "désert de Merzouga",
-        "voyage au Maroc",
-        "excursions au Maroc",
-      ],
-      ogLocale: "fr_FR",
-      imageAlt: "Tours Marrakech Desert — Circuits dans le Sahara marocain",
-    },
-    es: {
-      title: "Tours Marrakech Desert | Viajes al Sahara y Marruecos",
-      description:
-        "Prepara tu viaje a Marruecos: rutas al desierto desde Marrakech, viajes a Merzouga, paseos en camello y excursiones de un día.",
-      keywords: [
-        "excursiones desierto Marrakech",
-        "viaje al Sahara",
-        "desierto de Merzouga",
-        "excursiones desde Marrakech",
-        "viajes a Marruecos",
-        "rutas por Marruecos",
-      ],
-      ogLocale: "es_ES",
-      imageAlt: "Tours Marrakech Desert — Viajes al Sahara marroquí",
-    },
-  };
+
+const metadataByLocale = {
+  en: {
+    title: "Marrakech Desert Tours & Sahara Trips | Tours Marrakech Desert",
+    description:"Explore Morocco with Tours Marrakech Desert. Discover private Sahara tours from Marrakech to Merzouga, camel rides, Atlas Mountains and tailor-made trips.",
+    keywords: [
+      "tours marrakech desert",
+      "marrakech desert tours",
+      "sahara desert tours from marrakech",
+      "private morocco tours",
+      "marrakech to merzouga tour",
+      "morocco desert trips",
+    ],
+    ogLocale: "en_US",
+    imageAlt: "Sahara desert dunes in Morocco — Tours Marrakech Desert",
+  },
+
+  fr: {
+    title: "Circuits Désert Marrakech & Sahara | Tours Marrakech Desert",
+    description:
+      "Découvrez le Maroc avec Tours Marrakech Desert. Circuits privés au Sahara depuis Marrakech, désert de Merzouga, balades à dos de dromadaire et voyages sur mesure.",
+    keywords: [
+      "tours marrakech desert",
+      "circuit désert Marrakech",
+      "excursion désert Marrakech",
+      "circuit Sahara Maroc",
+      "désert Merzouga",
+      "voyage privé Maroc",
+    ],
+    ogLocale: "fr_FR",
+    imageAlt: "Dunes du désert du Sahara au Maroc — Tours Marrakech Desert",
+  },
+
+  es: {
+    title: "Tours por el Desierto desde Marrakech | Tours Marrakech Desert",
+    description:
+      "Descubre Marruecos con Tours Marrakech Desert. Excursiones privadas al Sahara desde Marrakech, viajes a Merzouga, paseos en camello y rutas a medida.",
+    keywords: [
+      "tours marrakech desert",
+      "excursiones desierto Marrakech",
+      "tour desierto Marruecos",
+      "Sahara desde Marrakech",
+      "desierto de Merzouga",
+      "viajes privados Marruecos",
+    ],
+    ogLocale: "es_ES",
+    imageAlt: "Dunas del Sahara en Marruecos — Tours Marrakech Desert",
+  },
+};
+
 
   const content = metadataByLocale[locale];
 
@@ -127,6 +127,8 @@ export async function generateMetadata({
   };
 }
 
+
+
 export default async function Home({params,}: {params: Promise<{ locale: string }>;}) {
 
   const { locale } = await params;
@@ -142,10 +144,11 @@ export default async function Home({params,}: {params: Promise<{ locale: string 
   const pageUrl = new URL(getPathname({ locale, href: "/" }), siteUrl).href;
 
   const titles = {
-    en: "Tours Marrakech Desert | Sahara Trips & Morocco Tours",
-    fr: "Tours Marrakech Desert | Circuits au Sahara et au Maroc",
-    es: "Tours Marrakech Desert | Viajes al Sahara y Marruecos",
+    en: "Marrakech Desert Tours & Sahara Trips | Tours Marrakech Desert",
+    fr: "Circuits Désert Marrakech & Sahara | Tours Marrakech Desert",
+    es: "Tours por el Desierto desde Marrakech | Tours Marrakech Desert",
   };
+
 
   const jsonLd = {
     "@context": "https://schema.org",

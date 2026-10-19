@@ -83,6 +83,7 @@ export const routing = defineRouting({
       fr: "/a-propos",
       es: "/sobre-nosotros",
     },
+    
     "/about/morocco_tourist": {
       en: "/about/morocco-tourist",
       fr: "/a-propos/tourisme-maroc",

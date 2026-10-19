@@ -9,13 +9,13 @@ export default async function HeroSection(): Promise<React.JSX.Element> {
   return (
     <section className="relative w-full overflow-hidden bg-background">
       <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:pt-12 lg:px-8 lg:pt-16">
-        <div className="grid grid-cols-1 items-center gap-2  lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 items-center gap-2  lg:grid-cols-2">
           <div className="order-1 lg:order-1">
             <p className="font-body text-xs font-semibold text-center sm:text-start uppercase tracking-[0.25em] text-primary sm:text-sm">
               {t("eyebrow")}
             </p>
 
-            <h1 className="mt-3 sm:mt-5 font-body text-4xl text-center sm:text-start font-black leading-[1.05] tracking-tight text-heading sm:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="mt-3 sm:mt-5 font-body text-4xl text-center sm:text-start font-black leading-[1.05] tracking-tight text-heading sm:text-5xl">
               {t.rich("title", {
                 highlight: (chunks) => (
                   <span className="text-primary">{chunks}</span>
@@ -27,7 +27,7 @@ export default async function HeroSection(): Promise<React.JSX.Element> {
               {t("subtitle")}
             </p>
 
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-text-secondary sm:text-base">
+            <p className="mt-4 mx-auto max-w-lg text-center text-sm leading-relaxed text-text-secondary sm:mx-0 sm:text-start sm:text-base">
               {t("description")}
             </p>
 
@@ -61,7 +61,7 @@ export default async function HeroSection(): Promise<React.JSX.Element> {
               <div className="group relative aspect-square overflow-hidden  rounded-xl">
                 <Image
                   src="/images/marrakech.jpeg"
-                  alt="Jemaa el-Fna square in Marrakech with traditional Moroccan souks and architecture | tours marrakech desert"
+                  alt="Jemaa el-Fna square in Marrakech, Morocco"
                   fill
                   priority
                   quality={90}

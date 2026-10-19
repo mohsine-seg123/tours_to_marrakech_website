@@ -52,11 +52,6 @@ export default function FaqItem({
           </div>
         </div>
       </div>
-
-      {/* SEO FALLBACK */}
-      <noscript>
-        <div className="px-6 py-0 text-sm text-text-secondary">{answer}</div>
-      </noscript>
     </div>
   );
 }

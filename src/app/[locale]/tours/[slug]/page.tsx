@@ -1,4 +1,10 @@
-import { getAllTourSlugs, getAlternateTourSlugsBySlug, getTourDetail,type Locale } from '@/lib/supabase/tours';
+import {
+  getAllTourSlugs,
+  getAlternateTourSlugsBySlug,
+  getTourDetail,
+  type Locale,
+  getToursByCity,
+} from "@/lib/supabase/tours";
 import { Link, routing, getPathname } from "@/i18n/routing";
 import Image from 'next/image';
 import ContactForm from '@/components/sections/Contact/ContactForms';
@@ -15,6 +21,7 @@ import { RegisterAlternateSlugs } from '@/components/RegisterAlternaternateSlugs
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import TourSeoJsonLd from '@/components/seo/TourSeoJsonLd';
+import TourCard from "@/components/sections/tours/TourCard";
 
 
 export const revalidate = 4000;
@@ -169,7 +176,9 @@ async function page({ params }: TourDetailPageProps) {
     notFound();
   }
 
-  
+
+  const relativetours = await getToursByCity(locale, tour.departureCity || "", 3);
+
   return (
     <>
       <TourSeoJsonLd tour={tour} locale={locale} />
@@ -464,6 +473,21 @@ async function page({ params }: TourDetailPageProps) {
         )}
 
         {tour?.faq && <Faqs faqs={tour.faq} locale={locale} />}
+
+        <section className="mx-auto my-12 max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-semibold leading-tight tracking-tight text-primary/90 sm:text-4xl">
+            {locale === "fr"
+              ? "Circuits similaires"
+              : locale === "es"
+                ? "Tours similares"
+                : "Similar tours"}
+          </h2>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {relativetours.map((tour) => (
+              <TourCard key={tour.id} card={tour} locale={locale} />
+            ))}
+          </div>
+        </section>
       </section>
     </>
   );

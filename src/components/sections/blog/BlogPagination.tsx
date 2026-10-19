@@ -14,11 +14,9 @@ interface BlogPaginationProps {
   totalPages: number;
 }
 
-export function BlogPagination({
-  locale,
-  currentPage,
-  totalPages,
-}: BlogPaginationProps) {
+export function BlogPagination({locale,currentPage,totalPages,}: BlogPaginationProps) {
+
+  
   if (totalPages <= 1) return null;
 
   const labels = LABELS[locale] ?? LABELS.en;
@@ -49,7 +47,7 @@ page <= 1 ? `/${locale}/blog` : `/${locale}/blog/page/${page}`;
 
       {/* Numéros de page */}
       <div className="flex items-center gap-1">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+        {Array.from({ length: totalPages }, (_, i) => i + 1).slice(0,3).map((page) => (
           <Link
             key={page}
             href={pageHref(page)}
