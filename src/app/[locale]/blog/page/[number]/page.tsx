@@ -6,7 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { redirect, notFound } from "next/navigation";
 import { getPathname } from "@/i18n/routing";
 
-export const revalidate = 38600;
+export const revalidate = 86400;
 
 interface PaginatedBlogProps {
   params: Promise<{ locale: Locale; number: string }>;

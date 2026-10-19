@@ -5,6 +5,9 @@ import { getToursByCity, type Locale } from "@/lib/supabase/tours";
 import TourCard from "@/components/sections/tours/TourCard";
 import { getPathname, Link, routing } from "@/i18n/routing";
 
+export const revalidate = 86400;
+
+
 const CONTENT = {
   en: {
     label: "YOUR JOURNEY STARTS HERE",

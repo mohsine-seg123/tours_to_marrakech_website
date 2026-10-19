@@ -5,7 +5,7 @@ import TourCard from "@/components/sections/tours/TourCard";
 import type { Metadata } from "next";
 import { getPathname, routing } from "@/i18n/routing";
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const CONTENT = {
   en: {

@@ -24,7 +24,7 @@ import TourSeoJsonLd from '@/components/seo/TourSeoJsonLd';
 import TourCard from "@/components/sections/tours/TourCard";
 
 
-export const revalidate = 4000;
+export const revalidate = 86400;
 
 
 export async function generateStaticParams(): Promise<Array<{ locale: Locale; slug: string }>> {

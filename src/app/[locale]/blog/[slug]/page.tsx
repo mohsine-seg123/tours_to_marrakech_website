@@ -18,7 +18,7 @@ import { getPathname,Link } from "@/i18n/routing";
 import BlogSeo from "@/components/seo/BlogSeo";
 import { CalendarDays, Clock3, ArrowUpRight } from "lucide-react";
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 
 interface BlogDetailPageProps {

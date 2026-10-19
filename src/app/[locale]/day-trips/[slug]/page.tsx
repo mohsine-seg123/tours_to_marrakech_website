@@ -13,7 +13,7 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 
-export const revalidate =8400; 
+export const revalidate = 86400; 
 
 
 
