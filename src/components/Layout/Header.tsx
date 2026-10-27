@@ -43,6 +43,7 @@ const TOURS_DROPDOWN: DropdownItem[] = [
 const ABOUT_DROPDOWN: DropdownItem[] = [
   { href: "/about", label: "aboutCompany" },
   { href: "/about/morocco_tourist", label: "aboutMorocco" },
+  { href: "/about/booking-policy", label: "whatIsBookingPolicy" },
 ];
 
 

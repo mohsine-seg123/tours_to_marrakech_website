@@ -79,24 +79,8 @@ export default async function MarrakechToursHome({ locale }: Props) {
             <div className="flex shrink-0 justify-center lg:justify-end lg:pb-1">
               <Link
                 href="/tours"
-                locale={locale}
-                className="
-              group inline-flex items-center justify-center
-              gap-3 rounded-full
-              border border-primary
-              bg-primary px-6 py-3.5
-              text-sm font-semibold
-              text-primary-foreground
-              transition-all duration-300
-              hover:shadow-lg
-              focus-visible:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-primary
-              focus-visible:ring-offset-2
-            "
-              >
+                className=" group inline-flex items-center justify-center gap-3 rounded-full border border-primary bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300   hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" >
                 <span>{t.viewAll}</span>
-
                 <ArrowUpRight
                   className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   aria-hidden="true"

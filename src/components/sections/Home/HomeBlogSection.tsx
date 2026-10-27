@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getBlogCards, type Locale } from "@/lib/supabase/blogs";
+import { getPathname } from "@/i18n/routing";
+
 
 interface HomeBlogSectionProps {
   locale: Locale;
@@ -59,7 +61,10 @@ export default async function HomeBlogSection({locale,}: HomeBlogSectionProps) {
               {texts.title}
             </h2>
             <Link
-              href={`/${locale}/blog`}
+              href={getPathname({
+                locale,
+                href: "/blog",
+              })}
               className="group mt-2 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-hover"
             >
               <span>{texts.viewAll}</span>
@@ -92,7 +97,13 @@ export default async function HomeBlogSection({locale,}: HomeBlogSectionProps) {
           {cards.map((card) => (
             <Link
               key={card.id}
-              href={`/${locale}/blog/${card.slug}`}
+              href={getPathname({
+                locale,
+                href: {
+                  pathname: "/blog/[slug]",
+                  params: { slug: card.slug },
+                },
+              })}
               className="group block h-full"
             >
               <article className="flex h-full flex-col">

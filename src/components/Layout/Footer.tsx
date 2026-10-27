@@ -40,14 +40,13 @@ export default async function Footer() {
 
   return (
     <footer className="w-full bg-footer text-footer-foreground">
-
       {/* ── Main Footer Grid ── */}
       <section className="px-4 py-6 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_0.8fr_0.7fr_1.2fr] lg:gap-8">
           {/* ── Brand ── */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" aria-label="Tours Marrakech Desert home">
-               <Image
+              <Image
                 src="/logo.png"
                 alt="Tours Marrakech Desert"
                 width={100}
@@ -194,22 +193,6 @@ export default async function Footer() {
                   className="mt-2 h-12 w-auto object-contain opacity-70"
                 />
               </div>
-
-
-              {/* <a
-                href="https://www.tripadvisor.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TripAdvisor reviews"
-              >
-                <Image
-                  src="/images/tripadvisor-logo-circle-owl-icon-black-green-1536x1536-1.webp"
-                  alt="TripAdvisor"
-                  width={44}
-                  height={44}
-                  className="h-16 w-16 object-contain"
-                />
-              </a> */}
             </div>
           </div>
         </div>
@@ -230,7 +213,7 @@ export default async function Footer() {
               {t("legal.privacy")}
             </Link>
             <Link
-              href="/about"
+              href="/about/booking-policy"
               className="transition-colors hover:text-footer-foreground"
             >
               {t("legal.terms")}

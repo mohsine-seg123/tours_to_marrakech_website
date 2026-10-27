@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { Link } from "@/i18n/routing";
+import {getPathname } from "@/i18n/routing";
 import { ArrowUpRight, Clock, MapPin } from "lucide-react";
 import { FavoriteButton } from "@/components/ui/FavoriteButton";
 import type { TourCard as TourCardType, Locale } from "@/lib/supabase/tours";
+import Link from "next/link";
 
 const LABELS = {
   en: {
@@ -46,14 +47,7 @@ export function TourCard({card,locale,}: {card: TourCardType;locale: Locale;}) {
   const t = LABELS[locale];
   const type = card.typeTour.trim().toLowerCase();
 
-  const tourType =
-    type === "private"
-      ? t.private
-      : type === "shared"
-        ? t.shared
-        : type === "group"
-          ? t.group
-          : card.typeTour;
+  const tourType = type === "private" ? t.private : type === "shared" ? t.shared : type === "group" ? t.group : card.typeTour;
 
   return (
     <article
@@ -63,11 +57,13 @@ export function TourCard({card,locale,}: {card: TourCardType;locale: Locale;}) {
         shadow-sm transition-shadow duration-300 "
     >
       <Link
-        href={{
-          pathname: "/tours/[slug]",
-          params: { slug: card.slug },
-        }}
-        locale={locale}
+        href={getPathname({
+          locale,
+          href: {
+            pathname: "/tours/[slug]",
+            params: { slug: card.slug },
+          },
+        })}
         className="
           flex h-full flex-col rounded-xl
           focus-visible:outline-2

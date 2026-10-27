@@ -16,6 +16,7 @@
     "fromAgadir": "Tours from Agadir",
     "aboutCompany": "About Tours Marrakech Desert",
     "aboutMorocco": "About Morocco",
+    "whatIsBookingPolicy": "Booking & Cancellation Policy",
     "favorites": "Favorites",
     "homeLabel": "Tours Marrakech Desert home",
     "openMenu": "Open navigation menu",
@@ -61,15 +62,10 @@
   },
   "MarrakechDesertSection": {
     "imageAlt": "Camel caravan silhouette crossing Erg Chebbi dunes at sunset on a Marrakech to Merzouga desert tour",
-
     "eyebrow": "Sahara desert tours crafted by local Berber experts",
-
     "title": "Marrakech Desert Tours Built Around You",
-
     "paragraph1": "Every <bold>Marrakech desert tour</bold> we design starts with one question: what does your perfect Sahara experience look like ? Our Berber-born team pairs must see landmarks, the kasbahs of Aït Ben Haddou, the gorges of Todra, the rose-scented Dadès Valley with off-road detours, family run guesthouses and stories no guidebook tells.",
-
     "paragraph2": "Choose a short desert getaway for a first taste of the dunes, a multi-day <bold>desert crossing</bold> to reach the towering Saharan sands, or a fully custom itinerary at your own pace. Every trip includes a private 4×4 with A/C, hand-picked riad stays, a sunset camel trek and a starlit night in a traditional Berber camp.",
-
     "cta": "Find Your Perfect Desert Tour"
   },
   "FAQ": {
@@ -99,6 +95,14 @@
       {
         "q": "Do I need a visa to visit Marrakech and Morocco?",
         "a": "Travelers from the EU, UK, USA, Canada, Australia, and 70+ other countries can enter Morocco visa-free for stays up to 90 days. Your passport must be valid for at least 6 months from your entry date. Marrakech Menara Airport (RAK) handles most international arrivals. We recommend checking the latest requirements with the Moroccan consulate before booking your tour."
+      },
+      {
+        "q": "Why choose Tours Marrakech Desert for your Morocco desert adventure?",
+        "a": "Tours Marrakech Desert offers private Marrakech desert tours designed to help travelers discover the beauty of Morocco with experienced local guides. Our tours take you through the High Atlas Mountains, traditional Berber villages, Aït Ben Haddou, Dades Valley, Todra Gorges, and the golden Sahara dunes of Merzouga. Whether you're looking for a 3-day Marrakech to Merzouga desert tour, a luxury Sahara experience, or a customized Morocco itinerary, we offer flexible routes, comfortable accommodation, camel trekking experiences, and authentic cultural encounters."
+      },
+      {
+        "q": "What are the best Morocco destinations to visit on Marrakech desert tours?",
+        "a": "Some of the best Morocco destinations to explore on Marrakech desert tours include the UNESCO-listed Aït Ben Haddou, Ouarzazate, Dades Valley, Todra Gorges, Merzouga, and the Erg Chebbi Sahara dunes. Travelers can also discover the Atlas Mountains, traditional Berber villages, and the scenic Draa Valley. For longer Morocco tours, popular destinations include Fes, Chefchaouen, Essaouira, and Casablanca. Tours Marrakech Desert offers private and customizable itineraries connecting these destinations, allowing visitors to experience Morocco's desert landscapes, historic cities, and local culture."
       }
     ]
   },
@@ -140,8 +144,8 @@
     },
     "copyright": "All rights reserved.",
     "legal": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service"
+      "privacy": "About Us",
+      "terms": "Booking & Cancellation Policy"
     }
   },
   "MoroccoTourist": {

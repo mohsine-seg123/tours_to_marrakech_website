@@ -72,7 +72,6 @@ async function HomeDayTrips({ locale }: { locale: Locale }) {
 
           <Link
             href="/day-trips"
-            locale={locale}
             className="inline-flex w-fit items-center text-sm font-semibold text-primary transition-colors hover:border-primary-hover hover:text-primary-hover"
           >
             {t.viewAll}

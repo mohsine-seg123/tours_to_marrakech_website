@@ -83,7 +83,14 @@ export const routing = defineRouting({
       fr: "/a-propos",
       es: "/sobre-nosotros",
     },
-    
+
+    // Booking Policy
+    "/about/booking-policy": {
+      en: "/about/booking-policy",
+      fr: "/a-propos/politique-reservation",
+      es: "/sobre-nosotros/politica-reserva",
+    },
+
     "/about/morocco_tourist": {
       en: "/about/morocco-tourist",
       fr: "/a-propos/tourisme-maroc",

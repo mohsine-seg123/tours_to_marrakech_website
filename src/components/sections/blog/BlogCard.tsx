@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/lib/supabase/blogs";
+import { getPathname } from "@/i18n/routing";
 
 export interface BlogCardData {
   id: string;
@@ -37,11 +38,14 @@ export function BlogCard({ card, locale }: BlogCardHorizontalProps) {
 
   return (
     <Link
-      href={`/${locale}/blog/${card.slug}`}
-      className="group relative flex flex-col md:flex-row gap-6 lg:gap-8"
-    >
-  
-
+      href={getPathname({
+        locale,
+        href: {
+          pathname: "/blog/[slug]",
+          params: { slug: card.slug },
+        },
+      })}
+      className="group relative flex flex-col md:flex-row gap-6 lg:gap-8">
       <div className="relative aspect-[4/3] w-full md:w-[280px] lg:w-[320px] flex-shrink-0 overflow-hidden rounded-xl bg-muted">
         <Image
           src={card.coverImage}

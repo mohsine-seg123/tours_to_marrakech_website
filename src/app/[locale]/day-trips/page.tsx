@@ -114,17 +114,11 @@ export async function generateMetadata({params,}: {
 const CONTENT = {
   en: {
     label: "EXPLORE MOROCCO, ONE DAY AT A TIME",
-
     title: "Morocco Day Trips",
-
-    description:
-      "Discover Morocco day trips departing from Marrakech, Fes and beyond. Explore historic medinas, visit ancient sites, enjoy mountain landscapes or escape to the Atlantic coast. Whether you are looking for cultural discoveries, time in nature or a change of scenery, browse our excursions by departure city. Find the itinerary, included services and practical details to help you plan your day.",
-
+    description:"Discover Morocco day trips departing from Marrakech, Fes and beyond. Explore historic medinas, visit ancient sites, enjoy mountain landscapes or escape to the Atlantic coast. Whether you are looking for cultural discoveries, time in nature or a change of scenery, browse our excursions by departure city. Find the itinerary, included services and practical details to help you plan your day.",
     from: "Day trips from",
     country: "Morocco",
-    empty:
-      "No day trips are available in this language at the moment. Please check back soon to discover our upcoming excursions.",
-
+    empty:"No day trips are available in this language at the moment. Please check back soon to discover our upcoming excursions.",
     excursion: "excursion",
     excursions: "excursions",
     navigation: "Explore day trips by departure city",
@@ -132,17 +126,11 @@ const CONTENT = {
 
   fr: {
     label: "EXPLOREZ LE MAROC, UNE JOURNÉE À LA FOIS",
-
     title: "Excursions d’une journée au Maroc",
-
-    description:
-      "Découvrez nos excursions d’une journée au Maroc au départ de Marrakech, de Fès et d’autres villes. Explorez les médinas historiques, visitez des sites anciens, admirez les paysages de montagne ou évadez-vous sur la côte atlantique. Découverte culturelle, sortie en pleine nature ou envie de dépaysement : parcourez nos excursions selon votre ville de départ. Retrouvez les itinéraires, les prestations incluses et les informations pratiques pour préparer votre journée.",
-
+    description:"Découvrez nos excursions d’une journée au Maroc au départ de Marrakech, de Fès et d’autres villes. Explorez les médinas historiques, visitez des sites anciens, admirez les paysages de montagne ou évadez-vous sur la côte atlantique. Découverte culturelle, sortie en pleine nature ou envie de dépaysement : parcourez nos excursions selon votre ville de départ. Retrouvez les itinéraires, les prestations incluses et les informations pratiques pour préparer votre journée.",
     from: "Excursions au départ de",
     country: "Maroc",
-    empty:
-      "Aucune excursion n’est disponible dans cette langue pour le moment. Revenez prochainement pour découvrir nos prochaines escapades.",
-
+    empty:"Aucune excursion n’est disponible dans cette langue pour le moment. Revenez prochainement pour découvrir nos prochaines escapades.",
     excursion: "excursion",
     excursions: "excursions",
     navigation: "Explorer les excursions par ville de départ",
@@ -150,22 +138,18 @@ const CONTENT = {
 
   es: {
     label: "EXPLORA MARRUECOS, UN DÍA A LA VEZ",
-
     title: "Excursiones de un día en Marruecos",
-
-    description:
-      "Descubre nuestras excursiones de un día en Marruecos con salida desde Marrakech, Fez y otras ciudades. Explora medinas históricas, visita lugares antiguos, disfruta de paisajes de montaña o escápate a la costa atlántica. Tanto si buscas descubrir la cultura local como pasar tiempo en la naturaleza o cambiar de ambiente, encuentra tu excursión por ciudad de salida. Consulta los itinerarios, los servicios incluidos y la información práctica para organizar tu día.",
-
+    description:"Descubre nuestras excursiones de un día en Marruecos con salida desde Marrakech, Fez y otras ciudades. Explora medinas históricas, visita lugares antiguos, disfruta de paisajes de montaña o escápate a la costa atlántica. Tanto si buscas descubrir la cultura local como pasar tiempo en la naturaleza o cambiar de ambiente, encuentra tu excursión por ciudad de salida. Consulta los itinerarios, los servicios incluidos y la información práctica para organizar tu día.",
     from: "Excursiones desde",
     country: "Marruecos",
-    empty:
-      "Por el momento no hay excursiones disponibles en este idioma. Vuelve pronto para descubrir nuestras próximas escapadas.",
-
+    empty:"Por el momento no hay excursiones disponibles en este idioma. Vuelve pronto para descubrir nuestras próximas escapadas.",
     excursion: "excursión",
     excursions: "excursiones",
     navigation: "Explorar excursiones por ciudad de salida",
   },
 } satisfies Record<Locale, Record<string, string>>;
+
+
 
 function isLocale(value: string): value is Locale {
   return value === "en" || value === "fr" || value === "es";

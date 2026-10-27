@@ -16,6 +16,7 @@
     "fromAgadir": "Circuitos desde Agadir",
     "aboutCompany": "Sobre Tours Marrakech Desert",
     "aboutMorocco": "Sobre Marruecos",
+    "whatIsBookingPolicy": "Política de reservas y cancelaciones",
     "favorites": "Favoritos",
     "homeLabel": "Inicio de Tours Marrakech Desert",
     "openMenu": "Abrir el menú de navegación",
@@ -140,8 +141,8 @@
     },
     "copyright": "Todos los derechos reservados.",
     "legal": {
-      "privacy": "Política de Privacidad",
-      "terms": "Términos de Servicio"
+      "privacy": "Sobre nosotros",
+      "terms": "Reserva y cancelación"
     }
   },
   "MoroccoTourist": {

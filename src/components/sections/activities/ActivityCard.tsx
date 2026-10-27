@@ -3,7 +3,7 @@ import { Link } from "@/i18n/routing";
 import { Clock } from "lucide-react";
 import { FavoriteButton } from "@/components/ui/FavoriteButton";
 import type { ActivityCard as ActivityCardType, Locale,} from "@/lib/supabase/activities";
-import { RiH2 } from "react-icons/ri";
+
 
 const PRICE_LABEL: Record<Locale, string> = {
   en: "From",
@@ -17,7 +17,7 @@ export function ActivityCard({card,locale,}: {card: ActivityCardType;locale: Loc
     <article
       className="
         group relative flex h-full flex-col overflow-hidden
-        rounded-[12px]
+        rounded-[10px]
         bg-card
         transition-all duration-500 ease-out hover:-translate-y-1
       "
@@ -29,12 +29,11 @@ export function ActivityCard({card,locale,}: {card: ActivityCardType;locale: Loc
             slug: card.slug,
           },
         }}
-        locale={locale}
         className="flex h-full flex-col"
       >
         {/* IMAGE */}
         <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-          { card.imageAlt ?
+          {card.imageAlt ? (
             <Image
               src={card?.imageUrl}
               alt={card?.imageAlt}
@@ -53,8 +52,10 @@ export function ActivityCard({card,locale,}: {card: ActivityCardType;locale: Loc
               ease-[cubic-bezier(0.22,1,0.36,1)]
               group-hover:scale-[1.06]
             "
-            /> : <span> No image available </span>
-          }
+            />
+          ) : (
+            <span> No image available </span>
+          )}
 
           {/* CATEGORY */}
           {card.category && (
@@ -162,7 +163,7 @@ export function ActivityCard({card,locale,}: {card: ActivityCardType;locale: Loc
               </span>
 
               <span className="mt-0.5 block text-xs font-medium text-heading-soft">
-                Marrakech
+                Premium
               </span>
             </div>
 

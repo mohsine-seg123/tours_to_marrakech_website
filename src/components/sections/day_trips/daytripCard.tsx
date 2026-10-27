@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { Link } from "@/i18n/routing";
+import {getPathname} from "@/i18n/routing";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { FavoriteButton } from "@/components/ui/FavoriteButton";
-import type {
-  DayTripCard as DayTripCardType,
-  Locale,
-} from "@/lib/supabase/day_trips";
+import type {DayTripCard as DayTripCardType,Locale,} from "@/lib/supabase/day_trips";
+import Link from "next/link";
+
+
 
 const LABELS = {
   en: {
@@ -28,31 +28,21 @@ const LABELS = {
   { from: string; departure: string; noImage: string }
 >;
 
-export function DayTripCard({
-  card,
-  locale,
-}: {
-  card: DayTripCardType;
-  locale: Locale;
-}) {
+export function DayTripCard({ card,locale,}: {card: DayTripCardType;locale: Locale;}) {
+
   const t = LABELS[locale];
 
   return (
     <article
-      className=" group relative flex h-full flex-col
-        rounded-[12px] border bg-card
-        shadow-primary/5 transition-all
-        duration-600
-        border-primary/25
-        motion-safe:hover:-translate-y-0.5
-      "
-    >
+      className=" group relative flex h-full flex-col rounded-[10px] border bg-card shadow-primary/5 transition-all duration-600 border-primary/25 motion-safe:hover:-translate-y-0.5" >
       <Link
-        href={{
-          pathname: "/day-trips/[slug]",
-          params: { slug: card.slug },
-        }}
-        locale={locale}
+        href={getPathname({
+          locale,
+          href: {
+            pathname: "/day-trips/[slug]",
+            params: { slug: card.slug },
+          },
+        })}
         className="
           flex h-full flex-col rounded-[20px]
           focus-visible:outline-2
