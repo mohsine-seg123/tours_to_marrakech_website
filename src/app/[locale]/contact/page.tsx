@@ -4,7 +4,7 @@ import ContactInformation from "@/components/sections/Contact/ContactInformation
 import {Clock,MapPin,Phone,Mail,} from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import type { Metadata } from "next";
-import { ContactItem, Faq} from "@/type/contact";
+import { ContactItem} from "@/type/contact";
 import ContactJsonLd from "@/components/seo/ContactJsonLd";
 import { getPathname, type Locale } from "@/i18n/routing";
 import { notFound } from "next/navigation";
@@ -61,49 +61,6 @@ const ITEMS: ContactItem[] = [
   },
 ];
 
-
-const FAQS: Faq[] = [
-  {
-    question: "How quickly will you reply to my inquiry?",
-    answer:
-      "We typically respond within 1 to 2 hours during business hours (8 AM – 10 PM Morocco time), 7 days a week. For urgent requests, message us directly on WhatsApp for an instant reply — our team is always online.",
-  },
-  {
-    question: "How far in advance should I book my desert tour?",
-    answer:
-      "We recommend booking at least 48 hours before your desired departure date to guarantee availability, especially during peak season (March–May and September–November). Last-minute bookings are possible depending on availability — contact us and we'll do our best.",
-  },
-  {
-    question: "Can I modify my tour after booking?",
-    answer:
-      "Yes. You can change your dates, add extra stops, extend your trip, or adjust group size free of charge up to 48 hours before departure. Just send us a message and we'll rearrange everything for you.",
-  },
-  {
-    question: "Do I need to pay a deposit to confirm my booking?",
-    answer:
-      "A 20% deposit secures your reservation, payable by credit card, PayPal, or bank transfer. The remaining balance is due on the first day of your tour — you can pay in cash (EUR, USD, GBP, MAD) or by card.",
-  },
-  {
-    question: "What happens if I need to cancel my tour?",
-    answer:
-      "Full refund for cancellations made 48 hours or more before departure. Cancellations within 48 hours may incur a partial charge depending on the tour type. We also offer free date changes whenever possible — just reach out.",
-  },
-  {
-    question: "Can you arrange airport pickup when I arrive in Marrakech?",
-    answer:
-      "Yes. We provide private airport transfers from Marrakech Menara Airport (RAK) directly to your riad or hotel, including Medina locations where cars cannot enter — a porter will meet you at the nearest gate. Available 24/7, day or night.",
-  },
-  {
-    question: "I'm traveling solo — can I still book a tour?",
-    answer:
-      "Absolutely. Solo travelers are welcome on all our tours. Choose a private tour for a fully personalized experience, or join one of our shared group departures to meet other travelers and share the cost.",
-  },
-  {
-    question: "Is WhatsApp the best way to contact you?",
-    answer:
-      "WhatsApp is the fastest way to reach us — you'll get a reply within minutes. You can also use the contact form on this page, email us, or call directly. We're available in English, French, Spanish, and Arabic.",
-  },
-];
 
 type ContactPageProps = {
   params: Promise<{ locale: Locale }>;

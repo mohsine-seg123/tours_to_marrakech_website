@@ -3,17 +3,15 @@
 import {
   createContext,
   useContext,
-  useEffect,
-  useState,
   useCallback,
-  ReactNode,
+  useSyncExternalStore,
+  type ReactNode,
 } from "react";
 
-// "activity" pour l'instant, mais déjà prêt pour "tour" et "day-trip"
 export type FavoriteType = "activity" | "tour" | "day-trip";
 
 export interface FavoriteItem {
-  id: string; // toujours l'id stable, jamais le slug (traduit différemment par langue)
+  id: string;
   type: FavoriteType;
 }
 
@@ -26,34 +24,92 @@ interface FavoritesContextValue {
 const FavoritesContext = createContext<FavoritesContextValue | undefined>(
   undefined,
 );
+
 const STORAGE_KEY = "favorites";
+const CHANGE_EVENT = "favorites-change";
+
+const EMPTY_FAVORITES: FavoriteItem[] = [];
+
+let cachedRaw: string | null | undefined;
+let cachedFavorites: FavoriteItem[] = EMPTY_FAVORITES;
+
+function isFavoriteItem(value: unknown): value is FavoriteItem {
+  if (typeof value !== "object" || value === null) return false;
+
+  const item = value as Record<string, unknown>;
+
+  return (
+    typeof item.id === "string" &&
+    (item.type === "activity" ||
+      item.type === "tour" ||
+      item.type === "day-trip")
+  );
+}
+
+function getSnapshot(): FavoriteItem[] {
+  if (typeof window === "undefined") return EMPTY_FAVORITES;
+
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+
+    // React exige une référence stable si les données ne changent pas.
+    if (raw === cachedRaw) return cachedFavorites;
+
+    cachedRaw = raw;
+
+    const parsed: unknown = raw ? JSON.parse(raw) : [];
+
+    cachedFavorites = Array.isArray(parsed)
+      ? parsed.filter(isFavoriteItem)
+      : EMPTY_FAVORITES;
+
+    return cachedFavorites;
+  } catch {
+    cachedRaw = undefined;
+    cachedFavorites = EMPTY_FAVORITES;
+    return EMPTY_FAVORITES;
+  }
+}
+
+function getServerSnapshot(): FavoriteItem[] {
+  return EMPTY_FAVORITES;
+}
+
+function subscribe(callback: () => void): () => void {
+  window.addEventListener(CHANGE_EVENT, callback);
+  window.addEventListener("storage", callback);
+
+  return () => {
+    window.removeEventListener(CHANGE_EVENT, callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
+function saveFavorites(items: FavoriteItem[]) {
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  } catch {
+    // Stockage indisponible : les favoris restent en mémoire.
+    cachedRaw = undefined;
+  }
+
+  cachedFavorites = items;
+
+  try {
+    cachedRaw = window.localStorage.getItem(STORAGE_KEY);
+  } catch {
+    cachedRaw = undefined;
+  }
+
+  window.dispatchEvent(new Event(CHANGE_EVENT));
+}
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
-  const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
-  const [hydrated, setHydrated] = useState(false);
-
-  // Charge depuis localStorage une seule fois, au montage côté client
-  useEffect(() => {
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) setFavorites(JSON.parse(raw));
-    } catch {
-      // localStorage indisponible (navigation privée, etc.) : on continue sans persistance
-    } finally {
-      setHydrated(true);
-    }
-  }, []);
-
-  // Sauvegarde à chaque changement, après l'hydratation initiale seulement
-  // (sinon on écraserait le localStorage avec un tableau vide au premier rendu)
-  useEffect(() => {
-    if (!hydrated) return;
-    try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
-    } catch {
-      // stockage plein ou indisponible : on ignore silencieusement
-    }
-  }, [favorites, hydrated]);
+  const favorites = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
 
   const isFavorite = useCallback(
     (type: FavoriteType, id: string) =>
@@ -62,12 +118,16 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
   );
 
   const toggleFavorite = useCallback((type: FavoriteType, id: string) => {
-    setFavorites((prev) => {
-      const exists = prev.some((f) => f.type === type && f.id === id);
-      return exists
-        ? prev.filter((f) => !(f.type === type && f.id === id))
-        : [...prev, { type, id }];
-    });
+    // Lire l'état le plus récent avant de modifier.
+    const current = getSnapshot();
+
+    const exists = current.some((f) => f.type === type && f.id === id);
+
+    const next = exists
+      ? current.filter((f) => !(f.type === type && f.id === id))
+      : [...current, { type, id }];
+
+    saveFavorites(next);
   }, []);
 
   return (
@@ -81,8 +141,10 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
 
 export function useFavorites() {
   const ctx = useContext(FavoritesContext);
+
   if (!ctx) {
     throw new Error("useFavorites must be used inside <FavoritesProvider>");
   }
+
   return ctx;
 }

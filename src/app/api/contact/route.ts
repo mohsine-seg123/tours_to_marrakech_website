@@ -117,59 +117,28 @@ export async function POST(request: Request) {
 
     const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
 
-    // 9. Send email
-    const info = await transporter.sendMail({
+    await transporter.sendMail({
       from: `"Website Contact" <${smtpUser}>`,
-
       to: contactEmail,
-
-      // Important:
-      // clicking Reply will reply directly to the customer
       replyTo: email,
-
       subject: `New travel request from ${fullName}`,
 
       text: `New Travel Request
-             Name: ${fullName}
-             Email: ${email}
-             WhatsApp: ${whatsapp || "Not provided"}
-             Message:${message}`.trim(),
+      Name: ${fullName}
+      Email: ${email}
+      WhatsApp: ${whatsapp || "Not provided"}
+      Message: ${message}`,
 
       html: `
-        <div
-          style="
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-          "
-        >
-          <h2>New Travel Request</h2>
-
-          <p>
-            <strong>Name:</strong><br />
-            ${safeFullName}
-          </p>
-
-          <p>
-            <strong>Email:</strong><br />
-            ${safeEmail}
-          </p>
-
-          <p>
-            <strong>WhatsApp:</strong><br />
-            ${safeWhatsapp}
-          </p>
-
-          <p>
-            <strong>Message:</strong>
-          </p>
-
-          <p>
-            ${safeMessage}
-          </p>
-        </div>
-      `,
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+      <h2>New Travel Request</h2>
+      <p><strong>Name:</strong> ${safeFullName}</p>
+      <p><strong>Email:</strong> ${safeEmail}</p>
+      <p><strong>WhatsApp:</strong> ${safeWhatsapp}</p>
+      <p><strong>Message:</strong></p>
+      <p>${safeMessage}</p>
+    </div>
+  `,
     });
 
     // 10. Success response

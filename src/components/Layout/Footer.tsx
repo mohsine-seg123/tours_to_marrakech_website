@@ -77,7 +77,7 @@ export default async function Footer() {
                       {
                         pathname: "/tours/from/[city]",
                         params: { city: item.key },
-                      } as any
+                      }
                     }
                     className="inline-flex py-1.5 text-sm text-footer-muted transition-colors hover:text-primary"
                   >

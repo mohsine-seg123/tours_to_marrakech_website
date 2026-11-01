@@ -138,7 +138,7 @@ export async function getBlogDetail(locale: Locale,slug: string,): Promise<BlogD
   if (!localeContent || !localeContent.title) return null;
 
   return {
-    id: (data as any).id,
+    id: (data ).id,
     slug: localeContent.slug,
     title: localeContent.title,
     seoTitle: localeContent.seo_title || localeContent.title,
@@ -163,7 +163,7 @@ export async function getAllBlogSlugs(locale: Locale): Promise<string[]> {
     console.error("getAllBlogSlugs error:", error.message);
     return [];
   }
-  return (data ?? []).map((row: any) => row.slug).filter(Boolean);
+  return (data ?? []).map((row) => row.slug).filter(Boolean);
 }
 
 
@@ -179,7 +179,7 @@ export async function getAlternateBlogSlugs(id: string,): Promise<Record<Locale,
     return null;
   }
 
-  const row = data as any;
+  const row = data;
   return {
     en: row.en_slug,
     fr: row.fr_slug,
@@ -201,7 +201,7 @@ export async function getAlternateBlogSlugsBySlug(locale: Locale,slug: string,):
     return null;
   }
 
-  const row = data as any;
+  const row = data;
   return {
     en: row.en_slug,
     fr: row.fr_slug,

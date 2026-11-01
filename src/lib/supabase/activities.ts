@@ -143,15 +143,15 @@ export async function getActivityDetail( locale: Locale,slug: string,): Promise<
   const content = localeContent.content;
 
   return {
-    id: (data as any).id,
+    id: (data).id,
     slug: localeContent.slug,
     title: localeContent.title,
     description: localeContent.description || "",
     seoTitle: localeContent.seo_title || localeContent.title,
     seoDescription: localeContent.seo_description || "",
     keywords: localeContent.keywords || [],
-    category: (data as any).category,
-    price: (data as any).price,
+    category: (data).category,
+    price: (data).price,
     highlights: content.highlights ?? [],
     overview: content.overview || "",
     duration: content.duration || "",
@@ -160,10 +160,10 @@ export async function getActivityDetail( locale: Locale,slug: string,): Promise<
     exclude: content.exclude ?? [],
     whyThisActivity: content.why_this_activity ?? [],
     faq: content.faq ?? [],
-    imageUrl1: (data as any).image_url1,
-    imageAlt1: (data as any).image_alt1 || localeContent.title,
-    imageUrl2: (data as any).image_url2,
-    imageAlt2: (data as any).image_alt2 || localeContent.title,
+    imageUrl1: (data).image_url1,
+    imageAlt1: (data).image_alt1 || localeContent.title,
+    imageUrl2: (data).image_url2,
+    imageAlt2: (data).image_alt2 || localeContent.title,
   };
 }
 
@@ -182,7 +182,7 @@ export async function getAllActivitySlugs(locale: Locale): Promise<string[]> {
     console.error("getAllActivitySlugs error:", error.message);
     return [];
   }
-  return (data ?? []).map((row: any) => row.slug).filter(Boolean);
+  return (data ?? []).map((row) => row.slug).filter(Boolean);
 }
 
 
@@ -201,7 +201,7 @@ export async function getAlternateActivitySlugs(
     return null;
   }
 
-  const row = data as any;
+  const row = data;
   return {
     en: row.en_slug,
     fr: row.fr_slug,
@@ -230,7 +230,7 @@ export async function getAlternateActivitySlugsBySlug(
     return null;
   }
 
-  const row = data as any;
+  const row = data;
   return {
     en: row.en_slug,
     fr: row.fr_slug,
