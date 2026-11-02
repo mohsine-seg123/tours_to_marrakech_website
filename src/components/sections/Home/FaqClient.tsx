@@ -42,7 +42,7 @@ export default function FaqClient({
         <div className="grid w-full grid-cols-1 gap-3 sm:gap-4">
           <div className="grid grid-cols-1 lg:columns-2 gap-3 sm:gap-4 sm:grid-cols-2">
             {faq.map((faqItem) => (
-              <div key={faqItem.q} className="h-fit">
+              <div key={faqItem.q} className="h-fit ">
                 <FaqItem
                   question={faqItem.q}
                   answer={faqItem.a}
