@@ -12,20 +12,23 @@ const LABELS = {
     from: "From",
     departure: "Departure",
     noImage: "No image available",
+    "perPerson": "/ person",
   },
   fr: {
     from: "À partir de",
     departure: "Départ",
     noImage: "Aucune image disponible",
+    "perPerson": "/ personne",
   },
   es: {
     from: "Desde",
     departure: "Salida",
     noImage: "Imagen no disponible",
+    "perPerson": "/ persona",
   },
 } satisfies Record<
   Locale,
-  { from: string; departure: string; noImage: string }
+  { from: string; departure: string; noImage: string , perPerson: string}
 >;
 
 export function DayTripCard({ card,locale,}: {card: DayTripCardType;locale: Locale;}) {
@@ -33,8 +36,7 @@ export function DayTripCard({ card,locale,}: {card: DayTripCardType;locale: Loca
   const t = LABELS[locale];
 
   return (
-    <article
-      className=" group relative flex h-full flex-col rounded-[10px] border bg-card shadow-primary/5 transition-all duration-600 border-primary/25 motion-safe:hover:-translate-y-0.5" >
+    <article className=" group relative flex h-full flex-col rounded-[10px] border bg-card shadow-primary/5 transition-all duration-600 border-primary/25 motion-safe:hover:-translate-y-0.5">
       <Link
         href={getPathname({
           locale,
@@ -137,9 +139,26 @@ export function DayTripCard({ card,locale,}: {card: DayTripCardType;locale: Loca
                       {t.from}
                     </span>
 
-                    <span className="mt-0.5 block text-2xl font-bold leading-tight tracking-tight text-primary">
-                      ${card.price}
-                    </span>
+                    <div className="mt-0.5 flex items-baseline justify-end gap-1">
+                      <span className="text-2xl font-bold tracking-tight text-primary">
+                        {new Intl.NumberFormat(
+                          locale === "en"
+                            ? "en-US"
+                            : locale === "fr"
+                              ? "fr-FR"
+                              : "es-ES",
+                          {
+                            style: "currency",
+                            currency: "EUR",
+                            maximumFractionDigits: 2,
+                          },
+                        ).format(card.price)}
+                      </span>
+
+                      <span className="text-xs font-medium text-text-secondary">
+                        {t.perPerson}
+                      </span>
+                    </div>
                   </div>
                 )}
 

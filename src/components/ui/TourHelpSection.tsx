@@ -90,7 +90,6 @@ export default function TourHelpSection({ locale }: TourHelpSectionProps) {
 
             <Link
               href="/contact"
-              locale={locale}
               className="group mt-5 inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground transition-colors hover:bg-primary-hover"
             >
               <MessageCircle className="h-5 w-5" />

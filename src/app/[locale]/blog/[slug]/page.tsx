@@ -17,7 +17,7 @@ import TourHelpSection from "@/components/ui/TourHelpSection";
 import { getPathname,Link } from "@/i18n/routing";
 import BlogSeo from "@/components/seo/BlogSeo";
 import { CalendarDays, Clock3, ArrowUpRight } from "lucide-react";
-
+import BlogLocalTeamSection from "@/components/sections/blog/BlogLocalTeamSection";
 export const revalidate = 86400;
 
 
@@ -76,7 +76,6 @@ export async function generateMetadata({params,}: BlogDetailPageProps): Promise<
 
   if (alternateSlugs?.en) {
     languages.en = `${baseUrl}/blog/${alternateSlugs.en}`;
-
     languages["x-default"] = languages.en;
   }
 
@@ -210,7 +209,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/20 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/20 to-black/10" />
 
           <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-left text-white">
             <div className="max-w-3xl">
@@ -273,7 +272,11 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   href="/contact"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold  text-slate-950 shadow-lg transition-all duration-300 hover:bg-primary/50 hover:text-white hover:-translate-y-0.5"
                 >
-                  {locale === "fr" ? "Une question ? Contactez-nous !" : locale === "es" ? "¿Tienes preguntas? ¡Consúltanos!"  : "Have Questions? Ask Us!"}
+                  {locale === "fr"
+                    ? "Une question ? Contactez-nous !"
+                    : locale === "es"
+                      ? "¿Tienes preguntas? ¡Consúltanos!"
+                      : "Have Questions? Ask Us!"}
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -281,8 +284,22 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           </div>
         </section>
 
+        <BlogLocalTeamSection
+          locale={locale}
+          photos={[
+            {
+              src: "/images/youssef1.jpeg",
+              alt: "Local Morocco tour guide with travelers during a tour",
+            },
+            {
+              src: "/images/hmad.jpeg",
+              alt: "Travelers enjoying a guided experience in Morocco",
+            },
+          ]}
+        />
+
         {/* MAIN LAYOUT (CONTENU + SIDEBAR CTA) */}
-        <div className="mx-auto max-w-7xl mt-12">
+        <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
             <div className="min-w-0 lg:col-span-8">
               <div
@@ -367,7 +384,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
               <Link
                 href="/tours"
-                locale={locale}
                 className="group inline-flex shrink-0 items-center gap-2 border-b border-border pb-1 text-sm font-semibold text-heading transition-colors hover:border-primary hover:text-primary"
               >
                 All tours

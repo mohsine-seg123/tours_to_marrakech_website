@@ -20,6 +20,13 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  experimental: {
+    cpus: 1,
+    staticGenerationMaxConcurrency: 2,
+    staticGenerationMinPagesPerWorker: 100,
+    staticGenerationRetryCount: 2,
+  },
+
   async redirects() {
     return [
       {

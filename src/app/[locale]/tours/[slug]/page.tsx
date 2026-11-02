@@ -22,6 +22,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import TourSeoJsonLd from '@/components/seo/TourSeoJsonLd';
 import TourCard from "@/components/sections/tours/TourCard";
+import TourPriceQuoteCard from "@/components/sections/tours/TourPriceQuoteCard";
 
 
 export const revalidate = 86400;
@@ -213,7 +214,7 @@ async function page({ params }: TourDetailPageProps) {
             <nav aria-label="Breadcrumb">
               <ol className="flex flex-wrap items-center gap-x-3 mb-8 gap-y-2">
                 <li>
-                  <Link href="/" locale={locale}>
+                  <Link href="/">
                     {locale === "fr"
                       ? "Accueil"
                       : locale === "es"
@@ -225,7 +226,7 @@ async function page({ params }: TourDetailPageProps) {
                 <li aria-hidden="true">/</li>
 
                 <li>
-                  <Link href="/tours" locale={locale}>
+                  <Link href="/tours">
                     {locale === "fr" ? "Circuits" : "Tours"}
                   </Link>
                 </li>
@@ -242,7 +243,6 @@ async function page({ params }: TourDetailPageProps) {
                             city: tour.departureCity.toLowerCase(),
                           },
                         }}
-                        locale={locale}
                       >
                         {locale === "fr"
                           ? `Circuits depuis ${tour.departureCity}`
@@ -311,40 +311,6 @@ async function page({ params }: TourDetailPageProps) {
                     )}
                   </dl>
                 )}
-              </div>
-
-              {/* PRIX ET RÉSERVATION */}
-              <div className="space-y-5 rounded-xl border border-white/20 bg-black/20 p-5 text-white">
-                {tour?.price != null && (
-                  <div className="flex items-baseline justify-between gap-3">
-                    <p className="text-sm text-white/75">
-                      {locale === "fr"
-                        ? "À partir de"
-                        : locale === "es"
-                          ? "Desde"
-                          : "From"}
-                    </p>
-
-                    <p className="text-3xl font-semibold">
-                      {tour.price}
-                      <span className="ml-1 text-lg font-normal text-white/80">
-                        $
-                      </span>
-                    </p>
-                  </div>
-                )}
-
-                <Link
-                  href="/contact"
-                  locale={locale}
-                  className="flex min-h-12 items-center justify-center rounded-lg bg-primary px-4 py-3 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-                >
-                  {locale === "fr"
-                    ? "Obtenir un devis gratuit"
-                    : locale === "es"
-                      ? "Solicitar presupuesto gratis"
-                      : "Get a free quote"}
-                </Link>
               </div>
             </div>
           </div>
@@ -437,6 +403,7 @@ async function page({ params }: TourDetailPageProps) {
                   )}
                 </section>
               )}
+
               {tour?.whyChoose && (
                 <section className="mt-6" aria-labelledby="why-choose-heading">
                   <h2
@@ -460,7 +427,8 @@ async function page({ params }: TourDetailPageProps) {
             </div>
 
             {/* CONTACT */}
-            <aside className="min-w-0 lg:sticky lg:top-24 lg:col-span-4">
+            <aside className="min-w-0 lg:sticky lg:top-24 lg:col-span-4 space-y-6">
+              <TourPriceQuoteCard price={tour?.price} locale={locale} />
               <ContactForm />
             </aside>
           </div>

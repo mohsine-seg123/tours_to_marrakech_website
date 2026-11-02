@@ -5,12 +5,20 @@ import { FavoriteButton } from "@/components/ui/FavoriteButton";
 import type { ActivityCard as ActivityCardType, Locale,} from "@/lib/supabase/activities";
 
 
-const PRICE_LABEL: Record<Locale, string> = {
-  en: "From",
-  fr: "À partir de",
-  es: "Desde",
+const PRICE_LABEL: Record<Locale, { from: string; perPerson: string }> = {
+  en: {
+    from: "From",
+    perPerson: "/ person",
+  },
+  fr: {
+    from: "À partir de",
+    perPerson: "/ personne",
+  },
+  es: {
+    from: "Desde",
+    perPerson: "/ persona",
+  },
 };
-
 
 export function ActivityCard({card,locale,}: {card: ActivityCardType;locale: Locale;}) {
   return (
@@ -171,20 +179,28 @@ export function ActivityCard({card,locale,}: {card: ActivityCardType;locale: Loc
             {card.price != null && (
               <div className="shrink-0 text-right">
                 <span className="block text-[10px] font-medium text-text-muted">
-                  {PRICE_LABEL[locale]}
+                  {PRICE_LABEL[locale].from}
                 </span>
 
                 <div className="mt-0.5 flex items-baseline justify-end gap-1">
                   <span
-                    className="
-                      text-[21px]
-                      font-extrabold
-                      leading-none
-                      tracking-[-0.02em]
-                      text-heading
-                    "
-                  >
-                    ${card.price}
+                    className=" text-[21px] font-extrabold leading-none tracking-[-0.02em] text-heading">
+                    {new Intl.NumberFormat(
+                      locale === "en"
+                        ? "en-IE"
+                        : locale === "fr"
+                          ? "fr-FR"
+                          : "es-ES",
+                      {
+                        style: "currency",
+                        currency: "EUR",
+                        maximumFractionDigits: 2,
+                      },
+                    ).format(card.price)}
+                  </span>
+
+                  <span className="text-[11px] font-medium text-text-muted">
+                    {PRICE_LABEL[locale].perPerson}
                   </span>
                 </div>
               </div>

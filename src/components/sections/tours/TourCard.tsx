@@ -13,6 +13,7 @@ const LABELS = {
     private: "Private tour",
     shared: "Shared tour",
     group: "Group tour",
+    perPerson: "/ person",
   },
   fr: {
     from: "À partir de",
@@ -21,6 +22,7 @@ const LABELS = {
     private: "Circuit privé",
     shared: "Circuit partagé",
     group: "Circuit en groupe",
+    perPerson: "/ personne",
   },
   es: {
     from: "Desde",
@@ -29,9 +31,9 @@ const LABELS = {
     private: "Tour privado",
     shared: "Tour compartido",
     group: "Tour en grupo",
+    perPerson: "/ persona",
   },
-} satisfies Record<
-  Locale,
+} satisfies Record< Locale,
   {
     from: string;
     departure: string;
@@ -39,12 +41,13 @@ const LABELS = {
     private: string;
     shared: string;
     group: string;
-  }
->;
+    perPerson: string;
+  }>;
 
 export function TourCard({card,locale,}: {card: TourCardType;locale: Locale;}) {
 
   const t = LABELS[locale];
+  
   const type = card.typeTour.trim().toLowerCase();
 
   const tourType = type === "private" ? t.private : type === "shared" ? t.shared : type === "group" ? t.group : card.typeTour;
@@ -164,9 +167,26 @@ export function TourCard({card,locale,}: {card: TourCardType;locale: Locale;}) {
                       {t.from}
                     </span>
 
-                    <span className="mt-0.5 block text-2xl font-bold tracking-tight text-primary">
-                      ${card.price}
-                    </span>
+                    <div className="mt-0.5 flex items-baseline justify-end gap-1">
+                      <span className="text-2xl font-bold tracking-tight text-primary">
+                        {new Intl.NumberFormat(
+                          locale === "en"
+                            ? "en-US"
+                            : locale === "fr"
+                              ? "fr-FR"
+                              : "es-ES",
+                          {
+                            style: "currency",
+                            currency: "EUR",
+                            maximumFractionDigits: 2,
+                          },
+                        ).format(card.price)}
+                      </span>
+
+                      <span className="text-xs font-medium text-text-secondary">
+                        {t.perPerson}
+                      </span>
+                    </div>
                   </div>
                 )}
 
