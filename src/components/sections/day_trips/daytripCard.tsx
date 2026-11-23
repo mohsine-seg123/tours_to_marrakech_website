@@ -12,24 +12,22 @@ const LABELS = {
     from: "From",
     departure: "Departure",
     noImage: "No image available",
-    "perPerson": "/ person",
+    "perPerson": "/ group",
   },
   fr: {
     from: "À partir de",
     departure: "Départ",
     noImage: "Aucune image disponible",
-    "perPerson": "/ personne",
+    "perPerson": "/ groupe",
   },
   es: {
     from: "Desde",
     departure: "Salida",
     noImage: "Imagen no disponible",
-    "perPerson": "/ persona",
+    "perPerson": "/ groupa",
   },
-} satisfies Record<
-  Locale,
-  { from: string; departure: string; noImage: string , perPerson: string}
->;
+} satisfies Record< Locale,{ from: string; departure: string; noImage: string , perPerson: string}>;
+
 
 export function DayTripCard({ card,locale,}: {card: DayTripCardType;locale: Locale;}) {
 
@@ -141,18 +139,7 @@ export function DayTripCard({ card,locale,}: {card: DayTripCardType;locale: Loca
 
                     <div className="mt-0.5 flex items-baseline justify-end gap-1">
                       <span className="text-2xl font-bold tracking-tight text-primary">
-                        {new Intl.NumberFormat(
-                          locale === "en"
-                            ? "en-US"
-                            : locale === "fr"
-                              ? "fr-FR"
-                              : "es-ES",
-                          {
-                            style: "currency",
-                            currency: "EUR",
-                            maximumFractionDigits: 2,
-                          },
-                        ).format(card.price)}
+                        170 €
                       </span>
 
                       <span className="text-xs font-medium text-text-secondary">

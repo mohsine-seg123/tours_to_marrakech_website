@@ -10,6 +10,13 @@ import { getPathname, type Locale } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 
 
+export const revalidate = 86400; // 24 heures
+
+export function generateStaticParams(): { locale: Locale }[] {
+  return [{ locale: "en" }, { locale: "fr" }, { locale: "es" }];
+}
+
+
 const WHATSAPP_NUMBER = "212704572370";
 
 

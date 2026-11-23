@@ -181,7 +181,7 @@ async function page({params}: {params: Promise<{ locale: Locale; slug: string }>
             className="object-cover object-center"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary/45 via-secondary/40 to-secondary/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary/35 via-secondary/20 to-secondary/10" />
 
           <div className="relative mx-auto w-full max-w-7xl px-4 text-left text-white sm:px-8 lg:px-12">
             <div className="max-w-4xl pb-2 sm:pb-4">
@@ -223,7 +223,7 @@ async function page({params}: {params: Promise<{ locale: Locale; slug: string }>
 
                 {trip?.price && (
                   <span className="inline-flex  text-xl items-center gap-1.5 font-bold text-white">
-                    À partir de {trip?.price} €
+                    À partir de 170 €
                   </span>
                 )}
               </div>

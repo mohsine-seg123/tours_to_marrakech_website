@@ -12,6 +12,12 @@ import { notFound } from "next/navigation";
 import Hometours from "@/components/sections/Home/Hometours";
 import CreatorOffer from "@/components/sections/Home/CreatorOffer";
 
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "fr" }, { locale: "es" }];
+}
+
 export async function generateMetadata({ params,}: {params: Promise<{ locale: Locale }>;}): Promise<Metadata> {
 
   const { locale } = await params;

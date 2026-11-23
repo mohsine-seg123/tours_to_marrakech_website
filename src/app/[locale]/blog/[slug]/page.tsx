@@ -3,10 +3,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   getBlogDetail,
-  getAllBlogSlugs,
   getAlternateBlogSlugsBySlug,
   type Locale,
   getBlogCards,
+  getLatestBlogSlugs,
 } from "@/lib/supabase/blogs";
 import { RegisterAlternateSlugs } from "@/components/RegisterAlternaternateSlugs";
 import {BlogFaqAccordion} from "@/components/sections/blog/BlogFaqAccordion";
@@ -18,7 +18,8 @@ import { getPathname,Link } from "@/i18n/routing";
 import BlogSeo from "@/components/seo/BlogSeo";
 import { CalendarDays, Clock3, ArrowUpRight } from "lucide-react";
 import BlogLocalTeamSection from "@/components/sections/blog/BlogLocalTeamSection";
-export const revalidate = 86400;
+export const revalidate = 6400;
+export const dynamicParams = true;
 
 
 interface BlogDetailPageProps {
@@ -28,17 +29,19 @@ interface BlogDetailPageProps {
 
 export async function generateStaticParams() {
   const locales: Locale[] = ["en", "fr", "es"];
+
   const paramsList: { locale: Locale; slug: string }[] = [];
 
   for (const locale of locales) {
-    const slugs = await getAllBlogSlugs(locale);
+    const slugs = await getLatestBlogSlugs(locale, 6);
+
     slugs.forEach((slug) => {
       paramsList.push({ locale, slug });
     });
   }
+
   return paramsList;
 }
-
 
 
 
@@ -52,9 +55,7 @@ export async function generateMetadata({params,}: BlogDetailPageProps): Promise<
     notFound();
   }
 
-  const baseUrl = (
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://toursmarrakechdesert.com"
-  ).replace(/\/+$/, "");
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://toursmarrakechdesert.com").replace(/\/+$/, "");
 
   const canonicalUrl = new URL(
     getPathname({
@@ -174,18 +175,21 @@ function fixDuplicateBlogHeading(html: string,title: string,locale: Locale,): st
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
+  
   const { locale, slug } = await params;
 
-  const [blog, blogCardsData, alternateSlugs, tours] = await Promise.all([
-    getBlogDetail(locale, slug),
-    getBlogCards(locale, 1, 4),
-    getAlternateBlogSlugsBySlug(locale, slug),
-    getToursByCity(locale, "marrakech", 3)
-    ]);
+  const blog = await getBlogDetail(locale, slug);
 
   if (!blog) {
     notFound();
   }
+
+  const [blogCardsData, alternateSlugs, tours] = await Promise.all([
+    getBlogCards(locale, 1, 4),
+    getAlternateBlogSlugsBySlug(locale, slug),
+    getToursByCity(locale, "marrakech", 3),
+  ]);
+
 
   const recentBlogs = Array.isArray(blogCardsData) ? blogCardsData : blogCardsData?.cards || [];
 

@@ -27,9 +27,9 @@ const manrope = Manrope({
 });
 
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+// export function generateStaticParams() {
+//   return routing.locales.map((locale) => ({ locale }));
+// }
 
 
 export function generateMetadata(): Metadata {

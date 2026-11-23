@@ -35,7 +35,7 @@ export default async function Destinations() {
 
   return (
     <section className="relative bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl pt-8 lg:pt-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 className="font-body text-3xl font-extrabold tracking-tight text-heading lg:text-4xl">
             {t("title")}
